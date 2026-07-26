@@ -1,0 +1,918 @@
+<?xml version='1.0' encoding='utf-8'?>
+<LanguageData>
+  <Namae_NamesHeader>Pawn name translation</Namae_NamesHeader>
+  <Namae_NamesEnable>Enable</Namae_NamesEnable>
+  <Namae_NamesEnableDesc>Replace generated pawn names (first, last, nickname) using the loaded language pack.</Namae_NamesEnableDesc>
+  <Namae_AnimalNamesEnableDesc>Use ordinary katakana pet names instead of localized concept words or untranslated English names. Numeric animal labels and names entered by the player are unchanged.</Namae_AnimalNamesEnableDesc>
+  <Namae_AnimalNamesEnable>Translate automatically generated animal names</Namae_AnimalNamesEnable>
+  <Namae_AutoNameColonyAnimals>Give colony animals proper names immediately</Namae_AutoNameColonyAnimals>
+  <Namae_AutoNameColonyAnimalsDesc>Replace a colony animal's numeric label with a proper name when it is born, hatched, tamed, self-tamed, or joins the colony. Existing proper names and player-entered names are unchanged.</Namae_AutoNameColonyAnimalsDesc>
+  <Namae_AvoidDuplicateAnimalNames>Avoid duplicate names within the same animal species</Namae_AvoidDuplicateAnimalNames>
+  <Namae_AvoidDuplicateAnimalNamesDesc>Choose a name not currently used by another colony animal of the same species. If every available name is already in use, duplicates are allowed.</Namae_AvoidDuplicateAnimalNamesDesc>
+  <Namae_Counts>New names: {0} / Untranslated: {1}</Namae_Counts>
+  <Namae_ExportNew>Export new names</Namae_ExportNew>
+  <Namae_ExportUntranslated>Export untranslated names</Namae_ExportUntranslated>
+  <Namae_ExportNickAudit>Export nickname classification</Namae_ExportNickAudit>
+  <Namae_OpenFolder>Open output folder</Namae_OpenFolder>
+  <Namae_ExportedTo>Written to:</Namae_ExportedTo>
+  <Namae_RetranslateButton>Translate existing pawns' names too</Namae_RetranslateButton>
+  <Namae_RetranslateConfirm>Rename every existing pawn in the loaded save using the name dictionary.\n\n- This cannot be undone. Back up your save first.\n- Names with no dictionary entry are left as they are.\n- Only pawn names are changed.</Namae_RetranslateConfirm>
+  <Namae_RetranslateResult>Namae: renamed {0} existing pawn(s).</Namae_RetranslateResult>
+  <Namae_PlayingOnly>(Renaming existing pawns is only available while a save is loaded.)</Namae_PlayingOnly>
+  <Namae_PseudoTranslationHeader>Pseudo-translation</Namae_PseudoTranslationHeader>
+  <Namae_PseudoTranslationEnable>Disable developer-mode pseudo-translation</Namae_PseudoTranslationEnable>
+  <Namae_PseudoTranslationEnableDesc>Keep untranslated English text readable instead of replacing its letters with accented pseudo-translation characters. This has no effect outside developer mode.</Namae_PseudoTranslationEnableDesc>
+  <Namae_PseudoTranslationCheckDesc>Check: If the sentence below is readable, the setting is working.</Namae_PseudoTranslationCheckDesc>
+  <Namae_DevTooltipsHeader>Developer-mode tooltips</Namae_DevTooltipsHeader>
+  <Namae_DevTooltipsEnable>Show descriptions in the developer menu</Namae_DevTooltipsEnable>
+  <Namae_DevTooltipsEnableDesc>Show what a developer action does when the pointer is over it. Truncated labels are also shown in full.</Namae_DevTooltipsEnableDesc>
+  <Namae_DevActionDesc_UseScatterer>Test what the selected Scatterer places without regenerating the whole map. Depending on the scatterer, it may add buildings, rocks, plants, or other objects.</Namae_DevActionDesc_UseScatterer>
+  <Namae_DevActionDesc_BaseGen>Build rooms, walls, and other structures from the selected BaseGen symbol. The generated structures remain on the current map.</Namae_DevActionDesc_BaseGen>
+  <Namae_DevActionDesc_SketchGen>Create a building-layout sketch from its generation rules, then place that result on the current map. The result remains on the map.</Namae_DevActionDesc_SketchGen>
+  <Namae_DevActionDesc_StorywatcherTick1Day>Update StoryWatcher records by one day. This does not advance the whole game by one day.</Namae_DevActionDesc_StorywatcherTick1Day>
+  <Namae_DevActionDesc_LeakMap>Keep a map reference after disposal to reproduce a map remaining in memory. Intended only for memory-leak investigation.</Namae_DevActionDesc_LeakMap>
+  <Namae_DevActionDesc_PrintLeakedMap>Write identifying information for the retained map to Player.log. Run the map-retention action first.</Namae_DevActionDesc_PrintLeakedMap>
+  <Namae_DevActionHelp_Toggle>Each click toggles this display or diagnostic feature on or off.</Namae_DevActionHelp_Toggle>
+  <Namae_DevActionHelp_Submenu>Click to open a list of choices. No action is performed yet.</Namae_DevActionHelp_Submenu>
+  <Namae_DevActionHelp_SelectPawn>After clicking, select a pawn on the map to perform the action.</Namae_DevActionHelp_SelectPawn>
+  <Namae_DevActionHelp_SelectMap>After clicking, select a map cell or target to perform the action.</Namae_DevActionHelp_SelectMap>
+  <Namae_DevActionHelp_SelectWorld>After clicking, select a location or target on the world map to perform the action.</Namae_DevActionHelp_SelectWorld>
+  <Namae_DevActionHelp_Immediate>Clicking performs the action immediately. Some actions do not ask for confirmation.</Namae_DevActionHelp_Immediate>
+  <Namae_DevLabelsHeader>Developer menu localization</Namae_DevLabelsHeader>
+  <Namae_DevLabelsEnable>Localize supported developer actions</Namae_DevLabelsEnable>
+  <Namae_DevLabelsEnableDesc>Replace labels for developer actions that have a translation. Unsupported and mod-added actions keep their original labels.</Namae_DevLabelsEnableDesc>
+  <Namae_DevLabelsMissing>Detected untranslated actions: {0}</Namae_DevLabelsMissing>
+  <Namae_ExportDevActions>Export untranslated developer actions</Namae_ExportDevActions>
+  <Namae_DevTab_Settings>Settings</Namae_DevTab_Settings>
+  <Namae_DevCategory_General>General</Namae_DevCategory_General>
+  <Namae_DevCategory_View>View</Namae_DevCategory_View>
+  <Namae_DevCategory_Generation>Generation</Namae_DevCategory_Generation>
+  <Namae_DevSetting_DebugSettings_enableDamage>Enable Damage</Namae_DevSetting_DebugSettings_enableDamage>
+  <Namae_DevSetting_DebugSettings_enablePlayerDamage>Enable Player Damage</Namae_DevSetting_DebugSettings_enablePlayerDamage>
+  <Namae_DevSetting_DebugSettings_enableRandomMentalStates>Enable Random Mental States</Namae_DevSetting_DebugSettings_enableRandomMentalStates>
+  <Namae_DevSetting_DebugSettings_enableStoryteller>Enable Storyteller</Namae_DevSetting_DebugSettings_enableStoryteller>
+  <Namae_DevSetting_DebugSettings_enableRandomDiseases>Enable Random Diseases</Namae_DevSetting_DebugSettings_enableRandomDiseases>
+  <Namae_DevSetting_DebugSettings_enableTranslationWindowInEnglish>Enable Translation Window In English</Namae_DevSetting_DebugSettings_enableTranslationWindowInEnglish>
+  <Namae_DevSetting_DebugSettings_godMode>God Mode</Namae_DevSetting_DebugSettings_godMode>
+  <Namae_DevSetting_DebugSettings_devPalette>Dev Palette</Namae_DevSetting_DebugSettings_devPalette>
+  <Namae_DevSetting_DebugSettings_pauseOnError>Pause On Error</Namae_DevSetting_DebugSettings_pauseOnError>
+  <Namae_DevSetting_DebugSettings_noAnimals>No Animals</Namae_DevSetting_DebugSettings_noAnimals>
+  <Namae_DevSetting_DebugSettings_unlimitedPower>Unlimited Power</Namae_DevSetting_DebugSettings_unlimitedPower>
+  <Namae_DevSetting_DebugSettings_pathThroughWalls>Path Through Walls</Namae_DevSetting_DebugSettings_pathThroughWalls>
+  <Namae_DevSetting_DebugSettings_instantRecruit>Instant Recruit</Namae_DevSetting_DebugSettings_instantRecruit>
+  <Namae_DevSetting_DebugSettings_alwaysSocialFight>Always Social Fight</Namae_DevSetting_DebugSettings_alwaysSocialFight>
+  <Namae_DevSetting_DebugSettings_alwaysDoLovin>Always Do Lovin</Namae_DevSetting_DebugSettings_alwaysDoLovin>
+  <Namae_DevSetting_DebugSettings_detectRegionListersBugs>Detect Region Listers Bugs</Namae_DevSetting_DebugSettings_detectRegionListersBugs>
+  <Namae_DevSetting_DebugSettings_instantVisitorsGift>Instant Visitors Gift</Namae_DevSetting_DebugSettings_instantVisitorsGift>
+  <Namae_DevSetting_DebugSettings_lowFPS>Low FPS</Namae_DevSetting_DebugSettings_lowFPS>
+  <Namae_DevSetting_DebugSettings_allowUndraftedMechOrders>Allow Undrafted Mech Orders</Namae_DevSetting_DebugSettings_allowUndraftedMechOrders>
+  <Namae_DevSetting_DebugSettings_editableGlowerColors>Editable Glower Colors</Namae_DevSetting_DebugSettings_editableGlowerColors>
+  <Namae_DevSetting_DebugSettings_showHiddenPawns>Show Hidden Pawns</Namae_DevSetting_DebugSettings_showHiddenPawns>
+  <Namae_DevSetting_DebugSettings_showHiddenInfo>Show Hidden Info</Namae_DevSetting_DebugSettings_showHiddenInfo>
+  <Namae_DevSetting_DebugSettings_anomalyDarkeningFX>Anomaly Darkening FX</Namae_DevSetting_DebugSettings_anomalyDarkeningFX>
+  <Namae_DevSetting_DebugSettings_fastResearch>Fast Research</Namae_DevSetting_DebugSettings_fastResearch>
+  <Namae_DevSetting_DebugSettings_fastLearning>Fast Learning</Namae_DevSetting_DebugSettings_fastLearning>
+  <Namae_DevSetting_DebugSettings_fastEcology>Fast Ecology</Namae_DevSetting_DebugSettings_fastEcology>
+  <Namae_DevSetting_DebugSettings_fastEcologyRegrowRateOnly>Fast Ecology Regrow Rate Only</Namae_DevSetting_DebugSettings_fastEcologyRegrowRateOnly>
+  <Namae_DevSetting_DebugSettings_fastCrafting>Fast Crafting</Namae_DevSetting_DebugSettings_fastCrafting>
+  <Namae_DevSetting_DebugSettings_fastCaravans>Fast Caravans</Namae_DevSetting_DebugSettings_fastCaravans>
+  <Namae_DevSetting_DebugSettings_fastMapUnpollution>Fast Map Unpollution</Namae_DevSetting_DebugSettings_fastMapUnpollution>
+  <Namae_DevSetting_DebugSettings_activateAllBuildingDemands>Activate All Building Demands</Namae_DevSetting_DebugSettings_activateAllBuildingDemands>
+  <Namae_DevSetting_DebugSettings_activateAllIdeoRoles>Activate All Ideo Roles</Namae_DevSetting_DebugSettings_activateAllIdeoRoles>
+  <Namae_DevSetting_DebugSettings_showLocomotionUrgency>Show Locomotion Urgency</Namae_DevSetting_DebugSettings_showLocomotionUrgency>
+  <Namae_DevSetting_DebugSettings_playRitualAmbience>Play Ritual Ambience</Namae_DevSetting_DebugSettings_playRitualAmbience>
+  <Namae_DevSetting_DebugSettings_simulateUsingSteamDeck>Simulate Using Steam Deck</Namae_DevSetting_DebugSettings_simulateUsingSteamDeck>
+  <Namae_DevSetting_DebugSettings_logRaidInfo>Log Raid Info</Namae_DevSetting_DebugSettings_logRaidInfo>
+  <Namae_DevSetting_DebugSettings_logTranslationLookupErrors>Log Translation Lookup Errors</Namae_DevSetting_DebugSettings_logTranslationLookupErrors>
+  <Namae_DevSetting_DebugSettings_logPsychicRitualTransitions>Log Psychic Ritual Transitions</Namae_DevSetting_DebugSettings_logPsychicRitualTransitions>
+  <Namae_DevSetting_DebugSettings_fastMonolithRespawn>Fast Monolith Respawn</Namae_DevSetting_DebugSettings_fastMonolithRespawn>
+  <Namae_DevSetting_DebugSettings_searchIgnoresRestrictions>Search Ignores Restrictions</Namae_DevSetting_DebugSettings_searchIgnoresRestrictions>
+  <Namae_DevSetting_DebugSettings_alwaysRareCatches>Always Rare Catches</Namae_DevSetting_DebugSettings_alwaysRareCatches>
+  <Namae_DevSetting_DebugSettings_alwaysNegativeCatches>Always Negative Catches</Namae_DevSetting_DebugSettings_alwaysNegativeCatches>
+  <Namae_DevSetting_DebugSettings_logMismatchedLayoutFactions>Log Mismatched Layout Factions</Namae_DevSetting_DebugSettings_logMismatchedLayoutFactions>
+  <Namae_DevSetting_DebugSettings_loopGravshipCutscene>Loop Gravship Cutscene</Namae_DevSetting_DebugSettings_loopGravshipCutscene>
+  <Namae_DevSetting_DebugSettings_skipGravshipTileSelection>Skip Gravship Tile Selection</Namae_DevSetting_DebugSettings_skipGravshipTileSelection>
+  <Namae_DevSetting_DebugSettings_ignoreGravshipRange>Ignore Gravship Range</Namae_DevSetting_DebugSettings_ignoreGravshipRange>
+  <Namae_DevSetting_DebugViewSettings_drawFog>Draw Fog</Namae_DevSetting_DebugViewSettings_drawFog>
+  <Namae_DevSetting_DebugViewSettings_drawSnow>Draw Snow</Namae_DevSetting_DebugViewSettings_drawSnow>
+  <Namae_DevSetting_DebugViewSettings_drawSand>Draw Sand</Namae_DevSetting_DebugViewSettings_drawSand>
+  <Namae_DevSetting_DebugViewSettings_drawTerrain>Draw Terrain</Namae_DevSetting_DebugViewSettings_drawTerrain>
+  <Namae_DevSetting_DebugViewSettings_drawTerrainWater>Draw Terrain Water</Namae_DevSetting_DebugViewSettings_drawTerrainWater>
+  <Namae_DevSetting_DebugViewSettings_drawThingsDynamic>Draw Things Dynamic</Namae_DevSetting_DebugViewSettings_drawThingsDynamic>
+  <Namae_DevSetting_DebugViewSettings_drawThingsPrinted>Draw Things Printed</Namae_DevSetting_DebugViewSettings_drawThingsPrinted>
+  <Namae_DevSetting_DebugViewSettings_drawShadows>Draw Shadows</Namae_DevSetting_DebugViewSettings_drawShadows>
+  <Namae_DevSetting_DebugViewSettings_drawLightingOverlay>Draw Lighting Overlay</Namae_DevSetting_DebugViewSettings_drawLightingOverlay>
+  <Namae_DevSetting_DebugViewSettings_drawWorldOverlays>Draw World Overlays</Namae_DevSetting_DebugViewSettings_drawWorldOverlays>
+  <Namae_DevSetting_DebugViewSettings_drawGas>Draw Gas</Namae_DevSetting_DebugViewSettings_drawGas>
+  <Namae_DevSetting_DebugViewSettings_singleThreadedDrawing>Single Threaded Drawing</Namae_DevSetting_DebugViewSettings_singleThreadedDrawing>
+  <Namae_DevSetting_DebugViewSettings_drawWorldObjects>Draw World Objects</Namae_DevSetting_DebugViewSettings_drawWorldObjects>
+  <Namae_DevSetting_DebugViewSettings_drawPaths>Draw Paths</Namae_DevSetting_DebugViewSettings_drawPaths>
+  <Namae_DevSetting_DebugViewSettings_drawPatherState>Draw Pather State</Namae_DevSetting_DebugViewSettings_drawPatherState>
+  <Namae_DevSetting_DebugViewSettings_drawCastPositionSearch>Draw Cast Position Search</Namae_DevSetting_DebugViewSettings_drawCastPositionSearch>
+  <Namae_DevSetting_DebugViewSettings_drawDestSearch>Draw Dest Search</Namae_DevSetting_DebugViewSettings_drawDestSearch>
+  <Namae_DevSetting_DebugViewSettings_drawStyleSearch>Draw Style Search</Namae_DevSetting_DebugViewSettings_drawStyleSearch>
+  <Namae_DevSetting_DebugViewSettings_drawSectionEdges>Draw Section Edges</Namae_DevSetting_DebugViewSettings_drawSectionEdges>
+  <Namae_DevSetting_DebugViewSettings_drawRiverDebug>Draw River Debug</Namae_DevSetting_DebugViewSettings_drawRiverDebug>
+  <Namae_DevSetting_DebugViewSettings_drawRiverFlowDebug>Draw River Flow Debug</Namae_DevSetting_DebugViewSettings_drawRiverFlowDebug>
+  <Namae_DevSetting_DebugViewSettings_drawPawnDebug>Draw Pawn Debug</Namae_DevSetting_DebugViewSettings_drawPawnDebug>
+  <Namae_DevSetting_DebugViewSettings_drawPawnRotatorTarget>Draw Pawn Rotator Target</Namae_DevSetting_DebugViewSettings_drawPawnRotatorTarget>
+  <Namae_DevSetting_DebugViewSettings_drawRegions>Draw Regions</Namae_DevSetting_DebugViewSettings_drawRegions>
+  <Namae_DevSetting_DebugViewSettings_drawRegionLinks>Draw Region Links</Namae_DevSetting_DebugViewSettings_drawRegionLinks>
+  <Namae_DevSetting_DebugViewSettings_drawRegionDirties>Draw Region Dirties</Namae_DevSetting_DebugViewSettings_drawRegionDirties>
+  <Namae_DevSetting_DebugViewSettings_drawRegionTraversal>Draw Region Traversal</Namae_DevSetting_DebugViewSettings_drawRegionTraversal>
+  <Namae_DevSetting_DebugViewSettings_drawRegionThings>Draw Region Things</Namae_DevSetting_DebugViewSettings_drawRegionThings>
+  <Namae_DevSetting_DebugViewSettings_drawDistricts>Draw Districts</Namae_DevSetting_DebugViewSettings_drawDistricts>
+  <Namae_DevSetting_DebugViewSettings_drawRooms>Draw Rooms</Namae_DevSetting_DebugViewSettings_drawRooms>
+  <Namae_DevSetting_DebugViewSettings_drawPower>Draw Power</Namae_DevSetting_DebugViewSettings_drawPower>
+  <Namae_DevSetting_DebugViewSettings_drawPowerNetGrid>Draw Power Net Grid</Namae_DevSetting_DebugViewSettings_drawPowerNetGrid>
+  <Namae_DevSetting_DebugViewSettings_drawOpportunisticJobs>Draw Opportunistic Jobs</Namae_DevSetting_DebugViewSettings_drawOpportunisticJobs>
+  <Namae_DevSetting_DebugViewSettings_drawTooltipEdges>Draw Tooltip Edges</Namae_DevSetting_DebugViewSettings_drawTooltipEdges>
+  <Namae_DevSetting_DebugViewSettings_drawRecordedNoise>Draw Recorded Noise</Namae_DevSetting_DebugViewSettings_drawRecordedNoise>
+  <Namae_DevSetting_DebugViewSettings_drawFoodSearchFromMouse>Draw Food Search From Mouse</Namae_DevSetting_DebugViewSettings_drawFoodSearchFromMouse>
+  <Namae_DevSetting_DebugViewSettings_drawPreyInfo>Draw Prey Info</Namae_DevSetting_DebugViewSettings_drawPreyInfo>
+  <Namae_DevSetting_DebugViewSettings_drawGlow>Draw Glow</Namae_DevSetting_DebugViewSettings_drawGlow>
+  <Namae_DevSetting_DebugViewSettings_drawAvoidGrid>Draw Avoid Grid</Namae_DevSetting_DebugViewSettings_drawAvoidGrid>
+  <Namae_DevSetting_DebugViewSettings_drawBreachingGrid>Draw Breaching Grid</Namae_DevSetting_DebugViewSettings_drawBreachingGrid>
+  <Namae_DevSetting_DebugViewSettings_drawBreachingNoise>Draw Breaching Noise</Namae_DevSetting_DebugViewSettings_drawBreachingNoise>
+  <Namae_DevSetting_DebugViewSettings_drawLords>Draw Lords</Namae_DevSetting_DebugViewSettings_drawLords>
+  <Namae_DevSetting_DebugViewSettings_drawDuties>Draw Duties</Namae_DevSetting_DebugViewSettings_drawDuties>
+  <Namae_DevSetting_DebugViewSettings_drawShooting>Draw Shooting</Namae_DevSetting_DebugViewSettings_drawShooting>
+  <Namae_DevSetting_DebugViewSettings_drawInfestationChance>Draw Infestation Chance</Namae_DevSetting_DebugViewSettings_drawInfestationChance>
+  <Namae_DevSetting_DebugViewSettings_drawFleshmassHeartChance>Draw Fleshmass Heart Chance</Namae_DevSetting_DebugViewSettings_drawFleshmassHeartChance>
+  <Namae_DevSetting_DebugViewSettings_drawStealDebug>Draw Steal Debug</Namae_DevSetting_DebugViewSettings_drawStealDebug>
+  <Namae_DevSetting_DebugViewSettings_drawDeepResources>Draw Deep Resources</Namae_DevSetting_DebugViewSettings_drawDeepResources>
+  <Namae_DevSetting_DebugViewSettings_drawAttackTargetScores>Draw Attack Target Scores</Namae_DevSetting_DebugViewSettings_drawAttackTargetScores>
+  <Namae_DevSetting_DebugViewSettings_drawFOVSymmetry>Draw FOVSymmetry</Namae_DevSetting_DebugViewSettings_drawFOVSymmetry>
+  <Namae_DevSetting_DebugViewSettings_drawNonCombatantTimer>Draw Non Combatant Timer</Namae_DevSetting_DebugViewSettings_drawNonCombatantTimer>
+  <Namae_DevSetting_DebugViewSettings_drawInteractionCells>Draw Interaction Cells</Namae_DevSetting_DebugViewSettings_drawInteractionCells>
+  <Namae_DevSetting_DebugViewSettings_drawDoorsDebug>Draw Doors Debug</Namae_DevSetting_DebugViewSettings_drawDoorsDebug>
+  <Namae_DevSetting_DebugViewSettings_drawDestReservations>Draw Dest Reservations</Namae_DevSetting_DebugViewSettings_drawDestReservations>
+  <Namae_DevSetting_DebugViewSettings_drawDamageRects>Draw Damage Rects</Namae_DevSetting_DebugViewSettings_drawDamageRects>
+  <Namae_DevSetting_DebugViewSettings_drawDissolutionCells>Draw Dissolution Cells</Namae_DevSetting_DebugViewSettings_drawDissolutionCells>
+  <Namae_DevSetting_DebugViewSettings_drawUnpollutionCells>Draw Unpollution Cells</Namae_DevSetting_DebugViewSettings_drawUnpollutionCells>
+  <Namae_DevSetting_DebugViewSettings_drawHateChanterPositions>Draw Hate Chanter Positions</Namae_DevSetting_DebugViewSettings_drawHateChanterPositions>
+  <Namae_DevSetting_DebugViewSettings_drawDarknessOverlay>Draw Darkness Overlay</Namae_DevSetting_DebugViewSettings_drawDarknessOverlay>
+  <Namae_DevSetting_DebugViewSettings_drawWoundAnchorsOnHover>Draw Wound Anchors On Hover</Namae_DevSetting_DebugViewSettings_drawWoundAnchorsOnHover>
+  <Namae_DevSetting_DebugViewSettings_drawMapGraphs>Draw Map Graphs</Namae_DevSetting_DebugViewSettings_drawMapGraphs>
+  <Namae_DevSetting_DebugViewSettings_drawMapRooms>Draw Map Rooms</Namae_DevSetting_DebugViewSettings_drawMapRooms>
+  <Namae_DevSetting_DebugViewSettings_drawIndoorMask>Draw Indoor Mask</Namae_DevSetting_DebugViewSettings_drawIndoorMask>
+  <Namae_DevSetting_DebugViewSettings_drawOutdoorMask>Draw Outdoor Mask</Namae_DevSetting_DebugViewSettings_drawOutdoorMask>
+  <Namae_DevSetting_DebugViewSettings_drawShamblerAlertMote>Draw Shambler Alert Mote</Namae_DevSetting_DebugViewSettings_drawShamblerAlertMote>
+  <Namae_DevSetting_DebugViewSettings_drawWaterBodies>Draw Water Bodies</Namae_DevSetting_DebugViewSettings_drawWaterBodies>
+  <Namae_DevSetting_DebugViewSettings_drawMeltingIce>Draw Melting Ice</Namae_DevSetting_DebugViewSettings_drawMeltingIce>
+  <Namae_DevSetting_DebugViewSettings_drawUsedRects>Draw Used Rects</Namae_DevSetting_DebugViewSettings_drawUsedRects>
+  <Namae_DevSetting_DebugViewSettings_drawRoadPaths>Draw Road Paths</Namae_DevSetting_DebugViewSettings_drawRoadPaths>
+  <Namae_DevSetting_DebugViewSettings_drawGravshipMask>Draw Gravship Mask</Namae_DevSetting_DebugViewSettings_drawGravshipMask>
+  <Namae_DevSetting_DebugViewSettings_drawTerrainCurtain>Draw Terrain Curtain</Namae_DevSetting_DebugViewSettings_drawTerrainCurtain>
+  <Namae_DevSetting_DebugViewSettings_writeGame>Write Game</Namae_DevSetting_DebugViewSettings_writeGame>
+  <Namae_DevSetting_DebugViewSettings_writeSteamItems>Write Steam Items</Namae_DevSetting_DebugViewSettings_writeSteamItems>
+  <Namae_DevSetting_DebugViewSettings_writeConcepts>Write Concepts</Namae_DevSetting_DebugViewSettings_writeConcepts>
+  <Namae_DevSetting_DebugViewSettings_writeReservations>Write Reservations</Namae_DevSetting_DebugViewSettings_writeReservations>
+  <Namae_DevSetting_DebugViewSettings_writePathCosts>Write Path Costs</Namae_DevSetting_DebugViewSettings_writePathCosts>
+  <Namae_DevSetting_DebugViewSettings_writeFertility>Write Fertility</Namae_DevSetting_DebugViewSettings_writeFertility>
+  <Namae_DevSetting_DebugViewSettings_writeLinkFlags>Write Link Flags</Namae_DevSetting_DebugViewSettings_writeLinkFlags>
+  <Namae_DevSetting_DebugViewSettings_writeCover>Write Cover</Namae_DevSetting_DebugViewSettings_writeCover>
+  <Namae_DevSetting_DebugViewSettings_writeCellContents>Write Cell Contents</Namae_DevSetting_DebugViewSettings_writeCellContents>
+  <Namae_DevSetting_DebugViewSettings_writeMusicManagerPlay>Write Music Manager Play</Namae_DevSetting_DebugViewSettings_writeMusicManagerPlay>
+  <Namae_DevSetting_DebugViewSettings_writeStoryteller>Write Storyteller</Namae_DevSetting_DebugViewSettings_writeStoryteller>
+  <Namae_DevSetting_DebugViewSettings_writePlayingSounds>Write Playing Sounds</Namae_DevSetting_DebugViewSettings_writePlayingSounds>
+  <Namae_DevSetting_DebugViewSettings_writeSoundEventsRecord>Write Sound Events Record</Namae_DevSetting_DebugViewSettings_writeSoundEventsRecord>
+  <Namae_DevSetting_DebugViewSettings_writeMoteSaturation>Write Mote Saturation</Namae_DevSetting_DebugViewSettings_writeMoteSaturation>
+  <Namae_DevSetting_DebugViewSettings_writeSnowDepth>Write Snow Depth</Namae_DevSetting_DebugViewSettings_writeSnowDepth>
+  <Namae_DevSetting_DebugViewSettings_writeSandDepth>Write Sand Depth</Namae_DevSetting_DebugViewSettings_writeSandDepth>
+  <Namae_DevSetting_DebugViewSettings_writeEcosystem>Write Ecosystem</Namae_DevSetting_DebugViewSettings_writeEcosystem>
+  <Namae_DevSetting_DebugViewSettings_writeRecentStrikes>Write Recent Strikes</Namae_DevSetting_DebugViewSettings_writeRecentStrikes>
+  <Namae_DevSetting_DebugViewSettings_writeBeauty>Write Beauty</Namae_DevSetting_DebugViewSettings_writeBeauty>
+  <Namae_DevSetting_DebugViewSettings_writeListRepairableBldgs>Write List Repairable Bldgs</Namae_DevSetting_DebugViewSettings_writeListRepairableBldgs>
+  <Namae_DevSetting_DebugViewSettings_writeListFilthInHomeArea>Write List Filth In Home Area</Namae_DevSetting_DebugViewSettings_writeListFilthInHomeArea>
+  <Namae_DevSetting_DebugViewSettings_writeListHaulables>Write List Haulables</Namae_DevSetting_DebugViewSettings_writeListHaulables>
+  <Namae_DevSetting_DebugViewSettings_writeListMergeables>Write List Mergeables</Namae_DevSetting_DebugViewSettings_writeListMergeables>
+  <Namae_DevSetting_DebugViewSettings_writeTotalSnowDepth>Write Total Snow Depth</Namae_DevSetting_DebugViewSettings_writeTotalSnowDepth>
+  <Namae_DevSetting_DebugViewSettings_writeCanReachColony>Write Can Reach Colony</Namae_DevSetting_DebugViewSettings_writeCanReachColony>
+  <Namae_DevSetting_DebugViewSettings_writeMentalStateCalcs>Write Mental State Calcs</Namae_DevSetting_DebugViewSettings_writeMentalStateCalcs>
+  <Namae_DevSetting_DebugViewSettings_writeWind>Write Wind</Namae_DevSetting_DebugViewSettings_writeWind>
+  <Namae_DevSetting_DebugViewSettings_writeTerrain>Write Terrain</Namae_DevSetting_DebugViewSettings_writeTerrain>
+  <Namae_DevSetting_DebugViewSettings_writeApparelScore>Write Apparel Score</Namae_DevSetting_DebugViewSettings_writeApparelScore>
+  <Namae_DevSetting_DebugViewSettings_writeWorkSettings>Write Work Settings</Namae_DevSetting_DebugViewSettings_writeWorkSettings>
+  <Namae_DevSetting_DebugViewSettings_writeSkyManager>Write Sky Manager</Namae_DevSetting_DebugViewSettings_writeSkyManager>
+  <Namae_DevSetting_DebugViewSettings_writeMemoryUsage>Write Memory Usage</Namae_DevSetting_DebugViewSettings_writeMemoryUsage>
+  <Namae_DevSetting_DebugViewSettings_writeMapGameConditions>Write Map Game Conditions</Namae_DevSetting_DebugViewSettings_writeMapGameConditions>
+  <Namae_DevSetting_DebugViewSettings_writeAttackTargets>Write Attack Targets</Namae_DevSetting_DebugViewSettings_writeAttackTargets>
+  <Namae_DevSetting_DebugViewSettings_writeRopesAndPens>Write Ropes And Pens</Namae_DevSetting_DebugViewSettings_writeRopesAndPens>
+  <Namae_DevSetting_DebugViewSettings_writeRoomRoles>Write Room Roles</Namae_DevSetting_DebugViewSettings_writeRoomRoles>
+  <Namae_DevSetting_DebugViewSettings_logIncapChance>Log Incap Chance</Namae_DevSetting_DebugViewSettings_logIncapChance>
+  <Namae_DevSetting_DebugViewSettings_logInput>Log Input</Namae_DevSetting_DebugViewSettings_logInput>
+  <Namae_DevSetting_DebugViewSettings_logApparelGeneration>Log Apparel Generation</Namae_DevSetting_DebugViewSettings_logApparelGeneration>
+  <Namae_DevSetting_DebugViewSettings_logLordToilTransitions>Log Lord Toil Transitions</Namae_DevSetting_DebugViewSettings_logLordToilTransitions>
+  <Namae_DevSetting_DebugViewSettings_logGrammarResolution>Log Grammar Resolution</Namae_DevSetting_DebugViewSettings_logGrammarResolution>
+  <Namae_DevSetting_DebugViewSettings_logCombatLogMouseover>Log Combat Log Mouseover</Namae_DevSetting_DebugViewSettings_logCombatLogMouseover>
+  <Namae_DevSetting_DebugViewSettings_logCauseOfDeath>Log Cause Of Death</Namae_DevSetting_DebugViewSettings_logCauseOfDeath>
+  <Namae_DevSetting_DebugViewSettings_logMapLoad>Log Map Load</Namae_DevSetting_DebugViewSettings_logMapLoad>
+  <Namae_DevSetting_DebugViewSettings_logTutor>Log Tutor</Namae_DevSetting_DebugViewSettings_logTutor>
+  <Namae_DevSetting_DebugViewSettings_logSignals>Log Signals</Namae_DevSetting_DebugViewSettings_logSignals>
+  <Namae_DevSetting_DebugViewSettings_logWorldPawnGC>Log World Pawn GC</Namae_DevSetting_DebugViewSettings_logWorldPawnGC>
+  <Namae_DevSetting_DebugViewSettings_logTaleRecording>Log Tale Recording</Namae_DevSetting_DebugViewSettings_logTaleRecording>
+  <Namae_DevSetting_DebugViewSettings_logHourlyScreenshot>Log Hourly Screenshot</Namae_DevSetting_DebugViewSettings_logHourlyScreenshot>
+  <Namae_DevSetting_DebugViewSettings_logFilthSummary>Log Filth Summary</Namae_DevSetting_DebugViewSettings_logFilthSummary>
+  <Namae_DevSetting_DebugViewSettings_logCarriedBetweenJobs>Log Carried Between Jobs</Namae_DevSetting_DebugViewSettings_logCarriedBetweenJobs>
+  <Namae_DevSetting_DebugViewSettings_logComplexGenPoints>Log Complex Gen Points</Namae_DevSetting_DebugViewSettings_logComplexGenPoints>
+  <Namae_DevSetting_DebugViewSettings_saveGravshipRenders>Save Gravship Renders</Namae_DevSetting_DebugViewSettings_saveGravshipRenders>
+  <Namae_DevSetting_DebugViewSettings_debugApparelOptimize>Debug Apparel Optimize</Namae_DevSetting_DebugViewSettings_debugApparelOptimize>
+  <Namae_DevSetting_DebugViewSettings_disableGravshipRenderShader>Disable Gravship Render Shader</Namae_DevSetting_DebugViewSettings_disableGravshipRenderShader>
+  <Namae_DevSetting_DebugViewSettings_showAllRoomStats>Show All Room Stats</Namae_DevSetting_DebugViewSettings_showAllRoomStats>
+  <Namae_DevSetting_DebugViewSettings_showFloatMenuWorkGivers>Show Float Menu Work Givers</Namae_DevSetting_DebugViewSettings_showFloatMenuWorkGivers>
+  <Namae_DevSetting_DebugViewSettings_neverForceNormalSpeed>Never Force Normal Speed</Namae_DevSetting_DebugViewSettings_neverForceNormalSpeed>
+  <Namae_DevSetting_DebugViewSettings_showArchitectMenuOrder>Show Architect Menu Order</Namae_DevSetting_DebugViewSettings_showArchitectMenuOrder>
+  <Namae_DevSetting_DebugViewSettings_showTpsCounter>Show Tps Counter</Namae_DevSetting_DebugViewSettings_showTpsCounter>
+  <Namae_DevSetting_DebugViewSettings_showFpsCounter>Show Fps Counter</Namae_DevSetting_DebugViewSettings_showFpsCounter>
+  <Namae_DevSetting_DebugViewSettings_showMemoryInfo>Show Memory Info</Namae_DevSetting_DebugViewSettings_showMemoryInfo>
+  <Namae_DevSetting_DebugGenerationSettings_prefabCopyTerrain>Prefab Copy Terrain</Namae_DevSetting_DebugGenerationSettings_prefabCopyTerrain>
+  <Namae_DevSetting_DebugGenerationSettings_prefabCopyAllThings>Prefab Copy All Things</Namae_DevSetting_DebugGenerationSettings_prefabCopyAllThings>
+  <Namae_DevTab_Outputs>Outputs</Namae_DevTab_Outputs>
+  <Namae_DevCategory_Textgeneration>Text generation</Namae_DevCategory_Textgeneration>
+  <Namae_DevCategory_Incidents>Incidents</Namae_DevCategory_Incidents>
+  <Namae_DevCategory_Quests>Quests</Namae_DevCategory_Quests>
+  <Namae_DevCategory_Bossgroups>Bossgroups</Namae_DevCategory_Bossgroups>
+  <Namae_DevCategory_Economy>Economy</Namae_DevCategory_Economy>
+  <Namae_DevCategory_Factions>Factions</Namae_DevCategory_Factions>
+  <Namae_DevCategory_Pawns>Pawns</Namae_DevCategory_Pawns>
+  <Namae_DevCategory_System>System</Namae_DevCategory_System>
+  <Namae_DevCategory_Worldpawns>World pawns</Namae_DevCategory_Worldpawns>
+  <Namae_DevCategory_UI>UI</Namae_DevCategory_UI>
+  <Namae_DevCategory_Performance>Performance</Namae_DevCategory_Performance>
+  <Namae_DevOutput_PermanentInjuryCalculations>Permanent Injury Calculations</Namae_DevOutput_PermanentInjuryCalculations>
+  <Namae_DevOutput_ManhunterResults>Manhunter Results</Namae_DevOutput_ManhunterResults>
+  <Namae_DevOutput_ApparelValidLifeStages>Apparel Valid Life Stages</Namae_DevOutput_ApparelValidLifeStages>
+  <Namae_DevOutput_DifficultyDetails>Difficulty Details</Namae_DevOutput_DifficultyDetails>
+  <Namae_DevOutput_MechClusterBuildingSelection>Mech Cluster Building Selection</Namae_DevOutput_MechClusterBuildingSelection>
+  <Namae_DevOutput_ApparelPairs>Apparel Pairs</Namae_DevOutput_ApparelPairs>
+  <Namae_DevOutput_ApparelPairsByThing>Apparel Pairs By Thing</Namae_DevOutput_ApparelPairsByThing>
+  <Namae_DevOutput_PawnGroupsMade>Pawn Groups Made</Namae_DevOutput_PawnGroupsMade>
+  <Namae_DevOutput_WeaponPairs>Weapon Pairs</Namae_DevOutput_WeaponPairs>
+  <Namae_DevOutput_WeaponPairsByThing>Weapon Pairs By Thing</Namae_DevOutput_WeaponPairsByThing>
+  <Namae_DevOutput_QualityGenerationData>Quality Generation Data</Namae_DevOutput_QualityGenerationData>
+  <Namae_DevOutput_StockGenerationAnimals>Stock Generation Animals</Namae_DevOutput_StockGenerationAnimals>
+  <Namae_DevOutput_PopulationIntents>Population Intents</Namae_DevOutput_PopulationIntents>
+  <Namae_DevOutput_TechprintsFromFactions>Techprints From Factions</Namae_DevOutput_TechprintsFromFactions>
+  <Namae_DevOutput_TechprintsFromFactionsChances>Techprints From Factions Chances</Namae_DevOutput_TechprintsFromFactionsChances>
+  <Namae_DevOutput_VisitorGiftChance>Visitor Gift Chance</Namae_DevOutput_VisitorGiftChance>
+  <Namae_DevOutput_WallStuffs>Wall Stuffs</Namae_DevOutput_WallStuffs>
+  <Namae_DevOutput_BeggarQuestItems>Beggar Quest Items</Namae_DevOutput_BeggarQuestItems>
+  <Namae_DevOutput_StunChances>Stun Chances</Namae_DevOutput_StunChances>
+  <Namae_DevOutput_QuestRewardsSampled>Quest Rewards Sampled</Namae_DevOutput_QuestRewardsSampled>
+  <Namae_DevOutput_QuestDefs>Quest Defs</Namae_DevOutput_QuestDefs>
+  <Namae_DevOutput_QuestSelectionWeightsNow>Quest Selection Weights Now</Namae_DevOutput_QuestSelectionWeightsNow>
+  <Namae_DevOutput_DecreeSelectionWeightsNow>Decree Selection Weights Now</Namae_DevOutput_DecreeSelectionWeightsNow>
+  <Namae_DevOutput_RoyalTitles>Royal Titles</Namae_DevOutput_RoyalTitles>
+  <Namae_DevOutput_RoyalFavorAvailability>Honor Availability (slow)</Namae_DevOutput_RoyalFavorAvailability>
+  <Namae_DevOutput_Plants>Plants</Namae_DevOutput_Plants>
+  <Namae_DevOutput_PlantCurrentProportions>Plant Current Proportions</Namae_DevOutput_PlantCurrentProportions>
+  <Namae_DevOutput_Biomes>Biomes</Namae_DevOutput_Biomes>
+  <Namae_DevOutput_BiomeAnimalsSpawnChances>Biome Animals Spawn Chances</Namae_DevOutput_BiomeAnimalsSpawnChances>
+  <Namae_DevOutput_BiomeAnimalsTypicalCounts>Biome Animals Typical Counts</Namae_DevOutput_BiomeAnimalsTypicalCounts>
+  <Namae_DevOutput_BiomePlantsExpectedCount>Biome Plants Expected Count</Namae_DevOutput_BiomePlantsExpectedCount>
+  <Namae_DevOutput_AnimalWildCountsOnMap>Animal Wild Counts On Map</Namae_DevOutput_AnimalWildCountsOnMap>
+  <Namae_DevOutput_PlantCountsOnMap>Plant Counts On Map</Namae_DevOutput_PlantCountsOnMap>
+  <Namae_DevOutput_WeaponClasses>Weapon Classes</Namae_DevOutput_WeaponClasses>
+  <Namae_DevOutput_WeaponsRanged>Weapons Ranged</Namae_DevOutput_WeaponsRanged>
+  <Namae_DevOutput_Turrets>Turrets</Namae_DevOutput_Turrets>
+  <Namae_DevOutput_WeaponsMelee>Weapons Melee</Namae_DevOutput_WeaponsMelee>
+  <Namae_DevOutput_Tools>Tools</Namae_DevOutput_Tools>
+  <Namae_DevOutput_ResearchProjects>Research Projects</Namae_DevOutput_ResearchProjects>
+  <Namae_DevOutput_ThingsExistingList>Things Existing List</Namae_DevOutput_ThingsExistingList>
+  <Namae_DevOutput_TickRates>Tick Rates</Namae_DevOutput_TickRates>
+  <Namae_DevOutput_ThingFillageAndPassability>Thing Fillage And Passability</Namae_DevOutput_ThingFillageAndPassability>
+  <Namae_DevOutput_ThingPathCosts>Thing Path Costs</Namae_DevOutput_ThingPathCosts>
+  <Namae_DevOutput_ThingDamageData>Thing Damage Data</Namae_DevOutput_ThingDamageData>
+  <Namae_DevOutput_UnfinishedThings>Unfinished Things</Namae_DevOutput_UnfinishedThings>
+  <Namae_DevOutput_ThingMasses>Thing Masses</Namae_DevOutput_ThingMasses>
+  <Namae_DevOutput_ThingFillPercents>Thing Fill Percents</Namae_DevOutput_ThingFillPercents>
+  <Namae_DevOutput_ThingNutritions>Thing Nutritions</Namae_DevOutput_ThingNutritions>
+  <Namae_DevOutput_Bodies>Bodies</Namae_DevOutput_Bodies>
+  <Namae_DevOutput_InstallableBodyParts>Installable Body Parts</Namae_DevOutput_InstallableBodyParts>
+  <Namae_DevOutput_BodyParts>Body Parts</Namae_DevOutput_BodyParts>
+  <Namae_DevOutput_Surgeries>Surgeries</Namae_DevOutput_Surgeries>
+  <Namae_DevOutput_HitsToKill>Hits To Kill</Namae_DevOutput_HitsToKill>
+  <Namae_DevOutput_Prosthetics>Prosthetics</Namae_DevOutput_Prosthetics>
+  <Namae_DevOutput_TranshumanistBodyParts>Transhumanist Body Parts</Namae_DevOutput_TranshumanistBodyParts>
+  <Namae_DevOutput_Infections>Infections</Namae_DevOutput_Infections>
+  <Namae_DevOutput_InfectionSimulator>Infection Simulator</Namae_DevOutput_InfectionSimulator>
+  <Namae_DevOutput_JoyGivers>Joy Givers</Namae_DevOutput_JoyGivers>
+  <Namae_DevOutput_JoyKinds>Joy Kinds</Namae_DevOutput_JoyKinds>
+  <Namae_DevOutput_JoyJobs>Joy Jobs</Namae_DevOutput_JoyJobs>
+  <Namae_DevOutput_DrawerTypes>Drawer Types</Namae_DevOutput_DrawerTypes>
+  <Namae_DevOutput_DynamicDrawnThingsNow>Dynamic Drawn Things Now</Namae_DevOutput_DynamicDrawnThingsNow>
+  <Namae_DevOutput_DynamicDrawnThingsByCategoryNow>Dynamic Drawn Things By Category Now</Namae_DevOutput_DynamicDrawnThingsByCategoryNow>
+  <Namae_DevOutput_MiningResourceGeneration>Mining Resource Generation</Namae_DevOutput_MiningResourceGeneration>
+  <Namae_DevOutput_NaturalRocks>Natural Rocks</Namae_DevOutput_NaturalRocks>
+  <Namae_DevOutput_AncientJunk>Ancient Junk</Namae_DevOutput_AncientJunk>
+  <Namae_DevOutput_MeditationFoci>Meditation Foci</Namae_DevOutput_MeditationFoci>
+  <Namae_DevOutput_DefaultStuffs>Default Stuffs</Namae_DevOutput_DefaultStuffs>
+  <Namae_DevOutput_Beauties>Beauties</Namae_DevOutput_Beauties>
+  <Namae_DevOutput_StuffBeauty>Stuff Beauty</Namae_DevOutput_StuffBeauty>
+  <Namae_DevOutput_ThingsPowerAndHeat>Things Power And Heat</Namae_DevOutput_ThingsPowerAndHeat>
+  <Namae_DevOutput_FoodPoisonChances>Food Poison Chances</Namae_DevOutput_FoodPoisonChances>
+  <Namae_DevOutput_TechLevels>Tech Levels</Namae_DevOutput_TechLevels>
+  <Namae_DevOutput_Stuffs>Stuffs</Namae_DevOutput_Stuffs>
+  <Namae_DevOutput_BurningAndSmeltingThings>Burning And Smelting Things</Namae_DevOutput_BurningAndSmeltingThings>
+  <Namae_DevOutput_Medicines>Medicines</Namae_DevOutput_Medicines>
+  <Namae_DevOutput_ShootingAccuracy>Shooting Accuracy</Namae_DevOutput_ShootingAccuracy>
+  <Namae_DevOutput_TemperatureData>Temperature Data</Namae_DevOutput_TemperatureData>
+  <Namae_DevOutput_TemperatureOverlayColors>Temperature Overlay Colors</Namae_DevOutput_TemperatureOverlayColors>
+  <Namae_DevOutput_WeatherChances>Weather Chances</Namae_DevOutput_WeatherChances>
+  <Namae_DevOutput_WeatherCommonalities>Weather Commonalities</Namae_DevOutput_WeatherCommonalities>
+  <Namae_DevOutput_CelestialGlow>Celestial Glow</Namae_DevOutput_CelestialGlow>
+  <Namae_DevOutput_SunAngle>Sun Angle</Namae_DevOutput_SunAngle>
+  <Namae_DevOutput_FallColor>Fall Color</Namae_DevOutput_FallColor>
+  <Namae_DevOutput_PawnsListAllOnMap>Pawns List All On Map</Namae_DevOutput_PawnsListAllOnMap>
+  <Namae_DevOutput_WindSpeeds>Wind Speeds</Namae_DevOutput_WindSpeeds>
+  <Namae_DevOutput_MapPawnsList>Map Pawns List</Namae_DevOutput_MapPawnsList>
+  <Namae_DevOutput_Lords>Lords</Namae_DevOutput_Lords>
+  <Namae_DevOutput_LogEnroute>Log Enroute</Namae_DevOutput_LogEnroute>
+  <Namae_DevOutput_BodyPartTagGroups>Body Part Tag Groups</Namae_DevOutput_BodyPartTagGroups>
+  <Namae_DevOutput_MinifiableTags>Minifiable Tags</Namae_DevOutput_MinifiableTags>
+  <Namae_DevOutput_ThingSetMakerTest>Thing Set Maker Test</Namae_DevOutput_ThingSetMakerTest>
+  <Namae_DevOutput_ThingSetMakerPossibleDefs>Thing Set Maker Possible Defs</Namae_DevOutput_ThingSetMakerPossibleDefs>
+  <Namae_DevOutput_ThingSetMakerSampled>Thing Set Maker Sampled</Namae_DevOutput_ThingSetMakerSampled>
+  <Namae_DevOutput_RewardsGeneration>Rewards Generation</Namae_DevOutput_RewardsGeneration>
+  <Namae_DevOutput_RewardsGenerationSampled>Rewards Generation Sampled</Namae_DevOutput_RewardsGenerationSampled>
+  <Namae_DevOutput_WorkDisables>Work Disables</Namae_DevOutput_WorkDisables>
+  <Namae_DevOutput_FoodPreferability>Food Preferability</Namae_DevOutput_FoodPreferability>
+  <Namae_DevOutput_IngestibleMaxSatisfiedTitle>Ingestible Max Satisfied Title</Namae_DevOutput_IngestibleMaxSatisfiedTitle>
+  <Namae_DevOutput_AbilityCosts>Ability Costs</Namae_DevOutput_AbilityCosts>
+  <Namae_DevOutput_SitePartDefs>Site Part Defs</Namae_DevOutput_SitePartDefs>
+  <Namae_DevOutput_MapDanger>Map Danger</Namae_DevOutput_MapDanger>
+  <Namae_DevOutput_GenSteps>Gen Steps</Namae_DevOutput_GenSteps>
+  <Namae_DevOutput_WorldGenSteps>World Gen Steps</Namae_DevOutput_WorldGenSteps>
+  <Namae_DevOutput_ShuttleDefsToAvoid>Shuttle Defs To Avoid</Namae_DevOutput_ShuttleDefsToAvoid>
+  <Namae_DevOutput_RitualDuration>Ritual Duration</Namae_DevOutput_RitualDuration>
+  <Namae_DevOutput_PlayerWealth>Player Wealth</Namae_DevOutput_PlayerWealth>
+  <Namae_DevOutput_MemesAndPrecepts>Memes And Precepts</Namae_DevOutput_MemesAndPrecepts>
+  <Namae_DevOutput_GenerateGeneSetsX10>Generate Gene Sets X10</Namae_DevOutput_GenerateGeneSetsX10>
+  <Namae_DevOutput_Genes>Genes</Namae_DevOutput_Genes>
+  <Namae_DevOutput_Xenotypes>Xenotypes</Namae_DevOutput_Xenotypes>
+  <Namae_DevOutput_PreceptDefs>Precept Defs</Namae_DevOutput_PreceptDefs>
+  <Namae_DevOutput_ThingTradeTags>Thing Trade Tags</Namae_DevOutput_ThingTradeTags>
+  <Namae_DevOutput_StructureColorDefs>Structure Color Defs</Namae_DevOutput_StructureColorDefs>
+  <Namae_DevOutput_PsychicRituals>Psychic Rituals</Namae_DevOutput_PsychicRituals>
+  <Namae_DevOutput_AnalysisDetails>Analysis Details</Namae_DevOutput_AnalysisDetails>
+  <Namae_DevOutput_RelicThings>Relic Things</Namae_DevOutput_RelicThings>
+  <Namae_DevOutput_RelicMarketValues>Relic Market Values</Namae_DevOutput_RelicMarketValues>
+  <Namae_DevOutput_RelicStuffs>Relic Stuffs</Namae_DevOutput_RelicStuffs>
+  <Namae_DevOutput_CollectionsMemoryUsage>Collections Memory Usage</Namae_DevOutput_CollectionsMemoryUsage>
+  <Namae_DevOutput_Landmarks>Landmarks</Namae_DevOutput_Landmarks>
+  <Namae_DevOutput_AdjacentDistanceBetweenLayerTiles>Adjacent Distance Between Layer Tiles</Namae_DevOutput_AdjacentDistanceBetweenLayerTiles>
+  <Namae_DevOutput_LogAnyPlayerHomeMap>Log Any Player Home Map</Namae_DevOutput_LogAnyPlayerHomeMap>
+  <Namae_DevOutput_GravshipBuildingChecklist>Gravship Building Checklist</Namae_DevOutput_GravshipBuildingChecklist>
+  <Namae_DevOutput_AnimalSpecialTrainables>Animal Special Trainables</Namae_DevOutput_AnimalSpecialTrainables>
+  <Namae_DevOutput_KeyStrings>Key Strings</Namae_DevOutput_KeyStrings>
+  <Namae_DevOutput_DefNames>Def Names</Namae_DevOutput_DefNames>
+  <Namae_DevOutput_DefNamesAll>Def Names All</Namae_DevOutput_DefNamesAll>
+  <Namae_DevOutput_DefLabels>Def Labels</Namae_DevOutput_DefLabels>
+  <Namae_DevOutput_BestThingRequestGroup>Best Thing Request Group</Namae_DevOutput_BestThingRequestGroup>
+  <Namae_DevOutput_DamageTest>Damage Test</Namae_DevOutput_DamageTest>
+  <Namae_DevOutput_PlayerHasGravEngineTest>Player Has Grav Engine Test</Namae_DevOutput_PlayerHasGravEngineTest>
+  <Namae_DevOutput_Terrains>Terrains</Namae_DevOutput_Terrains>
+  <Namae_DevOutput_TerrainAffordances>Terrain Affordances</Namae_DevOutput_TerrainAffordances>
+  <Namae_DevOutput_WildMissResults>Wild Miss Results</Namae_DevOutput_WildMissResults>
+  <Namae_DevOutput_ThingPathCostsIgnoreRepeaters>Thing Path Costs Ignore Repeaters</Namae_DevOutput_ThingPathCostsIgnoreRepeaters>
+  <Namae_DevOutput_GrowthMomentFlavor>Growth Moment Flavor</Namae_DevOutput_GrowthMomentFlavor>
+  <Namae_DevOutput_PodContentsPossibleDefs>Pod Contents Possible Defs</Namae_DevOutput_PodContentsPossibleDefs>
+  <Namae_DevOutput_PodContentsTest>Pod Contents Test</Namae_DevOutput_PodContentsTest>
+  <Namae_DevOutput_PeaceTalksChances>Peace Talks Chances</Namae_DevOutput_PeaceTalksChances>
+  <Namae_DevOutput_MissionAncientComplex>Mission Ancient Complex</Namae_DevOutput_MissionAncientComplex>
+  <Namae_DevOutput_Bossgroups>Bossgroups</Namae_DevOutput_Bossgroups>
+  <Namae_DevOutput_IncidentChances>Incident Chances</Namae_DevOutput_IncidentChances>
+  <Namae_DevOutput_IncidentChancesSampled>Incident Chances Sampled</Namae_DevOutput_IncidentChancesSampled>
+  <Namae_DevOutput_FutureIncidents>Future Incidents</Namae_DevOutput_FutureIncidents>
+  <Namae_DevOutput_FutureIncidentsCurrentMap>Future Incidents Current Map</Namae_DevOutput_FutureIncidentsCurrentMap>
+  <Namae_DevOutput_IncidentTargetsList>Incident Targets List</Namae_DevOutput_IncidentTargetsList>
+  <Namae_DevOutput_MinThreatPoints>Min Threat Points</Namae_DevOutput_MinThreatPoints>
+  <Namae_DevOutput_CurrentThreatPoints>Current Threat Points</Namae_DevOutput_CurrentThreatPoints>
+  <Namae_DevOutput_PawnArrivalCandidates>Pawn Arrival Candidates</Namae_DevOutput_PawnArrivalCandidates>
+  <Namae_DevOutput_TraderKinds>Trader Kinds</Namae_DevOutput_TraderKinds>
+  <Namae_DevOutput_TraderKindThings>Trader Kind Things</Namae_DevOutput_TraderKindThings>
+  <Namae_DevOutput_TraderStockMarketValues>Trader Stock Market Values</Namae_DevOutput_TraderStockMarketValues>
+  <Namae_DevOutput_TraderStockGeneration>Trader Stock Generation</Namae_DevOutput_TraderStockGeneration>
+  <Namae_DevOutput_TraderStockGeneratorsDefs>Trader Stock Generators Defs</Namae_DevOutput_TraderStockGeneratorsDefs>
+  <Namae_DevOutput_TraderAnimalTags>Trader Animal Tags</Namae_DevOutput_TraderAnimalTags>
+  <Namae_DevOutput_PawnGroupGenSampled>Pawn Group Gen Sampled</Namae_DevOutput_PawnGroupGenSampled>
+  <Namae_DevOutput_RaidFactionSampled>Raid Faction Sampled</Namae_DevOutput_RaidFactionSampled>
+  <Namae_DevOutput_RaidStrategySampled>Raid Strategy Sampled</Namae_DevOutput_RaidStrategySampled>
+  <Namae_DevOutput_RaidArrivemodeSampled>Raid Arrivemode Sampled</Namae_DevOutput_RaidArrivemodeSampled>
+  <Namae_DevOutput_ThreatsGenerator>Threats Generator</Namae_DevOutput_ThreatsGenerator>
+  <Namae_DevOutput_RaidsInfoSampled>Raids Info Sampled</Namae_DevOutput_RaidsInfoSampled>
+  <Namae_DevOutput_FlavorfulCombatTest>Flavorful Combat Test</Namae_DevOutput_FlavorfulCombatTest>
+  <Namae_DevOutput_CubeDescriptions>Cube Descriptions</Namae_DevOutput_CubeDescriptions>
+  <Namae_DevOutput_VoidSculptureDescriptions>Void Sculpture Descriptions</Namae_DevOutput_VoidSculptureDescriptions>
+  <Namae_DevOutput_Books>Books</Namae_DevOutput_Books>
+  <Namae_DevOutput_ArtDescsSpecificTale>Art Descs Specific Tale</Namae_DevOutput_ArtDescsSpecificTale>
+  <Namae_DevOutput_NamesFromRulepack>Names From Rulepack</Namae_DevOutput_NamesFromRulepack>
+  <Namae_DevOutput_LandmarkNames>Landmark Names</Namae_DevOutput_LandmarkNames>
+  <Namae_DevOutput_DatabaseTalesList>Database Tales List</Namae_DevOutput_DatabaseTalesList>
+  <Namae_DevOutput_DatabaseTalesInterest>Database Tales Interest</Namae_DevOutput_DatabaseTalesInterest>
+  <Namae_DevOutput_ArtDescsDatabaseTales>Art Descs Database Tales</Namae_DevOutput_ArtDescsDatabaseTales>
+  <Namae_DevOutput_ArtDescsRandomTales>Art Descs Random Tales</Namae_DevOutput_ArtDescsRandomTales>
+  <Namae_DevOutput_ArtDescsTaleless>Art Descs Taleless</Namae_DevOutput_ArtDescsTaleless>
+  <Namae_DevOutput_InteractionLogs>Interaction Logs</Namae_DevOutput_InteractionLogs>
+  <Namae_DevOutput_WordCount>Word Count</Namae_DevOutput_WordCount>
+  <Namae_DevOutput_ApparelByStuff>Apparel By Stuff</Namae_DevOutput_ApparelByStuff>
+  <Namae_DevOutput_ApparelArmor>Apparel Armor</Namae_DevOutput_ApparelArmor>
+  <Namae_DevOutput_ApparelInsulation>Apparel Insulation</Namae_DevOutput_ApparelInsulation>
+  <Namae_DevOutput_ApparelCountsForNudity>Apparel Counts For Nudity</Namae_DevOutput_ApparelCountsForNudity>
+  <Namae_DevOutput_RecipeSkills>Recipe Skills</Namae_DevOutput_RecipeSkills>
+  <Namae_DevOutput_Drugs>Drugs</Namae_DevOutput_Drugs>
+  <Namae_DevOutput_Wool>Wool</Namae_DevOutput_Wool>
+  <Namae_DevOutput_AnimalEconomy>Animal Economy</Namae_DevOutput_AnimalEconomy>
+  <Namae_DevOutput_AnimalBreeding>Animal Breeding</Namae_DevOutput_AnimalBreeding>
+  <Namae_DevOutput_Buildings>Buildings</Namae_DevOutput_Buildings>
+  <Namae_DevOutput_Crops>Crops</Namae_DevOutput_Crops>
+  <Namae_DevOutput_ItemAndBuildingAcquisition>Item And Building Acquisition</Namae_DevOutput_ItemAndBuildingAcquisition>
+  <Namae_DevOutput_ItemAccessibility>Item Accessibility</Namae_DevOutput_ItemAccessibility>
+  <Namae_DevOutput_ThingSetMakerTags>Thing Set Maker Tags</Namae_DevOutput_ThingSetMakerTags>
+  <Namae_DevOutput_ThingSmeltProducts>Thing Smelt Products</Namae_DevOutput_ThingSmeltProducts>
+  <Namae_DevOutput_Recipes>Recipes</Namae_DevOutput_Recipes>
+  <Namae_DevOutput_Floors>Floors</Namae_DevOutput_Floors>
+  <Namae_DevOutput_HediffsPriceImpact>Hediffs Price Impact</Namae_DevOutput_HediffsPriceImpact>
+  <Namae_DevOutput_RoamingVsEconomy>Roaming Vs Economy</Namae_DevOutput_RoamingVsEconomy>
+  <Namae_DevOutput_ArchonexusAllowedItems>Archonexus Allowed Items</Namae_DevOutput_ArchonexusAllowedItems>
+  <Namae_DevOutput_RewardTags>Reward Tags</Namae_DevOutput_RewardTags>
+  <Namae_DevOutput_AllFactions>All Factions</Namae_DevOutput_AllFactions>
+  <Namae_DevOutput_AllFactionsToRemove>All Factions To Remove</Namae_DevOutput_AllFactionsToRemove>
+  <Namae_DevOutput_AllFactionsFromPawns>All Factions From Pawns</Namae_DevOutput_AllFactionsFromPawns>
+  <Namae_DevOutput_PawnKindsBasics>Pawn Kinds Basics</Namae_DevOutput_PawnKindsBasics>
+  <Namae_DevOutput_PawnKindsWeaponUsage>Pawn Kinds Weapon Usage</Namae_DevOutput_PawnKindsWeaponUsage>
+  <Namae_DevOutput_PawnKindsApparelUsage>Pawn Kinds Apparel Usage</Namae_DevOutput_PawnKindsApparelUsage>
+  <Namae_DevOutput_PawnKindsTechHediffUsage>Pawn Kinds Tech Hediff Usage</Namae_DevOutput_PawnKindsTechHediffUsage>
+  <Namae_DevOutput_PawnKindGearSampled>Pawn Kind Gear Sampled</Namae_DevOutput_PawnKindGearSampled>
+  <Namae_DevOutput_PawnWorkDisablesSampled>Pawn Work Disables Sampled</Namae_DevOutput_PawnWorkDisablesSampled>
+  <Namae_DevOutput_LivePawnsInspirationChances>Live Pawns Inspiration Chances</Namae_DevOutput_LivePawnsInspirationChances>
+  <Namae_DevOutput_RacesFoodConsumption>Races Food Consumption</Namae_DevOutput_RacesFoodConsumption>
+  <Namae_DevOutput_RacesButchery>Races Butchery</Namae_DevOutput_RacesButchery>
+  <Namae_DevOutput_AnimalsBasics>Animals Basics</Namae_DevOutput_AnimalsBasics>
+  <Namae_DevOutput_AnimalPointsToHuntOrSlaughter>Animal Points To Hunt Or Slaughter</Namae_DevOutput_AnimalPointsToHuntOrSlaughter>
+  <Namae_DevOutput_AnimalCombatBalance>Animal Combat Balance</Namae_DevOutput_AnimalCombatBalance>
+  <Namae_DevOutput_Mechanoids>Mechanoids</Namae_DevOutput_Mechanoids>
+  <Namae_DevOutput_AnimalTradeTags>Animal Trade Tags</Namae_DevOutput_AnimalTradeTags>
+  <Namae_DevOutput_AnimalBehavior>Animal Behavior</Namae_DevOutput_AnimalBehavior>
+  <Namae_DevOutput_AnimalsEcosystem>Animals Ecosystem</Namae_DevOutput_AnimalsEcosystem>
+  <Namae_DevOutput_MentalBreaks>Mental Breaks</Namae_DevOutput_MentalBreaks>
+  <Namae_DevOutput_Thoughts>Thoughts</Namae_DevOutput_Thoughts>
+  <Namae_DevOutput_IdeoThoughts>Ideo Thoughts</Namae_DevOutput_IdeoThoughts>
+  <Namae_DevOutput_TraitsSampled>Traits Sampled</Namae_DevOutput_TraitsSampled>
+  <Namae_DevOutput_BackstoryCountsPerTag>Backstory Counts Per Tag</Namae_DevOutput_BackstoryCountsPerTag>
+  <Namae_DevOutput_ListSolidBackstories>List Solid Backstories</Namae_DevOutput_ListSolidBackstories>
+  <Namae_DevOutput_ShowBeardFrequency>Show Beard Frequency</Namae_DevOutput_ShowBeardFrequency>
+  <Namae_DevOutput_Entities>Entities</Namae_DevOutput_Entities>
+  <Namae_DevOutput_WorldPawnRelations>World Pawn Relations</Namae_DevOutput_WorldPawnRelations>
+  <Namae_DevOutput_VirtualRecords>Virtual Records</Namae_DevOutput_VirtualRecords>
+  <Namae_DevOutput_LoadedAssets>Loaded Assets</Namae_DevOutput_LoadedAssets>
+  <Namae_DevOutput_DynamicDrawThingsList>Dynamic Draw Things List</Namae_DevOutput_DynamicDrawThingsList>
+  <Namae_DevOutput_RandByCurveTests>Rand By Curve Tests</Namae_DevOutput_RandByCurveTests>
+  <Namae_DevOutput_ColonistRelativeChance>Colonist Relative Chance</Namae_DevOutput_ColonistRelativeChance>
+  <Namae_DevOutput_KidnappedPawns>Kidnapped Pawns</Namae_DevOutput_KidnappedPawns>
+  <Namae_DevOutput_WorldPawnList>World Pawn List</Namae_DevOutput_WorldPawnList>
+  <Namae_DevOutput_WorldPawnMothballInfo>World Pawn Mothball Info</Namae_DevOutput_WorldPawnMothballInfo>
+  <Namae_DevOutput_WorldPawnGcBreakdown>World Pawn Gc Breakdown</Namae_DevOutput_WorldPawnGcBreakdown>
+  <Namae_DevOutput_WorldPawnDotgraph>World Pawn Dotgraph</Namae_DevOutput_WorldPawnDotgraph>
+  <Namae_DevOutput_RunWorldPawnGc>Run World Pawn Gc</Namae_DevOutput_RunWorldPawnGc>
+  <Namae_DevOutput_RunWorldPawnMothball>Run World Pawn Mothball</Namae_DevOutput_RunWorldPawnMothball>
+  <Namae_DevOutput_PawnColumnTest>Pawn Column Test</Namae_DevOutput_PawnColumnTest>
+  <Namae_DevOutput_TestMathPerf>Test Math Perf</Namae_DevOutput_TestMathPerf>
+  <Namae_DevOutput_AllGraphicsLoaded>All Graphics Loaded</Namae_DevOutput_AllGraphicsLoaded>
+  <Namae_DevOutput_MaterialReport>Material Report</Namae_DevOutput_MaterialReport>
+  <Namae_DevOutput_MaterialSnapshot>Material Snapshot</Namae_DevOutput_MaterialSnapshot>
+  <Namae_DevOutput_MaterialDelta>Material Delta</Namae_DevOutput_MaterialDelta>
+  <Namae_DevOutput_MeshPoolStats>Mesh Pool Stats</Namae_DevOutput_MeshPoolStats>
+  <Namae_DevOutput_PawnGenerationHistogram>Pawn Generation Histogram</Namae_DevOutput_PawnGenerationHistogram>
+  <Namae_DevOutput_RandTests>Rand Tests</Namae_DevOutput_RandTests>
+  <Namae_DevOutput_SteamWorkshopStatus>Steam Workshop Status</Namae_DevOutput_SteamWorkshopStatus>
+  <Namae_DevSettingDesc_DebugSettings_enableDamage>Allows damage to be applied during normal game processing. Turn it off to test situations without pawns and things taking damage.</Namae_DevSettingDesc_DebugSettings_enableDamage>
+  <Namae_DevSettingDesc_DebugSettings_enablePlayerDamage>Allows damage to affect player-controlled pawns and things. Turn it off to protect the player side while other factions can still take damage.</Namae_DevSettingDesc_DebugSettings_enablePlayerDamage>
+  <Namae_DevSettingDesc_DebugSettings_enableRandomMentalStates>Allows the storyteller and other normal systems to start random mental states. Turn it off to prevent random mental breaks during a test.</Namae_DevSettingDesc_DebugSettings_enableRandomMentalStates>
+  <Namae_DevSettingDesc_DebugSettings_enableStoryteller>Allows the storyteller to generate incidents normally. Turn it off to keep raids and other storyteller incidents from interrupting a test.</Namae_DevSettingDesc_DebugSettings_enableStoryteller>
+  <Namae_DevSettingDesc_DebugSettings_enableRandomDiseases>Allows diseases generated by normal random incidents. Turn it off to stop new random diseases while testing.</Namae_DevSettingDesc_DebugSettings_enableRandomDiseases>
+  <Namae_DevSettingDesc_DebugSettings_enableTranslationWindowInEnglish>Shows the translation debugging window in English even when another language is active. This helps compare translation keys and source text.</Namae_DevSettingDesc_DebugSettings_enableTranslationWindowInEnglish>
+  <Namae_DevSettingDesc_DebugSettings_godMode>Enables instant construction and other god-mode controls. Actions performed with it can change the current map and save data immediately.</Namae_DevSettingDesc_DebugSettings_godMode>
+  <Namae_DevSettingDesc_DebugSettings_devPalette>Enables the developer palette used to inspect and choose debug colors. It affects developer tools rather than ordinary gameplay.</Namae_DevSettingDesc_DebugSettings_devPalette>
+  <Namae_DevSettingDesc_DebugSettings_pauseOnError>Pauses the game when an error is logged. Use it to stop at the moment a reproducible error occurs and inspect the log.</Namae_DevSettingDesc_DebugSettings_pauseOnError>
+  <Namae_DevSettingDesc_DebugSettings_noAnimals>Prevents animals from being generated by normal game systems. Existing animals are not removed.</Namae_DevSettingDesc_DebugSettings_noAnimals>
+  <Namae_DevSettingDesc_DebugSettings_unlimitedPower>Keeps powered devices supplied without relying on normal power generation. Use it to test buildings while ignoring the state of the power network.</Namae_DevSettingDesc_DebugSettings_unlimitedPower>
+  <Namae_DevSettingDesc_DebugSettings_pathThroughWalls>Lets pathfinding consider routes through normally impassable walls. It is a pathfinding test option and does not remove the walls.</Namae_DevSettingDesc_DebugSettings_pathThroughWalls>
+  <Namae_DevSettingDesc_DebugSettings_instantRecruit>Makes eligible recruitment attempts succeed immediately. It changes the recruited pawn and therefore affects the current save.</Namae_DevSettingDesc_DebugSettings_instantRecruit>
+  <Namae_DevSettingDesc_DebugSettings_alwaysSocialFight>Forces eligible negative social interactions to become social fights. Use it to reproduce fight-related behavior and injuries.</Namae_DevSettingDesc_DebugSettings_alwaysSocialFight>
+  <Namae_DevSettingDesc_DebugSettings_alwaysDoLovin>Makes partnered pawns choose lovin whenever its normal eligibility checks allow it. It does not create a relationship or bypass every prerequisite.</Namae_DevSettingDesc_DebugSettings_alwaysDoLovin>
+  <Namae_DevSettingDesc_DebugSettings_detectRegionListersBugs>Runs extra consistency checks for RegionLister contents and reports mismatches to the log. The additional checks can reduce performance.</Namae_DevSettingDesc_DebugSettings_detectRegionListersBugs>
+  <Namae_DevSettingDesc_DebugSettings_instantVisitorsGift>Makes a visiting group deliver its departure gift without waiting for the normal timing. It changes the items received by the colony.</Namae_DevSettingDesc_DebugSettings_instantVisitorsGift>
+  <Namae_DevSettingDesc_DebugSettings_lowFPS>Artificially lowers the frame rate to reproduce behavior under slow rendering. It is intended for UI and timing tests, not normal play.</Namae_DevSettingDesc_DebugSettings_lowFPS>
+  <Namae_DevSettingDesc_DebugSettings_allowUndraftedMechOrders>Allows direct orders to player-controlled mechs without drafting them first. It changes the command restriction, not mech ownership or control range.</Namae_DevSettingDesc_DebugSettings_allowUndraftedMechOrders>
+  <Namae_DevSettingDesc_DebugSettings_editableGlowerColors>Enables developer controls for editing the colors of light-emitting things. Changes made with those controls can alter the current object or definition being tested.</Namae_DevSettingDesc_DebugSettings_editableGlowerColors>
+  <Namae_DevSettingDesc_DebugSettings_showHiddenPawns>Includes pawns normally hidden from ordinary lists and selection views. It only changes developer visibility and does not unhide them for normal gameplay.</Namae_DevSettingDesc_DebugSettings_showHiddenPawns>
+  <Namae_DevSettingDesc_DebugSettings_showHiddenInfo>Reveals information that normal game UI intentionally hides, such as debug-only state. It changes what developers can inspect, not the underlying game state.</Namae_DevSettingDesc_DebugSettings_showHiddenInfo>
+  <Namae_DevSettingDesc_DebugSettings_anomalyDarkeningFX>Controls the screen-darkening effect used by Anomaly events. Turn it off to inspect maps without the visual darkening; the event itself continues.</Namae_DevSettingDesc_DebugSettings_anomalyDarkeningFX>
+  <Namae_DevSettingDesc_DebugSettings_fastResearch>Greatly increases research progress so projects finish quickly. Completed research remains completed in the current save.</Namae_DevSettingDesc_DebugSettings_fastResearch>
+  <Namae_DevSettingDesc_DebugSettings_fastLearning>Greatly accelerates pawn learning and training progress. Skill and learning changes produced while enabled remain in the save.</Namae_DevSettingDesc_DebugSettings_fastLearning>
+  <Namae_DevSettingDesc_DebugSettings_fastEcology>Accelerates ecological updates such as plant and animal population changes. Use it to observe long-term ecology in a short test.</Namae_DevSettingDesc_DebugSettings_fastEcology>
+  <Namae_DevSettingDesc_DebugSettings_fastEcologyRegrowRateOnly>Accelerates only ecological regrowth while leaving other ecology timing unchanged. Use it to isolate plant and resource recovery behavior.</Namae_DevSettingDesc_DebugSettings_fastEcologyRegrowRateOnly>
+  <Namae_DevSettingDesc_DebugSettings_fastCrafting>Greatly accelerates work on crafting bills. Items completed while enabled are real items and remain in the save.</Namae_DevSettingDesc_DebugSettings_fastCrafting>
+  <Namae_DevSettingDesc_DebugSettings_fastCaravans>Greatly increases caravan travel speed on the world map. Distance traveled while enabled is not undone when the setting is turned off.</Namae_DevSettingDesc_DebugSettings_fastCaravans>
+  <Namae_DevSettingDesc_DebugSettings_fastMapUnpollution>Accelerates pollution removal across the map. Pollution already removed remains removed in the current save.</Namae_DevSettingDesc_DebugSettings_fastMapUnpollution>
+  <Namae_DevSettingDesc_DebugSettings_activateAllBuildingDemands>Treats all ideology building requirements as active for testing. It exposes requirements without changing the colony ideology itself.</Namae_DevSettingDesc_DebugSettings_activateAllBuildingDemands>
+  <Namae_DevSettingDesc_DebugSettings_activateAllIdeoRoles>Makes all ideology roles available for testing regardless of normal activation conditions. Assigning a role still changes the pawn and save.</Namae_DevSettingDesc_DebugSettings_activateAllIdeoRoles>
+  <Namae_DevSettingDesc_DebugSettings_showLocomotionUrgency>Displays each pawn locomotion urgency for movement debugging. It adds diagnostic information without changing movement decisions.</Namae_DevSettingDesc_DebugSettings_showLocomotionUrgency>
+  <Namae_DevSettingDesc_DebugSettings_playRitualAmbience>Allows ritual ambience and background audio to play. Turn it off to test ritual visuals or logic without the ambience track.</Namae_DevSettingDesc_DebugSettings_playRitualAmbience>
+  <Namae_DevSettingDesc_DebugSettings_simulateUsingSteamDeck>Makes the game use Steam Deck-specific UI and input decisions for testing. It does not change the actual hardware or controller connection.</Namae_DevSettingDesc_DebugSettings_simulateUsingSteamDeck>
+  <Namae_DevSettingDesc_DebugSettings_logRaidInfo>Writes detailed raid generation and execution information to the log. Enable it only while diagnosing raids because it can produce many messages.</Namae_DevSettingDesc_DebugSettings_logRaidInfo>
+  <Namae_DevSettingDesc_DebugSettings_logTranslationLookupErrors>Logs failed translation-key lookups and related translation problems. Use it to find missing or malformed keyed translations.</Namae_DevSettingDesc_DebugSettings_logTranslationLookupErrors>
+  <Namae_DevSettingDesc_DebugSettings_logPsychicRitualTransitions>Logs state transitions inside psychic rituals. Use it to trace where a ritual advances, waits, or fails.</Namae_DevSettingDesc_DebugSettings_logPsychicRitualTransitions>
+  <Namae_DevSettingDesc_DebugSettings_fastMonolithRespawn>Shortens the wait before the monolith can return or respawn. A monolith spawned while enabled remains in the save.</Namae_DevSettingDesc_DebugSettings_fastMonolithRespawn>
+  <Namae_DevSettingDesc_DebugSettings_searchIgnoresRestrictions>Makes supported developer searches include entries normally excluded by restrictions. It broadens search results without changing the underlying definitions.</Namae_DevSettingDesc_DebugSettings_searchIgnoresRestrictions>
+  <Namae_DevSettingDesc_DebugSettings_alwaysRareCatches>Forces successful fishing to choose from rare catches when possible. The caught item is added normally and remains in the save.</Namae_DevSettingDesc_DebugSettings_alwaysRareCatches>
+  <Namae_DevSettingDesc_DebugSettings_alwaysNegativeCatches>Forces successful fishing to choose negative catches when possible. Any resulting item or effect is applied normally.</Namae_DevSettingDesc_DebugSettings_alwaysNegativeCatches>
+  <Namae_DevSettingDesc_DebugSettings_logMismatchedLayoutFactions>Logs generated layouts whose faction does not match the expected faction. Use it to diagnose base and structure generation.</Namae_DevSettingDesc_DebugSettings_logMismatchedLayoutFactions>
+  <Namae_DevSettingDesc_DebugSettings_loopGravshipCutscene>Repeats the gravship cutscene instead of letting it finish once. Use it to inspect timing, camera, and visual effects.</Namae_DevSettingDesc_DebugSettings_loopGravshipCutscene>
+  <Namae_DevSettingDesc_DebugSettings_skipGravshipTileSelection>Skips the normal destination-tile selection step for gravship travel. Use it to test later travel stages without repeating selection.</Namae_DevSettingDesc_DebugSettings_skipGravshipTileSelection>
+  <Namae_DevSettingDesc_DebugSettings_ignoreGravshipRange>Allows gravship destinations beyond the normal travel range to be selected. It bypasses the range check but does not add fuel or change the ship.</Namae_DevSettingDesc_DebugSettings_ignoreGravshipRange>
+  <Namae_DevSettingDesc_DebugViewSettings_drawFog>Shows or hides the fog-of-war layer. This is useful for inspecting unrevealed map areas and does not reveal them in the save.</Namae_DevSettingDesc_DebugViewSettings_drawFog>
+  <Namae_DevSettingDesc_DebugViewSettings_drawSnow>Shows or hides snow graphics on map cells. Snow depth and movement effects remain unchanged.</Namae_DevSettingDesc_DebugViewSettings_drawSnow>
+  <Namae_DevSettingDesc_DebugViewSettings_drawSand>Shows or hides sand-depth graphics. The stored sand depth and its gameplay effects are not changed.</Namae_DevSettingDesc_DebugViewSettings_drawSand>
+  <Namae_DevSettingDesc_DebugViewSettings_drawTerrain>Shows or hides the map terrain layer. Use it to isolate buildings, pawns, and overlays from the ground graphics.</Namae_DevSettingDesc_DebugViewSettings_drawTerrain>
+  <Namae_DevSettingDesc_DebugViewSettings_drawTerrainWater>Shows or hides water-specific terrain rendering while leaving water terrain data intact.</Namae_DevSettingDesc_DebugViewSettings_drawTerrainWater>
+  <Namae_DevSettingDesc_DebugViewSettings_drawThingsDynamic>Shows or hides Things rendered dynamically each frame, such as moving or frequently changing objects. Their simulation continues when hidden.</Namae_DevSettingDesc_DebugViewSettings_drawThingsDynamic>
+  <Namae_DevSettingDesc_DebugViewSettings_drawThingsPrinted>Shows or hides Things cached into map-section meshes. Use it to distinguish cached rendering from dynamic rendering.</Namae_DevSettingDesc_DebugViewSettings_drawThingsPrinted>
+  <Namae_DevSettingDesc_DebugViewSettings_drawShadows>Shows or hides object shadows. Lighting levels and gameplay visibility calculations are not changed.</Namae_DevSettingDesc_DebugViewSettings_drawShadows>
+  <Namae_DevSettingDesc_DebugViewSettings_drawLightingOverlay>Shows or hides the map lighting overlay. Use it to inspect unlit graphics separately from the lighting pass.</Namae_DevSettingDesc_DebugViewSettings_drawLightingOverlay>
+  <Namae_DevSettingDesc_DebugViewSettings_drawWorldOverlays>Shows or hides informational overlays on the world map. World objects and their state remain active.</Namae_DevSettingDesc_DebugViewSettings_drawWorldOverlays>
+  <Namae_DevSettingDesc_DebugViewSettings_drawGas>Shows or hides gas clouds on the map. Gas quantities, spread, and effects continue while hidden.</Namae_DevSettingDesc_DebugViewSettings_drawGas>
+  <Namae_DevSettingDesc_DebugViewSettings_singleThreadedDrawing>Forces supported drawing work onto one thread. Use it to reproduce rendering-order and thread-safety problems; performance may decrease.</Namae_DevSettingDesc_DebugViewSettings_singleThreadedDrawing>
+  <Namae_DevSettingDesc_DebugViewSettings_drawWorldObjects>Shows or hides world objects such as settlements and sites. Their simulation and world-map data continue while hidden.</Namae_DevSettingDesc_DebugViewSettings_drawWorldObjects>
+  <Namae_DevSettingDesc_DebugViewSettings_drawPaths>Draws current pawn paths on the map. It exposes selected route cells without changing pathfinding decisions.</Namae_DevSettingDesc_DebugViewSettings_drawPaths>
+  <Namae_DevSettingDesc_DebugViewSettings_drawPatherState>Displays internal Pather state for moving pawns, including progress and current path status. It is diagnostic only.</Namae_DevSettingDesc_DebugViewSettings_drawPatherState>
+  <Namae_DevSettingDesc_DebugViewSettings_drawCastPositionSearch>Draws candidate cells and results considered when searching for a ranged attack position. It visualizes the search without choosing a different position.</Namae_DevSettingDesc_DebugViewSettings_drawCastPositionSearch>
+  <Namae_DevSettingDesc_DebugViewSettings_drawDestSearch>Draws cells examined while searching for a movement destination. Use it to see why a destination was accepted or rejected.</Namae_DevSettingDesc_DebugViewSettings_drawDestSearch>
+  <Namae_DevSettingDesc_DebugViewSettings_drawStyleSearch>Draws the candidates evaluated when selecting a visual style. It reports the search process without changing the selected style.</Namae_DevSettingDesc_DebugViewSettings_drawStyleSearch>
+  <Namae_DevSettingDesc_DebugViewSettings_drawSectionEdges>Outlines map-section boundaries used by cached rendering. Use it to locate section seams and rebuild problems.</Namae_DevSettingDesc_DebugViewSettings_drawSectionEdges>
+  <Namae_DevSettingDesc_DebugViewSettings_drawRiverDebug>Displays river-generation diagnostic geometry on the world map. It does not regenerate or move existing rivers.</Namae_DevSettingDesc_DebugViewSettings_drawRiverDebug>
+  <Namae_DevSettingDesc_DebugViewSettings_drawRiverFlowDebug>Displays river-flow directions and related flow data. It is a diagnostic overlay and does not change water movement.</Namae_DevSettingDesc_DebugViewSettings_drawRiverFlowDebug>
+  <Namae_DevSettingDesc_DebugViewSettings_drawPawnDebug>Adds general AI and state diagnostics around pawns. It can clutter the map but does not issue jobs or alter pawn state.</Namae_DevSettingDesc_DebugViewSettings_drawPawnDebug>
+  <Namae_DevSettingDesc_DebugViewSettings_drawPawnRotatorTarget>Draws the direction each pawn rotator is trying to face. Use it to diagnose facing and rotation interpolation.</Namae_DevSettingDesc_DebugViewSettings_drawPawnRotatorTarget>
+  <Namae_DevSettingDesc_DebugViewSettings_drawRegions>Colors the pathfinding Regions on the map. It shows the current Region partition without rebuilding it.</Namae_DevSettingDesc_DebugViewSettings_drawRegions>
+  <Namae_DevSettingDesc_DebugViewSettings_drawRegionLinks>Draws links between neighboring Regions. Use it to find missing or incorrect pathfinding connections.</Namae_DevSettingDesc_DebugViewSettings_drawRegionLinks>
+  <Namae_DevSettingDesc_DebugViewSettings_drawRegionDirties>Highlights Regions marked dirty and waiting for rebuild. It does not force the rebuild itself.</Namae_DevSettingDesc_DebugViewSettings_drawRegionDirties>
+  <Namae_DevSettingDesc_DebugViewSettings_drawRegionTraversal>Visualizes Regions visited by supported traversal searches. It helps trace search order without changing the result.</Namae_DevSettingDesc_DebugViewSettings_drawRegionTraversal>
+  <Namae_DevSettingDesc_DebugViewSettings_drawRegionThings>Displays Things registered in each Region. Use it to diagnose stale or missing RegionLister entries.</Namae_DevSettingDesc_DebugViewSettings_drawRegionThings>
+  <Namae_DevSettingDesc_DebugViewSettings_drawDistricts>Colors pathfinding Districts, which group connected Regions through doors. It is a diagnostic view only.</Namae_DevSettingDesc_DebugViewSettings_drawDistricts>
+  <Namae_DevSettingDesc_DebugViewSettings_drawRooms>Colors Rooms derived from the current Region and District structure. It does not recalculate room roles or statistics.</Namae_DevSettingDesc_DebugViewSettings_drawRooms>
+  <Namae_DevSettingDesc_DebugViewSettings_drawPower>Displays power-related diagnostics on connected buildings and networks. It does not supply or consume power.</Namae_DevSettingDesc_DebugViewSettings_drawPower>
+  <Namae_DevSettingDesc_DebugViewSettings_drawPowerNetGrid>Draws cells and links belonging to each power network. Use it to find unexpected connections or disconnections.</Namae_DevSettingDesc_DebugViewSettings_drawPowerNetGrid>
+  <Namae_DevSettingDesc_DebugViewSettings_drawOpportunisticJobs>Displays opportunistic Jobs considered around a pawn current work. It does not assign those Jobs.</Namae_DevSettingDesc_DebugViewSettings_drawOpportunisticJobs>
+  <Namae_DevSettingDesc_DebugViewSettings_drawTooltipEdges>Outlines tooltip regions registered by the UI. Use it to diagnose overlap, clipping, and incorrect hover areas.</Namae_DevSettingDesc_DebugViewSettings_drawTooltipEdges>
+  <Namae_DevSettingDesc_DebugViewSettings_drawRecordedNoise>Displays noise events recorded for AI hearing and reaction systems. It does not create new noise.</Namae_DevSettingDesc_DebugViewSettings_drawRecordedNoise>
+  <Namae_DevSettingDesc_DebugViewSettings_drawFoodSearchFromMouse>Runs the supported food search from the cell under the mouse and draws the candidates and result. It is a diagnostic query and does not order a pawn to eat.</Namae_DevSettingDesc_DebugViewSettings_drawFoodSearchFromMouse>
+  <Namae_DevSettingDesc_DebugViewSettings_drawPreyInfo>Displays hunting and prey-selection information around animals. It shows evaluation data without assigning a hunt target.</Namae_DevSettingDesc_DebugViewSettings_drawPreyInfo>
+  <Namae_DevSettingDesc_DebugViewSettings_drawGlow>Displays the map glow grid and light levels. It reveals calculated lighting data without adding light sources.</Namae_DevSettingDesc_DebugViewSettings_drawGlow>
+  <Namae_DevSettingDesc_DebugViewSettings_drawAvoidGrid>Displays the avoid grid used to discourage pawn movement through hazardous or undesirable cells. It does not modify path costs.</Namae_DevSettingDesc_DebugViewSettings_drawAvoidGrid>
+  <Namae_DevSettingDesc_DebugViewSettings_drawBreachingGrid>Displays BreachingGrid values used when attackers choose walls and breach routes. It does not start a breach or change the grid.</Namae_DevSettingDesc_DebugViewSettings_drawBreachingGrid>
+  <Namae_DevSettingDesc_DebugViewSettings_drawBreachingNoise>Displays noise values that influence breach-path selection. It does not create sound or alert pawns.</Namae_DevSettingDesc_DebugViewSettings_drawBreachingNoise>
+  <Namae_DevSettingDesc_DebugViewSettings_drawLords>Displays active Lords and the pawn groups they coordinate. It is a diagnostic overlay and does not change group AI.</Namae_DevSettingDesc_DebugViewSettings_drawLords>
+  <Namae_DevSettingDesc_DebugViewSettings_drawDuties>Displays each pawn current Duty assigned by its Lord. It does not assign or replace Duties.</Namae_DevSettingDesc_DebugViewSettings_drawDuties>
+  <Namae_DevSettingDesc_DebugViewSettings_drawShooting>Displays shooting geometry such as lines, targets, and calculated positions. It does not fire a weapon or alter hit chances.</Namae_DevSettingDesc_DebugViewSettings_drawShooting>
+  <Namae_DevSettingDesc_DebugViewSettings_drawInfestationChance>Colors cells by their current insect-infestation chance. It does not trigger an infestation or change the calculated chance.</Namae_DevSettingDesc_DebugViewSettings_drawInfestationChance>
+  <Namae_DevSettingDesc_DebugViewSettings_drawFleshmassHeartChance>Colors cells by their suitability or chance for a fleshmass heart. It does not generate the heart.</Namae_DevSettingDesc_DebugViewSettings_drawFleshmassHeartChance>
+  <Namae_DevSettingDesc_DebugViewSettings_drawStealDebug>Displays item choices and scores used by stealing AI. It does not order a pawn to steal or move items.</Namae_DevSettingDesc_DebugViewSettings_drawStealDebug>
+  <Namae_DevSettingDesc_DebugViewSettings_drawDeepResources>Displays underground resource deposits detected by the map data. It does not reveal them through normal gameplay or mine them.</Namae_DevSettingDesc_DebugViewSettings_drawDeepResources>
+  <Namae_DevSettingDesc_DebugViewSettings_drawAttackTargetScores>Displays candidate attack targets and the scores used to rank them. It does not force a different target.</Namae_DevSettingDesc_DebugViewSettings_drawAttackTargetScores>
+  <Namae_DevSettingDesc_DebugViewSettings_drawFOVSymmetry>Displays symmetry checks used by field-of-view calculations. Use it to find directional inconsistencies without changing visibility.</Namae_DevSettingDesc_DebugViewSettings_drawFOVSymmetry>
+  <Namae_DevSettingDesc_DebugViewSettings_drawNonCombatantTimer>Displays the timer used to classify or handle non-combatants. It does not change faction or combat status.</Namae_DevSettingDesc_DebugViewSettings_drawNonCombatantTimer>
+  <Namae_DevSettingDesc_DebugViewSettings_drawInteractionCells>Marks interaction cells used when pawns operate buildings and objects. It does not reserve or occupy those cells.</Namae_DevSettingDesc_DebugViewSettings_drawInteractionCells>
+  <Namae_DevSettingDesc_DebugViewSettings_drawDoorsDebug>Displays door state, access, and opening diagnostics. It does not open, close, or unlock doors.</Namae_DevSettingDesc_DebugViewSettings_drawDoorsDebug>
+  <Namae_DevSettingDesc_DebugViewSettings_drawDestReservations>Displays destination-cell reservations held by pawns. It does not create or release reservations.</Namae_DevSettingDesc_DebugViewSettings_drawDestReservations>
+  <Namae_DevSettingDesc_DebugViewSettings_drawDamageRects>Draws rectangles and areas used by supported damage calculations. It does not apply damage.</Namae_DevSettingDesc_DebugViewSettings_drawDamageRects>
+  <Namae_DevSettingDesc_DebugViewSettings_drawDissolutionCells>Draw Dissolution Cells. This overlay helps inspect the corresponding map or UI state and does not modify the underlying data.</Namae_DevSettingDesc_DebugViewSettings_drawDissolutionCells>
+  <Namae_DevSettingDesc_DebugViewSettings_drawUnpollutionCells>Draw Unpollution Cells. This overlay helps inspect the corresponding map or UI state and does not modify the underlying data.</Namae_DevSettingDesc_DebugViewSettings_drawUnpollutionCells>
+  <Namae_DevSettingDesc_DebugViewSettings_drawHateChanterPositions>Draw Hate Chanter Positions. This overlay helps inspect the corresponding map or UI state and does not modify the underlying data.</Namae_DevSettingDesc_DebugViewSettings_drawHateChanterPositions>
+  <Namae_DevSettingDesc_DebugViewSettings_drawDarknessOverlay>Draw Darkness Overlay. This overlay helps inspect the corresponding map or UI state and does not modify the underlying data.</Namae_DevSettingDesc_DebugViewSettings_drawDarknessOverlay>
+  <Namae_DevSettingDesc_DebugViewSettings_drawWoundAnchorsOnHover>Draw Wound Anchors On Hover. This overlay helps inspect the corresponding map or UI state and does not modify the underlying data.</Namae_DevSettingDesc_DebugViewSettings_drawWoundAnchorsOnHover>
+  <Namae_DevSettingDesc_DebugViewSettings_drawMapGraphs>Draw Map Graphs. This overlay helps inspect the corresponding map or UI state and does not modify the underlying data.</Namae_DevSettingDesc_DebugViewSettings_drawMapGraphs>
+  <Namae_DevSettingDesc_DebugViewSettings_drawMapRooms>Draw Map Rooms. This overlay helps inspect the corresponding map or UI state and does not modify the underlying data.</Namae_DevSettingDesc_DebugViewSettings_drawMapRooms>
+  <Namae_DevSettingDesc_DebugViewSettings_drawIndoorMask>Draw Indoor Mask. This overlay helps inspect the corresponding map or UI state and does not modify the underlying data.</Namae_DevSettingDesc_DebugViewSettings_drawIndoorMask>
+  <Namae_DevSettingDesc_DebugViewSettings_drawOutdoorMask>Draw Outdoor Mask. This overlay helps inspect the corresponding map or UI state and does not modify the underlying data.</Namae_DevSettingDesc_DebugViewSettings_drawOutdoorMask>
+  <Namae_DevSettingDesc_DebugViewSettings_drawShamblerAlertMote>Draw Shambler Alert Mote. This overlay helps inspect the corresponding map or UI state and does not modify the underlying data.</Namae_DevSettingDesc_DebugViewSettings_drawShamblerAlertMote>
+  <Namae_DevSettingDesc_DebugViewSettings_drawWaterBodies>Draw Water Bodies. This overlay helps inspect the corresponding map or UI state and does not modify the underlying data.</Namae_DevSettingDesc_DebugViewSettings_drawWaterBodies>
+  <Namae_DevSettingDesc_DebugViewSettings_drawMeltingIce>Draw Melting Ice. This overlay helps inspect the corresponding map or UI state and does not modify the underlying data.</Namae_DevSettingDesc_DebugViewSettings_drawMeltingIce>
+  <Namae_DevSettingDesc_DebugViewSettings_drawUsedRects>Draw Used Rects. This overlay helps inspect the corresponding map or UI state and does not modify the underlying data.</Namae_DevSettingDesc_DebugViewSettings_drawUsedRects>
+  <Namae_DevSettingDesc_DebugViewSettings_drawRoadPaths>Draw Road Paths. This overlay helps inspect the corresponding map or UI state and does not modify the underlying data.</Namae_DevSettingDesc_DebugViewSettings_drawRoadPaths>
+  <Namae_DevSettingDesc_DebugViewSettings_drawGravshipMask>Draw Gravship Mask. This overlay helps inspect the corresponding map or UI state and does not modify the underlying data.</Namae_DevSettingDesc_DebugViewSettings_drawGravshipMask>
+  <Namae_DevSettingDesc_DebugViewSettings_drawTerrainCurtain>Draw Terrain Curtain. This overlay helps inspect the corresponding map or UI state and does not modify the underlying data.</Namae_DevSettingDesc_DebugViewSettings_drawTerrainCurtain>
+  <Namae_DevSettingDesc_DebugViewSettings_writeGame>Write Game. It writes the current diagnostic value or list onto the map or screen without changing the value being inspected.</Namae_DevSettingDesc_DebugViewSettings_writeGame>
+  <Namae_DevSettingDesc_DebugViewSettings_writeSteamItems>Write Steam Items. It writes the current diagnostic value or list onto the map or screen without changing the value being inspected.</Namae_DevSettingDesc_DebugViewSettings_writeSteamItems>
+  <Namae_DevSettingDesc_DebugViewSettings_writeConcepts>Write Concepts. It writes the current diagnostic value or list onto the map or screen without changing the value being inspected.</Namae_DevSettingDesc_DebugViewSettings_writeConcepts>
+  <Namae_DevSettingDesc_DebugViewSettings_writeReservations>Write Reservations. It writes the current diagnostic value or list onto the map or screen without changing the value being inspected.</Namae_DevSettingDesc_DebugViewSettings_writeReservations>
+  <Namae_DevSettingDesc_DebugViewSettings_writePathCosts>Write Path Costs. It writes the current diagnostic value or list onto the map or screen without changing the value being inspected.</Namae_DevSettingDesc_DebugViewSettings_writePathCosts>
+  <Namae_DevSettingDesc_DebugViewSettings_writeFertility>Write Fertility. It writes the current diagnostic value or list onto the map or screen without changing the value being inspected.</Namae_DevSettingDesc_DebugViewSettings_writeFertility>
+  <Namae_DevSettingDesc_DebugViewSettings_writeLinkFlags>Write Link Flags. It writes the current diagnostic value or list onto the map or screen without changing the value being inspected.</Namae_DevSettingDesc_DebugViewSettings_writeLinkFlags>
+  <Namae_DevSettingDesc_DebugViewSettings_writeCover>Write Cover. It writes the current diagnostic value or list onto the map or screen without changing the value being inspected.</Namae_DevSettingDesc_DebugViewSettings_writeCover>
+  <Namae_DevSettingDesc_DebugViewSettings_writeCellContents>Write Cell Contents. It writes the current diagnostic value or list onto the map or screen without changing the value being inspected.</Namae_DevSettingDesc_DebugViewSettings_writeCellContents>
+  <Namae_DevSettingDesc_DebugViewSettings_writeMusicManagerPlay>Write Music Manager Play. It writes the current diagnostic value or list onto the map or screen without changing the value being inspected.</Namae_DevSettingDesc_DebugViewSettings_writeMusicManagerPlay>
+  <Namae_DevSettingDesc_DebugViewSettings_writeStoryteller>Write Storyteller. It writes the current diagnostic value or list onto the map or screen without changing the value being inspected.</Namae_DevSettingDesc_DebugViewSettings_writeStoryteller>
+  <Namae_DevSettingDesc_DebugViewSettings_writePlayingSounds>Write Playing Sounds. It writes the current diagnostic value or list onto the map or screen without changing the value being inspected.</Namae_DevSettingDesc_DebugViewSettings_writePlayingSounds>
+  <Namae_DevSettingDesc_DebugViewSettings_writeSoundEventsRecord>Write Sound Events Record. It writes the current diagnostic value or list onto the map or screen without changing the value being inspected.</Namae_DevSettingDesc_DebugViewSettings_writeSoundEventsRecord>
+  <Namae_DevSettingDesc_DebugViewSettings_writeMoteSaturation>Write Mote Saturation. It writes the current diagnostic value or list onto the map or screen without changing the value being inspected.</Namae_DevSettingDesc_DebugViewSettings_writeMoteSaturation>
+  <Namae_DevSettingDesc_DebugViewSettings_writeSnowDepth>Write Snow Depth. It writes the current diagnostic value or list onto the map or screen without changing the value being inspected.</Namae_DevSettingDesc_DebugViewSettings_writeSnowDepth>
+  <Namae_DevSettingDesc_DebugViewSettings_writeSandDepth>Write Sand Depth. It writes the current diagnostic value or list onto the map or screen without changing the value being inspected.</Namae_DevSettingDesc_DebugViewSettings_writeSandDepth>
+  <Namae_DevSettingDesc_DebugViewSettings_writeEcosystem>Write Ecosystem. It writes the current diagnostic value or list onto the map or screen without changing the value being inspected.</Namae_DevSettingDesc_DebugViewSettings_writeEcosystem>
+  <Namae_DevSettingDesc_DebugViewSettings_writeRecentStrikes>Write Recent Strikes. It writes the current diagnostic value or list onto the map or screen without changing the value being inspected.</Namae_DevSettingDesc_DebugViewSettings_writeRecentStrikes>
+  <Namae_DevSettingDesc_DebugViewSettings_writeBeauty>Write Beauty. It writes the current diagnostic value or list onto the map or screen without changing the value being inspected.</Namae_DevSettingDesc_DebugViewSettings_writeBeauty>
+  <Namae_DevSettingDesc_DebugViewSettings_writeListRepairableBldgs>Write List Repairable Bldgs. It writes the current diagnostic value or list onto the map or screen without changing the value being inspected.</Namae_DevSettingDesc_DebugViewSettings_writeListRepairableBldgs>
+  <Namae_DevSettingDesc_DebugViewSettings_writeListFilthInHomeArea>Write List Filth In Home Area. It writes the current diagnostic value or list onto the map or screen without changing the value being inspected.</Namae_DevSettingDesc_DebugViewSettings_writeListFilthInHomeArea>
+  <Namae_DevSettingDesc_DebugViewSettings_writeListHaulables>Write List Haulables. It writes the current diagnostic value or list onto the map or screen without changing the value being inspected.</Namae_DevSettingDesc_DebugViewSettings_writeListHaulables>
+  <Namae_DevSettingDesc_DebugViewSettings_writeListMergeables>Write List Mergeables. It writes the current diagnostic value or list onto the map or screen without changing the value being inspected.</Namae_DevSettingDesc_DebugViewSettings_writeListMergeables>
+  <Namae_DevSettingDesc_DebugViewSettings_writeTotalSnowDepth>Write Total Snow Depth. It writes the current diagnostic value or list onto the map or screen without changing the value being inspected.</Namae_DevSettingDesc_DebugViewSettings_writeTotalSnowDepth>
+  <Namae_DevSettingDesc_DebugViewSettings_writeCanReachColony>Write Can Reach Colony. It displays the current diagnostic value or state without changing the value being inspected.</Namae_DevSettingDesc_DebugViewSettings_writeCanReachColony>
+  <Namae_DevSettingDesc_DebugViewSettings_writeMentalStateCalcs>Write Mental State Calcs. It displays the current diagnostic value or state without changing the value being inspected.</Namae_DevSettingDesc_DebugViewSettings_writeMentalStateCalcs>
+  <Namae_DevSettingDesc_DebugViewSettings_writeWind>Write Wind. It displays the current diagnostic value or state without changing the value being inspected.</Namae_DevSettingDesc_DebugViewSettings_writeWind>
+  <Namae_DevSettingDesc_DebugViewSettings_writeTerrain>Write Terrain. It displays the current diagnostic value or state without changing the value being inspected.</Namae_DevSettingDesc_DebugViewSettings_writeTerrain>
+  <Namae_DevSettingDesc_DebugViewSettings_writeApparelScore>Write Apparel Score. It displays the current diagnostic value or state without changing the value being inspected.</Namae_DevSettingDesc_DebugViewSettings_writeApparelScore>
+  <Namae_DevSettingDesc_DebugViewSettings_writeWorkSettings>Write Work Settings. It displays the current diagnostic value or state without changing the value being inspected.</Namae_DevSettingDesc_DebugViewSettings_writeWorkSettings>
+  <Namae_DevSettingDesc_DebugViewSettings_writeSkyManager>Write Sky Manager. It displays the current diagnostic value or state without changing the value being inspected.</Namae_DevSettingDesc_DebugViewSettings_writeSkyManager>
+  <Namae_DevSettingDesc_DebugViewSettings_writeMemoryUsage>Write Memory Usage. It displays the current diagnostic value or state without changing the value being inspected.</Namae_DevSettingDesc_DebugViewSettings_writeMemoryUsage>
+  <Namae_DevSettingDesc_DebugViewSettings_writeMapGameConditions>Write Map Game Conditions. It displays the current diagnostic value or state without changing the value being inspected.</Namae_DevSettingDesc_DebugViewSettings_writeMapGameConditions>
+  <Namae_DevSettingDesc_DebugViewSettings_writeAttackTargets>Write Attack Targets. It displays the current diagnostic value or state without changing the value being inspected.</Namae_DevSettingDesc_DebugViewSettings_writeAttackTargets>
+  <Namae_DevSettingDesc_DebugViewSettings_writeRopesAndPens>Write Ropes And Pens. It displays the current diagnostic value or state without changing the value being inspected.</Namae_DevSettingDesc_DebugViewSettings_writeRopesAndPens>
+  <Namae_DevSettingDesc_DebugViewSettings_writeRoomRoles>Write Room Roles. It displays the current diagnostic value or state without changing the value being inspected.</Namae_DevSettingDesc_DebugViewSettings_writeRoomRoles>
+  <Namae_DevSettingDesc_DebugViewSettings_logIncapChance>Log Incap Chance. It writes related runtime events to the log for diagnosis and may produce many messages while enabled.</Namae_DevSettingDesc_DebugViewSettings_logIncapChance>
+  <Namae_DevSettingDesc_DebugViewSettings_logInput>Log Input. It writes related runtime events to the log for diagnosis and may produce many messages while enabled.</Namae_DevSettingDesc_DebugViewSettings_logInput>
+  <Namae_DevSettingDesc_DebugViewSettings_logApparelGeneration>Log Apparel Generation. It writes related runtime events to the log for diagnosis and may produce many messages while enabled.</Namae_DevSettingDesc_DebugViewSettings_logApparelGeneration>
+  <Namae_DevSettingDesc_DebugViewSettings_logLordToilTransitions>Log Lord Toil Transitions. It writes related runtime events to the log for diagnosis and may produce many messages while enabled.</Namae_DevSettingDesc_DebugViewSettings_logLordToilTransitions>
+  <Namae_DevSettingDesc_DebugViewSettings_logGrammarResolution>Log Grammar Resolution. It writes related runtime events to the log for diagnosis and may produce many messages while enabled.</Namae_DevSettingDesc_DebugViewSettings_logGrammarResolution>
+  <Namae_DevSettingDesc_DebugViewSettings_logCombatLogMouseover>Log Combat Log Mouseover. It writes related runtime events to the log for diagnosis and may produce many messages while enabled.</Namae_DevSettingDesc_DebugViewSettings_logCombatLogMouseover>
+  <Namae_DevSettingDesc_DebugViewSettings_logCauseOfDeath>Log Cause Of Death. It writes related runtime events to the log for diagnosis and may produce many messages while enabled.</Namae_DevSettingDesc_DebugViewSettings_logCauseOfDeath>
+  <Namae_DevSettingDesc_DebugViewSettings_logMapLoad>Log Map Load. It writes related runtime events to the log for diagnosis and may produce many messages while enabled.</Namae_DevSettingDesc_DebugViewSettings_logMapLoad>
+  <Namae_DevSettingDesc_DebugViewSettings_logTutor>Log Tutor. It writes related runtime events to the log for diagnosis and may produce many messages while enabled.</Namae_DevSettingDesc_DebugViewSettings_logTutor>
+  <Namae_DevSettingDesc_DebugViewSettings_logSignals>Log Signals. It writes related runtime events to the log for diagnosis and may produce many messages while enabled.</Namae_DevSettingDesc_DebugViewSettings_logSignals>
+  <Namae_DevSettingDesc_DebugViewSettings_logWorldPawnGC>Log World Pawn GC. It writes related runtime events to the log for diagnosis and may produce many messages while enabled.</Namae_DevSettingDesc_DebugViewSettings_logWorldPawnGC>
+  <Namae_DevSettingDesc_DebugViewSettings_logTaleRecording>Log Tale Recording. It writes related runtime events to the log for diagnosis and may produce many messages while enabled.</Namae_DevSettingDesc_DebugViewSettings_logTaleRecording>
+  <Namae_DevSettingDesc_DebugViewSettings_logHourlyScreenshot>Log Hourly Screenshot. It writes related runtime events to the log for diagnosis and may produce many messages while enabled.</Namae_DevSettingDesc_DebugViewSettings_logHourlyScreenshot>
+  <Namae_DevSettingDesc_DebugViewSettings_logFilthSummary>Log Filth Summary. It writes related runtime events to the log for diagnosis and may produce many messages while enabled.</Namae_DevSettingDesc_DebugViewSettings_logFilthSummary>
+  <Namae_DevSettingDesc_DebugViewSettings_logCarriedBetweenJobs>Log Carried Between Jobs. It writes related runtime events to the log for diagnosis and may produce many messages while enabled.</Namae_DevSettingDesc_DebugViewSettings_logCarriedBetweenJobs>
+  <Namae_DevSettingDesc_DebugViewSettings_logComplexGenPoints>Log Complex Gen Points. It writes related runtime events to the log for diagnosis and may produce many messages while enabled.</Namae_DevSettingDesc_DebugViewSettings_logComplexGenPoints>
+  <Namae_DevSettingDesc_DebugViewSettings_saveGravshipRenders>Save Gravship Renders. This developer option changes the corresponding diagnostic behavior and should be turned off after testing.</Namae_DevSettingDesc_DebugViewSettings_saveGravshipRenders>
+  <Namae_DevSettingDesc_DebugViewSettings_debugApparelOptimize>Debug Apparel Optimize. This developer option changes the corresponding diagnostic behavior and should be turned off after testing.</Namae_DevSettingDesc_DebugViewSettings_debugApparelOptimize>
+  <Namae_DevSettingDesc_DebugViewSettings_disableGravshipRenderShader>Disable Gravship Render Shader. This developer option changes the corresponding diagnostic behavior and should be turned off after testing.</Namae_DevSettingDesc_DebugViewSettings_disableGravshipRenderShader>
+  <Namae_DevSettingDesc_DebugViewSettings_showAllRoomStats>Show All Room Stats. This adds developer-only information to the interface without changing the underlying simulation.</Namae_DevSettingDesc_DebugViewSettings_showAllRoomStats>
+  <Namae_DevSettingDesc_DebugViewSettings_showFloatMenuWorkGivers>Show Float Menu Work Givers. This adds developer-only information to the interface without changing the underlying simulation.</Namae_DevSettingDesc_DebugViewSettings_showFloatMenuWorkGivers>
+  <Namae_DevSettingDesc_DebugViewSettings_neverForceNormalSpeed>Never Force Normal Speed. This developer option changes the corresponding diagnostic behavior and should be turned off after testing.</Namae_DevSettingDesc_DebugViewSettings_neverForceNormalSpeed>
+  <Namae_DevSettingDesc_DebugViewSettings_showArchitectMenuOrder>Show Architect Menu Order. This adds developer-only information to the interface without changing the underlying simulation.</Namae_DevSettingDesc_DebugViewSettings_showArchitectMenuOrder>
+  <Namae_DevSettingDesc_DebugViewSettings_showTpsCounter>Show Tps Counter. This adds developer-only information to the interface without changing the underlying simulation.</Namae_DevSettingDesc_DebugViewSettings_showTpsCounter>
+  <Namae_DevSettingDesc_DebugViewSettings_showFpsCounter>Show Fps Counter. This adds developer-only information to the interface without changing the underlying simulation.</Namae_DevSettingDesc_DebugViewSettings_showFpsCounter>
+  <Namae_DevSettingDesc_DebugViewSettings_showMemoryInfo>Show Memory Info. This adds developer-only information to the interface without changing the underlying simulation.</Namae_DevSettingDesc_DebugViewSettings_showMemoryInfo>
+  <Namae_DevSettingDesc_DebugGenerationSettings_prefabCopyTerrain>Includes terrain cells when copying a prefab. Pasting the prefab can overwrite terrain in the destination area.</Namae_DevSettingDesc_DebugGenerationSettings_prefabCopyTerrain>
+  <Namae_DevSettingDesc_DebugGenerationSettings_prefabCopyAllThings>Includes all Things in the selected area when copying a prefab, including objects normally excluded by filters. Pasting creates copies in the destination.</Namae_DevSettingDesc_DebugGenerationSettings_prefabCopyAllThings>
+  <Namae_DevOutputDesc_PermanentInjuryCalculations>Calculates and outputs a diagnostic report for Permanent Injury Calculations. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_PermanentInjuryCalculations>
+  <Namae_DevOutputDesc_ManhunterResults>Calculates and outputs a diagnostic report for Manhunter Results. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_ManhunterResults>
+  <Namae_DevOutputDesc_ApparelValidLifeStages>Calculates and outputs a diagnostic report for Apparel Valid Life Stages. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_ApparelValidLifeStages>
+  <Namae_DevOutputDesc_DifficultyDetails>Calculates and outputs a diagnostic report for Difficulty Details. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_DifficultyDetails>
+  <Namae_DevOutputDesc_MechClusterBuildingSelection>Calculates and outputs a diagnostic report for Mech Cluster Building Selection. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_MechClusterBuildingSelection>
+  <Namae_DevOutputDesc_ApparelPairs>Runs a diagnostic sample or calculation for Apparel Pairs and outputs the results. It may take time, but the generated test data is not applied to the current save.</Namae_DevOutputDesc_ApparelPairs>
+  <Namae_DevOutputDesc_ApparelPairsByThing>Runs a diagnostic sample or calculation for Apparel Pairs By Thing and outputs the results. It may take time, but the generated test data is not applied to the current save.</Namae_DevOutputDesc_ApparelPairsByThing>
+  <Namae_DevOutputDesc_PawnGroupsMade>Calculates and outputs a diagnostic report for Pawn Groups Made. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_PawnGroupsMade>
+  <Namae_DevOutputDesc_WeaponPairs>Runs a diagnostic sample or calculation for Weapon Pairs and outputs the results. It may take time, but the generated test data is not applied to the current save.</Namae_DevOutputDesc_WeaponPairs>
+  <Namae_DevOutputDesc_WeaponPairsByThing>Runs a diagnostic sample or calculation for Weapon Pairs By Thing and outputs the results. It may take time, but the generated test data is not applied to the current save.</Namae_DevOutputDesc_WeaponPairsByThing>
+  <Namae_DevOutputDesc_QualityGenerationData>Runs a diagnostic sample or calculation for Quality Generation Data and outputs the results. It may take time, but the generated test data is not applied to the current save.</Namae_DevOutputDesc_QualityGenerationData>
+  <Namae_DevOutputDesc_StockGenerationAnimals>Calculates and outputs a diagnostic report for Stock Generation Animals. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_StockGenerationAnimals>
+  <Namae_DevOutputDesc_PopulationIntents>Calculates and outputs a diagnostic report for Population Intents. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_PopulationIntents>
+  <Namae_DevOutputDesc_TechprintsFromFactions>Calculates and outputs a diagnostic report for Techprints From Factions. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_TechprintsFromFactions>
+  <Namae_DevOutputDesc_TechprintsFromFactionsChances>Calculates and outputs a diagnostic report for Techprints From Factions Chances. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_TechprintsFromFactionsChances>
+  <Namae_DevOutputDesc_VisitorGiftChance>Calculates and outputs a diagnostic report for Visitor Gift Chance. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_VisitorGiftChance>
+  <Namae_DevOutputDesc_WallStuffs>Outputs a diagnostic list for Wall Stuffs from the currently loaded definitions and game data. It reads the data without modifying it.</Namae_DevOutputDesc_WallStuffs>
+  <Namae_DevOutputDesc_BeggarQuestItems>Calculates and outputs a diagnostic report for Beggar Quest Items. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_BeggarQuestItems>
+  <Namae_DevOutputDesc_StunChances>Calculates and outputs a diagnostic report for Stun Chances. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_StunChances>
+  <Namae_DevOutputDesc_QuestRewardsSampled>Runs a diagnostic sample or calculation for Quest Rewards Sampled and outputs the results. It may take time, but the generated test data is not applied to the current save.</Namae_DevOutputDesc_QuestRewardsSampled>
+  <Namae_DevOutputDesc_QuestDefs>Outputs a diagnostic list for Quest Defs from the currently loaded definitions and game data. It reads the data without modifying it.</Namae_DevOutputDesc_QuestDefs>
+  <Namae_DevOutputDesc_QuestSelectionWeightsNow>Calculates and outputs a diagnostic report for Quest Selection Weights Now. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_QuestSelectionWeightsNow>
+  <Namae_DevOutputDesc_DecreeSelectionWeightsNow>Calculates and outputs a diagnostic report for Decree Selection Weights Now. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_DecreeSelectionWeightsNow>
+  <Namae_DevOutputDesc_RoyalTitles>Calculates and outputs a diagnostic report for Royal Titles. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_RoyalTitles>
+  <Namae_DevOutputDesc_RoyalFavorAvailability>Calculates and outputs a diagnostic report for Honor Availability (slow). It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_RoyalFavorAvailability>
+  <Namae_DevOutputDesc_Plants>Outputs a diagnostic list for Plants from the currently loaded definitions and game data. It reads the data without modifying it.</Namae_DevOutputDesc_Plants>
+  <Namae_DevOutputDesc_PlantCurrentProportions>Calculates and outputs a diagnostic report for Plant Current Proportions. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_PlantCurrentProportions>
+  <Namae_DevOutputDesc_Biomes>Outputs a diagnostic list for Biomes from the currently loaded definitions and game data. It reads the data without modifying it.</Namae_DevOutputDesc_Biomes>
+  <Namae_DevOutputDesc_BiomeAnimalsSpawnChances>Calculates and outputs a diagnostic report for Biome Animals Spawn Chances. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_BiomeAnimalsSpawnChances>
+  <Namae_DevOutputDesc_BiomeAnimalsTypicalCounts>Calculates and outputs a diagnostic report for Biome Animals Typical Counts. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_BiomeAnimalsTypicalCounts>
+  <Namae_DevOutputDesc_BiomePlantsExpectedCount>Outputs a diagnostic list for Biome Plants Expected Count from the currently loaded definitions and game data. It reads the data without modifying it.</Namae_DevOutputDesc_BiomePlantsExpectedCount>
+  <Namae_DevOutputDesc_AnimalWildCountsOnMap>Calculates and outputs a diagnostic report for Animal Wild Counts On Map. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_AnimalWildCountsOnMap>
+  <Namae_DevOutputDesc_PlantCountsOnMap>Calculates and outputs a diagnostic report for Plant Counts On Map. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_PlantCountsOnMap>
+  <Namae_DevOutputDesc_WeaponClasses>Calculates and outputs a diagnostic report for Weapon Classes. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_WeaponClasses>
+  <Namae_DevOutputDesc_WeaponsRanged>Outputs a diagnostic list for Weapons Ranged from the currently loaded definitions and game data. It reads the data without modifying it.</Namae_DevOutputDesc_WeaponsRanged>
+  <Namae_DevOutputDesc_Turrets>Calculates and outputs a diagnostic report for Turrets. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_Turrets>
+  <Namae_DevOutputDesc_WeaponsMelee>Outputs a diagnostic list for Weapons Melee from the currently loaded definitions and game data. It reads the data without modifying it.</Namae_DevOutputDesc_WeaponsMelee>
+  <Namae_DevOutputDesc_Tools>Outputs a diagnostic list for Tools from the currently loaded definitions and game data. It reads the data without modifying it.</Namae_DevOutputDesc_Tools>
+  <Namae_DevOutputDesc_ResearchProjects>Outputs a diagnostic list for Research Projects from the currently loaded definitions and game data. It reads the data without modifying it.</Namae_DevOutputDesc_ResearchProjects>
+  <Namae_DevOutputDesc_ThingsExistingList>Outputs a diagnostic list for Things Existing List from the currently loaded definitions and game data. It reads the data without modifying it.</Namae_DevOutputDesc_ThingsExistingList>
+  <Namae_DevOutputDesc_TickRates>Calculates and outputs a diagnostic report for Tick Rates. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_TickRates>
+  <Namae_DevOutputDesc_ThingFillageAndPassability>Calculates and outputs a diagnostic report for Thing Fillage And Passability. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_ThingFillageAndPassability>
+  <Namae_DevOutputDesc_ThingPathCosts>Calculates and outputs a diagnostic report for Thing Path Costs. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_ThingPathCosts>
+  <Namae_DevOutputDesc_ThingDamageData>Calculates and outputs a diagnostic report for Thing Damage Data. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_ThingDamageData>
+  <Namae_DevOutputDesc_UnfinishedThings>Calculates and outputs a diagnostic report for Unfinished Things. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_UnfinishedThings>
+  <Namae_DevOutputDesc_ThingMasses>Calculates and outputs a diagnostic report for Thing Masses. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_ThingMasses>
+  <Namae_DevOutputDesc_ThingFillPercents>Calculates and outputs a diagnostic report for Thing Fill Percents. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_ThingFillPercents>
+  <Namae_DevOutputDesc_ThingNutritions>Calculates and outputs a diagnostic report for Thing Nutritions. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_ThingNutritions>
+  <Namae_DevOutputDesc_Bodies>Outputs a diagnostic list for Bodies from the currently loaded definitions and game data. It reads the data without modifying it.</Namae_DevOutputDesc_Bodies>
+  <Namae_DevOutputDesc_InstallableBodyParts>Calculates and outputs a diagnostic report for Installable Body Parts. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_InstallableBodyParts>
+  <Namae_DevOutputDesc_BodyParts>Calculates and outputs a diagnostic report for Body Parts. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_BodyParts>
+  <Namae_DevOutputDesc_Surgeries>Calculates and outputs a diagnostic report for Surgeries. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_Surgeries>
+  <Namae_DevOutputDesc_HitsToKill>Calculates and outputs a diagnostic report for Hits To Kill. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_HitsToKill>
+  <Namae_DevOutputDesc_Prosthetics>Calculates and outputs a diagnostic report for Prosthetics. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_Prosthetics>
+  <Namae_DevOutputDesc_TranshumanistBodyParts>Calculates and outputs a diagnostic report for Transhumanist Body Parts. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_TranshumanistBodyParts>
+  <Namae_DevOutputDesc_Infections>Calculates and outputs a diagnostic report for Infections. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_Infections>
+  <Namae_DevOutputDesc_InfectionSimulator>Runs a diagnostic sample or calculation for Infection Simulator and outputs the results. It may take time, but the generated test data is not applied to the current save.</Namae_DevOutputDesc_InfectionSimulator>
+  <Namae_DevOutputDesc_JoyGivers>Calculates and outputs a diagnostic report for Joy Givers. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_JoyGivers>
+  <Namae_DevOutputDesc_JoyKinds>Calculates and outputs a diagnostic report for Joy Kinds. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_JoyKinds>
+  <Namae_DevOutputDesc_JoyJobs>Calculates and outputs a diagnostic report for Joy Jobs. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_JoyJobs>
+  <Namae_DevOutputDesc_DrawerTypes>Calculates and outputs a diagnostic report for Drawer Types. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_DrawerTypes>
+  <Namae_DevOutputDesc_DynamicDrawnThingsNow>Calculates and outputs a diagnostic report for Dynamic Drawn Things Now. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_DynamicDrawnThingsNow>
+  <Namae_DevOutputDesc_DynamicDrawnThingsByCategoryNow>Calculates and outputs a diagnostic report for Dynamic Drawn Things By Category Now. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_DynamicDrawnThingsByCategoryNow>
+  <Namae_DevOutputDesc_MiningResourceGeneration>Calculates and outputs a diagnostic report for Mining Resource Generation. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_MiningResourceGeneration>
+  <Namae_DevOutputDesc_NaturalRocks>Calculates and outputs a diagnostic report for Natural Rocks. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_NaturalRocks>
+  <Namae_DevOutputDesc_AncientJunk>Calculates and outputs a diagnostic report for Ancient Junk. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_AncientJunk>
+  <Namae_DevOutputDesc_MeditationFoci>Calculates and outputs a diagnostic report for Meditation Foci. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_MeditationFoci>
+  <Namae_DevOutputDesc_DefaultStuffs>Outputs a diagnostic list for Default Stuffs from the currently loaded definitions and game data. It reads the data without modifying it.</Namae_DevOutputDesc_DefaultStuffs>
+  <Namae_DevOutputDesc_Beauties>Calculates and outputs a diagnostic report for Beauties. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_Beauties>
+  <Namae_DevOutputDesc_StuffBeauty>Calculates and outputs a diagnostic report for Stuff Beauty. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_StuffBeauty>
+  <Namae_DevOutputDesc_ThingsPowerAndHeat>Calculates and outputs a diagnostic report for Things Power And Heat. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_ThingsPowerAndHeat>
+  <Namae_DevOutputDesc_FoodPoisonChances>Calculates and outputs a diagnostic report for Food Poison Chances. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_FoodPoisonChances>
+  <Namae_DevOutputDesc_TechLevels>Outputs a diagnostic list for Tech Levels from the currently loaded definitions and game data. It reads the data without modifying it.</Namae_DevOutputDesc_TechLevels>
+  <Namae_DevOutputDesc_Stuffs>Outputs a diagnostic list for Stuffs from the currently loaded definitions and game data. It reads the data without modifying it.</Namae_DevOutputDesc_Stuffs>
+  <Namae_DevOutputDesc_BurningAndSmeltingThings>Calculates and outputs a diagnostic report for Burning And Smelting Things. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_BurningAndSmeltingThings>
+  <Namae_DevOutputDesc_Medicines>Outputs a diagnostic list for Medicines from the currently loaded definitions and game data. It reads the data without modifying it.</Namae_DevOutputDesc_Medicines>
+  <Namae_DevOutputDesc_ShootingAccuracy>Calculates and outputs a diagnostic report for Shooting Accuracy. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_ShootingAccuracy>
+  <Namae_DevOutputDesc_TemperatureData>Calculates and outputs a diagnostic report for Temperature Data. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_TemperatureData>
+  <Namae_DevOutputDesc_TemperatureOverlayColors>Calculates and outputs a diagnostic report for Temperature Overlay Colors. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_TemperatureOverlayColors>
+  <Namae_DevOutputDesc_WeatherChances>Calculates and outputs a diagnostic report for Weather Chances. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_WeatherChances>
+  <Namae_DevOutputDesc_WeatherCommonalities>Calculates and outputs a diagnostic report for Weather Commonalities. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_WeatherCommonalities>
+  <Namae_DevOutputDesc_CelestialGlow>Calculates and outputs a diagnostic report for Celestial Glow. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_CelestialGlow>
+  <Namae_DevOutputDesc_SunAngle>Calculates and outputs a diagnostic report for Sun Angle. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_SunAngle>
+  <Namae_DevOutputDesc_FallColor>Calculates and outputs a diagnostic report for Fall Color. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_FallColor>
+  <Namae_DevOutputDesc_PawnsListAllOnMap>Outputs a diagnostic list for Pawns List All On Map from the currently loaded definitions and game data. It reads the data without modifying it.</Namae_DevOutputDesc_PawnsListAllOnMap>
+  <Namae_DevOutputDesc_WindSpeeds>Calculates and outputs a diagnostic report for Wind Speeds. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_WindSpeeds>
+  <Namae_DevOutputDesc_MapPawnsList>Outputs a diagnostic list for Map Pawns List from the currently loaded definitions and game data. It reads the data without modifying it.</Namae_DevOutputDesc_MapPawnsList>
+  <Namae_DevOutputDesc_Lords>Outputs a diagnostic list for Lords from the currently loaded definitions and game data. It reads the data without modifying it.</Namae_DevOutputDesc_Lords>
+  <Namae_DevOutputDesc_LogEnroute>Calculates and outputs a diagnostic report for Log Enroute. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_LogEnroute>
+  <Namae_DevOutputDesc_BodyPartTagGroups>Calculates and outputs a diagnostic report for Body Part Tag Groups. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_BodyPartTagGroups>
+  <Namae_DevOutputDesc_MinifiableTags>Calculates and outputs a diagnostic report for Minifiable Tags. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_MinifiableTags>
+  <Namae_DevOutputDesc_ThingSetMakerTest>Runs a diagnostic sample or calculation for Thing Set Maker Test and outputs the results. It may take time, but the generated test data is not applied to the current save.</Namae_DevOutputDesc_ThingSetMakerTest>
+  <Namae_DevOutputDesc_ThingSetMakerPossibleDefs>Outputs a diagnostic list for Thing Set Maker Possible Defs from the currently loaded definitions and game data. It reads the data without modifying it.</Namae_DevOutputDesc_ThingSetMakerPossibleDefs>
+  <Namae_DevOutputDesc_ThingSetMakerSampled>Runs a diagnostic sample or calculation for Thing Set Maker Sampled and outputs the results. It may take time, but the generated test data is not applied to the current save.</Namae_DevOutputDesc_ThingSetMakerSampled>
+  <Namae_DevOutputDesc_RewardsGeneration>Calculates and outputs a diagnostic report for Rewards Generation. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_RewardsGeneration>
+  <Namae_DevOutputDesc_RewardsGenerationSampled>Runs a diagnostic sample or calculation for Rewards Generation Sampled and outputs the results. It may take time, but the generated test data is not applied to the current save.</Namae_DevOutputDesc_RewardsGenerationSampled>
+  <Namae_DevOutputDesc_WorkDisables>Outputs a diagnostic list for Work Disables from the currently loaded definitions and game data. It reads the data without modifying it.</Namae_DevOutputDesc_WorkDisables>
+  <Namae_DevOutputDesc_FoodPreferability>Outputs a diagnostic list for Food Preferability from the currently loaded definitions and game data. It reads the data without modifying it.</Namae_DevOutputDesc_FoodPreferability>
+  <Namae_DevOutputDesc_IngestibleMaxSatisfiedTitle>Calculates and outputs a diagnostic report for Ingestible Max Satisfied Title. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_IngestibleMaxSatisfiedTitle>
+  <Namae_DevOutputDesc_AbilityCosts>Outputs a diagnostic list for Ability Costs from the currently loaded definitions and game data. It reads the data without modifying it.</Namae_DevOutputDesc_AbilityCosts>
+  <Namae_DevOutputDesc_SitePartDefs>Outputs a diagnostic list for Site Part Defs from the currently loaded definitions and game data. It reads the data without modifying it.</Namae_DevOutputDesc_SitePartDefs>
+  <Namae_DevOutputDesc_MapDanger>Calculates and outputs a diagnostic report for Map Danger. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_MapDanger>
+  <Namae_DevOutputDesc_GenSteps>Calculates and outputs a diagnostic report for Gen Steps. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_GenSteps>
+  <Namae_DevOutputDesc_WorldGenSteps>Calculates and outputs a diagnostic report for World Gen Steps. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_WorldGenSteps>
+  <Namae_DevOutputDesc_ShuttleDefsToAvoid>Outputs a diagnostic list for Shuttle Defs To Avoid from the currently loaded definitions and game data. It reads the data without modifying it.</Namae_DevOutputDesc_ShuttleDefsToAvoid>
+  <Namae_DevOutputDesc_RitualDuration>Calculates and outputs a diagnostic report for Ritual Duration. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_RitualDuration>
+  <Namae_DevOutputDesc_PlayerWealth>Calculates and outputs a diagnostic report for Player Wealth. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_PlayerWealth>
+  <Namae_DevOutputDesc_MemesAndPrecepts>Calculates and outputs a diagnostic report for Memes And Precepts. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_MemesAndPrecepts>
+  <Namae_DevOutputDesc_GenerateGeneSetsX10>Runs a diagnostic sample or calculation for Generate Gene Sets X10 and outputs the results. It may take time, but the generated test data is not applied to the current save.</Namae_DevOutputDesc_GenerateGeneSetsX10>
+  <Namae_DevOutputDesc_Genes>Outputs a diagnostic list for Genes from the currently loaded definitions and game data. It reads the data without modifying it.</Namae_DevOutputDesc_Genes>
+  <Namae_DevOutputDesc_Xenotypes>Outputs a diagnostic list for Xenotypes from the currently loaded definitions and game data. It reads the data without modifying it.</Namae_DevOutputDesc_Xenotypes>
+  <Namae_DevOutputDesc_PreceptDefs>Outputs a diagnostic list for Precept Defs from the currently loaded definitions and game data. It reads the data without modifying it.</Namae_DevOutputDesc_PreceptDefs>
+  <Namae_DevOutputDesc_ThingTradeTags>Calculates and outputs a diagnostic report for Thing Trade Tags. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_ThingTradeTags>
+  <Namae_DevOutputDesc_StructureColorDefs>Outputs a diagnostic list for Structure Color Defs from the currently loaded definitions and game data. It reads the data without modifying it.</Namae_DevOutputDesc_StructureColorDefs>
+  <Namae_DevOutputDesc_PsychicRituals>Calculates and outputs a diagnostic report for Psychic Rituals. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_PsychicRituals>
+  <Namae_DevOutputDesc_AnalysisDetails>Calculates and outputs a diagnostic report for Analysis Details. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_AnalysisDetails>
+  <Namae_DevOutputDesc_RelicThings>Calculates and outputs a diagnostic report for Relic Things. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_RelicThings>
+  <Namae_DevOutputDesc_RelicMarketValues>Calculates and outputs a diagnostic report for Relic Market Values. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_RelicMarketValues>
+  <Namae_DevOutputDesc_RelicStuffs>Outputs a diagnostic list for Relic Stuffs from the currently loaded definitions and game data. It reads the data without modifying it.</Namae_DevOutputDesc_RelicStuffs>
+  <Namae_DevOutputDesc_CollectionsMemoryUsage>Calculates and outputs a diagnostic report for Collections Memory Usage. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_CollectionsMemoryUsage>
+  <Namae_DevOutputDesc_Landmarks>Outputs a diagnostic list for Landmarks from the currently loaded definitions and game data. It reads the data without modifying it.</Namae_DevOutputDesc_Landmarks>
+  <Namae_DevOutputDesc_AdjacentDistanceBetweenLayerTiles>Calculates and outputs a diagnostic report for Adjacent Distance Between Layer Tiles. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_AdjacentDistanceBetweenLayerTiles>
+  <Namae_DevOutputDesc_LogAnyPlayerHomeMap>Calculates and outputs a diagnostic report for Log Any Player Home Map. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_LogAnyPlayerHomeMap>
+  <Namae_DevOutputDesc_GravshipBuildingChecklist>Calculates and outputs a diagnostic report for Gravship Building Checklist. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_GravshipBuildingChecklist>
+  <Namae_DevOutputDesc_AnimalSpecialTrainables>Calculates and outputs a diagnostic report for Animal Special Trainables. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_AnimalSpecialTrainables>
+  <Namae_DevOutputDesc_KeyStrings>Calculates and outputs a diagnostic report for Key Strings. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_KeyStrings>
+  <Namae_DevOutputDesc_DefNames>Outputs a diagnostic list for Def Names from the currently loaded definitions and game data. It reads the data without modifying it.</Namae_DevOutputDesc_DefNames>
+  <Namae_DevOutputDesc_DefNamesAll>Outputs a diagnostic list for Def Names All from the currently loaded definitions and game data. It reads the data without modifying it.</Namae_DevOutputDesc_DefNamesAll>
+  <Namae_DevOutputDesc_DefLabels>Outputs a diagnostic list for Def Labels from the currently loaded definitions and game data. It reads the data without modifying it.</Namae_DevOutputDesc_DefLabels>
+  <Namae_DevOutputDesc_BestThingRequestGroup>Calculates and outputs a diagnostic report for Best Thing Request Group. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_BestThingRequestGroup>
+  <Namae_DevOutputDesc_DamageTest>Runs a diagnostic sample or calculation for Damage Test and outputs the results. It may take time, but the generated test data is not applied to the current save.</Namae_DevOutputDesc_DamageTest>
+  <Namae_DevOutputDesc_PlayerHasGravEngineTest>Runs a diagnostic sample or calculation for Player Has Grav Engine Test and outputs the results. It may take time, but the generated test data is not applied to the current save.</Namae_DevOutputDesc_PlayerHasGravEngineTest>
+  <Namae_DevOutputDesc_Terrains>Outputs a diagnostic list for Terrains from the currently loaded definitions and game data. It reads the data without modifying it.</Namae_DevOutputDesc_Terrains>
+  <Namae_DevOutputDesc_TerrainAffordances>Calculates and outputs a diagnostic report for Terrain Affordances. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_TerrainAffordances>
+  <Namae_DevOutputDesc_WildMissResults>Calculates and outputs a diagnostic report for Wild Miss Results. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_WildMissResults>
+  <Namae_DevOutputDesc_ThingPathCostsIgnoreRepeaters>Calculates and outputs a diagnostic report for Thing Path Costs Ignore Repeaters. It reports current definitions or game state without changing the save.</Namae_DevOutputDesc_ThingPathCostsIgnoreRepeaters>
+  <Namae_DevOutputDesc_GrowthMomentFlavor>Generates example text for Growth Moment Flavor and outputs it for review. The generated text is diagnostic and is not added to the save.</Namae_DevOutputDesc_GrowthMomentFlavor>
+  <Namae_DevOutputDesc_PodContentsPossibleDefs>Calculates or samples incident data for Pod Contents Possible Defs and outputs the result. It does not trigger the incident on the current map.</Namae_DevOutputDesc_PodContentsPossibleDefs>
+  <Namae_DevOutputDesc_PodContentsTest>Calculates or samples incident data for Pod Contents Test and outputs the result. It does not trigger the incident on the current map.</Namae_DevOutputDesc_PodContentsTest>
+  <Namae_DevOutputDesc_PeaceTalksChances>Calculates or samples incident data for Peace Talks Chances and outputs the result. It does not trigger the incident on the current map.</Namae_DevOutputDesc_PeaceTalksChances>
+  <Namae_DevOutputDesc_MissionAncientComplex>Outputs a diagnostic report for Mission Ancient Complex from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_MissionAncientComplex>
+  <Namae_DevOutputDesc_Bossgroups>Outputs a diagnostic report for Bossgroups from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_Bossgroups>
+  <Namae_DevOutputDesc_ApparelByStuff>Outputs a diagnostic report for Apparel By Stuff from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_ApparelByStuff>
+  <Namae_DevOutputDesc_ApparelArmor>Outputs a diagnostic report for Apparel Armor from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_ApparelArmor>
+  <Namae_DevOutputDesc_ApparelInsulation>Outputs a diagnostic report for Apparel Insulation from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_ApparelInsulation>
+  <Namae_DevOutputDesc_ApparelCountsForNudity>Outputs a diagnostic report for Apparel Counts For Nudity from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_ApparelCountsForNudity>
+  <Namae_DevOutputDesc_RecipeSkills>Outputs a diagnostic report for Recipe Skills from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_RecipeSkills>
+  <Namae_DevOutputDesc_Drugs>Outputs a diagnostic report for Drugs from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_Drugs>
+  <Namae_DevOutputDesc_Wool>Outputs a diagnostic report for Wool from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_Wool>
+  <Namae_DevOutputDesc_AnimalEconomy>Outputs a diagnostic report for Animal Economy from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_AnimalEconomy>
+  <Namae_DevOutputDesc_AnimalBreeding>Outputs a diagnostic report for Animal Breeding from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_AnimalBreeding>
+  <Namae_DevOutputDesc_Buildings>Outputs a diagnostic report for Buildings from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_Buildings>
+  <Namae_DevOutputDesc_Crops>Outputs a diagnostic report for Crops from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_Crops>
+  <Namae_DevOutputDesc_ItemAndBuildingAcquisition>Outputs a diagnostic report for Item And Building Acquisition from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_ItemAndBuildingAcquisition>
+  <Namae_DevOutputDesc_ItemAccessibility>Outputs a diagnostic report for Item Accessibility from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_ItemAccessibility>
+  <Namae_DevOutputDesc_ThingSetMakerTags>Outputs a diagnostic report for Thing Set Maker Tags from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_ThingSetMakerTags>
+  <Namae_DevOutputDesc_ThingSmeltProducts>Outputs a diagnostic report for Thing Smelt Products from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_ThingSmeltProducts>
+  <Namae_DevOutputDesc_Recipes>Outputs a diagnostic report for Recipes from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_Recipes>
+  <Namae_DevOutputDesc_Floors>Outputs a diagnostic report for Floors from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_Floors>
+  <Namae_DevOutputDesc_HediffsPriceImpact>Outputs a diagnostic report for Hediffs Price Impact from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_HediffsPriceImpact>
+  <Namae_DevOutputDesc_RoamingVsEconomy>Outputs a diagnostic report for Roaming Vs Economy from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_RoamingVsEconomy>
+  <Namae_DevOutputDesc_ArchonexusAllowedItems>Outputs a diagnostic report for Archonexus Allowed Items from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_ArchonexusAllowedItems>
+  <Namae_DevOutputDesc_RewardTags>Outputs a diagnostic report for Reward Tags from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_RewardTags>
+  <Namae_DevOutputDesc_AllFactions>Outputs a diagnostic report for All Factions from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_AllFactions>
+  <Namae_DevOutputDesc_AllFactionsToRemove>Outputs a diagnostic report for All Factions To Remove from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_AllFactionsToRemove>
+  <Namae_DevOutputDesc_AllFactionsFromPawns>Outputs a diagnostic report for All Factions From Pawns from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_AllFactionsFromPawns>
+  <Namae_DevOutputDesc_IncidentChances>Calculates or samples incident data for Incident Chances and outputs the result. It does not trigger the incident on the current map.</Namae_DevOutputDesc_IncidentChances>
+  <Namae_DevOutputDesc_IncidentChancesSampled>Calculates or samples incident data for Incident Chances Sampled and outputs the result. It does not trigger the incident on the current map.</Namae_DevOutputDesc_IncidentChancesSampled>
+  <Namae_DevOutputDesc_FutureIncidents>Calculates or samples incident data for Future Incidents and outputs the result. It does not trigger the incident on the current map.</Namae_DevOutputDesc_FutureIncidents>
+  <Namae_DevOutputDesc_FutureIncidentsCurrentMap>Calculates or samples incident data for Future Incidents Current Map and outputs the result. It does not trigger the incident on the current map.</Namae_DevOutputDesc_FutureIncidentsCurrentMap>
+  <Namae_DevOutputDesc_IncidentTargetsList>Calculates or samples incident data for Incident Targets List and outputs the result. It does not trigger the incident on the current map.</Namae_DevOutputDesc_IncidentTargetsList>
+  <Namae_DevOutputDesc_MinThreatPoints>Calculates or samples incident data for Min Threat Points and outputs the result. It does not trigger the incident on the current map.</Namae_DevOutputDesc_MinThreatPoints>
+  <Namae_DevOutputDesc_CurrentThreatPoints>Calculates or samples incident data for Current Threat Points and outputs the result. It does not trigger the incident on the current map.</Namae_DevOutputDesc_CurrentThreatPoints>
+  <Namae_DevOutputDesc_PawnArrivalCandidates>Calculates or samples incident data for Pawn Arrival Candidates and outputs the result. It does not trigger the incident on the current map.</Namae_DevOutputDesc_PawnArrivalCandidates>
+  <Namae_DevOutputDesc_TraderKinds>Calculates or samples incident data for Trader Kinds and outputs the result. It does not trigger the incident on the current map.</Namae_DevOutputDesc_TraderKinds>
+  <Namae_DevOutputDesc_TraderKindThings>Calculates or samples incident data for Trader Kind Things and outputs the result. It does not trigger the incident on the current map.</Namae_DevOutputDesc_TraderKindThings>
+  <Namae_DevOutputDesc_TraderStockMarketValues>Calculates or samples incident data for Trader Stock Market Values and outputs the result. It does not trigger the incident on the current map.</Namae_DevOutputDesc_TraderStockMarketValues>
+  <Namae_DevOutputDesc_TraderStockGeneration>Calculates or samples incident data for Trader Stock Generation and outputs the result. It does not trigger the incident on the current map.</Namae_DevOutputDesc_TraderStockGeneration>
+  <Namae_DevOutputDesc_TraderStockGeneratorsDefs>Calculates or samples incident data for Trader Stock Generators Defs and outputs the result. It does not trigger the incident on the current map.</Namae_DevOutputDesc_TraderStockGeneratorsDefs>
+  <Namae_DevOutputDesc_TraderAnimalTags>Calculates or samples incident data for Trader Animal Tags and outputs the result. It does not trigger the incident on the current map.</Namae_DevOutputDesc_TraderAnimalTags>
+  <Namae_DevOutputDesc_PawnGroupGenSampled>Calculates or samples incident data for Pawn Group Gen Sampled and outputs the result. It does not trigger the incident on the current map.</Namae_DevOutputDesc_PawnGroupGenSampled>
+  <Namae_DevOutputDesc_RaidFactionSampled>Calculates or samples incident data for Raid Faction Sampled and outputs the result. It does not trigger the incident on the current map.</Namae_DevOutputDesc_RaidFactionSampled>
+  <Namae_DevOutputDesc_RaidStrategySampled>Calculates or samples incident data for Raid Strategy Sampled and outputs the result. It does not trigger the incident on the current map.</Namae_DevOutputDesc_RaidStrategySampled>
+  <Namae_DevOutputDesc_RaidArrivemodeSampled>Calculates or samples incident data for Raid Arrivemode Sampled and outputs the result. It does not trigger the incident on the current map.</Namae_DevOutputDesc_RaidArrivemodeSampled>
+  <Namae_DevOutputDesc_ThreatsGenerator>Calculates or samples incident data for Threats Generator and outputs the result. It does not trigger the incident on the current map.</Namae_DevOutputDesc_ThreatsGenerator>
+  <Namae_DevOutputDesc_RaidsInfoSampled>Calculates or samples incident data for Raids Info Sampled and outputs the result. It does not trigger the incident on the current map.</Namae_DevOutputDesc_RaidsInfoSampled>
+  <Namae_DevOutputDesc_PawnKindsBasics>Outputs a diagnostic report for Pawn Kinds Basics from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_PawnKindsBasics>
+  <Namae_DevOutputDesc_PawnKindsWeaponUsage>Outputs a diagnostic report for Pawn Kinds Weapon Usage from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_PawnKindsWeaponUsage>
+  <Namae_DevOutputDesc_PawnKindsApparelUsage>Outputs a diagnostic report for Pawn Kinds Apparel Usage from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_PawnKindsApparelUsage>
+  <Namae_DevOutputDesc_PawnKindsTechHediffUsage>Outputs a diagnostic report for Pawn Kinds Tech Hediff Usage from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_PawnKindsTechHediffUsage>
+  <Namae_DevOutputDesc_PawnKindGearSampled>Outputs a diagnostic report for Pawn Kind Gear Sampled from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_PawnKindGearSampled>
+  <Namae_DevOutputDesc_PawnWorkDisablesSampled>Outputs a diagnostic report for Pawn Work Disables Sampled from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_PawnWorkDisablesSampled>
+  <Namae_DevOutputDesc_LivePawnsInspirationChances>Outputs a diagnostic report for Live Pawns Inspiration Chances from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_LivePawnsInspirationChances>
+  <Namae_DevOutputDesc_RacesFoodConsumption>Outputs a diagnostic report for Races Food Consumption from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_RacesFoodConsumption>
+  <Namae_DevOutputDesc_RacesButchery>Outputs a diagnostic report for Races Butchery from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_RacesButchery>
+  <Namae_DevOutputDesc_AnimalsBasics>Outputs a diagnostic report for Animals Basics from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_AnimalsBasics>
+  <Namae_DevOutputDesc_AnimalPointsToHuntOrSlaughter>Outputs a diagnostic report for Animal Points To Hunt Or Slaughter from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_AnimalPointsToHuntOrSlaughter>
+  <Namae_DevOutputDesc_AnimalCombatBalance>Outputs a diagnostic report for Animal Combat Balance from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_AnimalCombatBalance>
+  <Namae_DevOutputDesc_Mechanoids>Outputs a diagnostic report for Mechanoids from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_Mechanoids>
+  <Namae_DevOutputDesc_AnimalTradeTags>Outputs a diagnostic report for Animal Trade Tags from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_AnimalTradeTags>
+  <Namae_DevOutputDesc_AnimalBehavior>Outputs a diagnostic report for Animal Behavior from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_AnimalBehavior>
+  <Namae_DevOutputDesc_AnimalsEcosystem>Outputs a diagnostic report for Animals Ecosystem from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_AnimalsEcosystem>
+  <Namae_DevOutputDesc_MentalBreaks>Outputs a diagnostic report for Mental Breaks from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_MentalBreaks>
+  <Namae_DevOutputDesc_Thoughts>Outputs a diagnostic report for Thoughts from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_Thoughts>
+  <Namae_DevOutputDesc_IdeoThoughts>Outputs a diagnostic report for Ideo Thoughts from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_IdeoThoughts>
+  <Namae_DevOutputDesc_TraitsSampled>Outputs a diagnostic report for Traits Sampled from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_TraitsSampled>
+  <Namae_DevOutputDesc_BackstoryCountsPerTag>Outputs a diagnostic report for Backstory Counts Per Tag from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_BackstoryCountsPerTag>
+  <Namae_DevOutputDesc_ListSolidBackstories>Outputs a diagnostic report for List Solid Backstories from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_ListSolidBackstories>
+  <Namae_DevOutputDesc_ShowBeardFrequency>Outputs a diagnostic report for Show Beard Frequency from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_ShowBeardFrequency>
+  <Namae_DevOutputDesc_Entities>Outputs a diagnostic report for Entities from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_Entities>
+  <Namae_DevOutputDesc_WorldPawnRelations>Outputs a diagnostic report for World Pawn Relations from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_WorldPawnRelations>
+  <Namae_DevOutputDesc_VirtualRecords>Outputs a diagnostic report for Virtual Records from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_VirtualRecords>
+  <Namae_DevOutputDesc_LoadedAssets>Collects or tests runtime diagnostics for Loaded Assets and outputs the result. It can take time or produce a large report, but does not normally change the save.</Namae_DevOutputDesc_LoadedAssets>
+  <Namae_DevOutputDesc_DynamicDrawThingsList>Collects or tests runtime diagnostics for Dynamic Draw Things List and outputs the result. It can take time or produce a large report, but does not normally change the save.</Namae_DevOutputDesc_DynamicDrawThingsList>
+  <Namae_DevOutputDesc_RandByCurveTests>Collects or tests runtime diagnostics for Rand By Curve Tests and outputs the result. It can take time or produce a large report, but does not normally change the save.</Namae_DevOutputDesc_RandByCurveTests>
+  <Namae_DevOutputDesc_FlavorfulCombatTest>Generates example text for Flavorful Combat Test and outputs it for review. The generated text is diagnostic and is not added to the save.</Namae_DevOutputDesc_FlavorfulCombatTest>
+  <Namae_DevOutputDesc_CubeDescriptions>Generates example text for Cube Descriptions and outputs it for review. The generated text is diagnostic and is not added to the save.</Namae_DevOutputDesc_CubeDescriptions>
+  <Namae_DevOutputDesc_VoidSculptureDescriptions>Generates example text for Void Sculpture Descriptions and outputs it for review. The generated text is diagnostic and is not added to the save.</Namae_DevOutputDesc_VoidSculptureDescriptions>
+  <Namae_DevOutputDesc_Books>Generates example text for Books and outputs it for review. The generated text is diagnostic and is not added to the save.</Namae_DevOutputDesc_Books>
+  <Namae_DevOutputDesc_ArtDescsSpecificTale>Generates example text for Art Descs Specific Tale and outputs it for review. The generated text is diagnostic and is not added to the save.</Namae_DevOutputDesc_ArtDescsSpecificTale>
+  <Namae_DevOutputDesc_NamesFromRulepack>Generates example text for Names From Rulepack and outputs it for review. The generated text is diagnostic and is not added to the save.</Namae_DevOutputDesc_NamesFromRulepack>
+  <Namae_DevOutputDesc_LandmarkNames>Generates example text for Landmark Names and outputs it for review. The generated text is diagnostic and is not added to the save.</Namae_DevOutputDesc_LandmarkNames>
+  <Namae_DevOutputDesc_DatabaseTalesList>Generates example text for Database Tales List and outputs it for review. The generated text is diagnostic and is not added to the save.</Namae_DevOutputDesc_DatabaseTalesList>
+  <Namae_DevOutputDesc_DatabaseTalesInterest>Generates example text for Database Tales Interest and outputs it for review. The generated text is diagnostic and is not added to the save.</Namae_DevOutputDesc_DatabaseTalesInterest>
+  <Namae_DevOutputDesc_ArtDescsDatabaseTales>Generates example text for Art Descs Database Tales and outputs it for review. The generated text is diagnostic and is not added to the save.</Namae_DevOutputDesc_ArtDescsDatabaseTales>
+  <Namae_DevOutputDesc_ArtDescsRandomTales>Generates example text for Art Descs Random Tales and outputs it for review. The generated text is diagnostic and is not added to the save.</Namae_DevOutputDesc_ArtDescsRandomTales>
+  <Namae_DevOutputDesc_ArtDescsTaleless>Generates example text for Art Descs Taleless and outputs it for review. The generated text is diagnostic and is not added to the save.</Namae_DevOutputDesc_ArtDescsTaleless>
+  <Namae_DevOutputDesc_InteractionLogs>Generates example text for Interaction Logs and outputs it for review. The generated text is diagnostic and is not added to the save.</Namae_DevOutputDesc_InteractionLogs>
+  <Namae_DevOutputDesc_WordCount>Generates example text for Word Count and outputs it for review. The generated text is diagnostic and is not added to the save.</Namae_DevOutputDesc_WordCount>
+  <Namae_DevOutputDesc_ColonistRelativeChance>Outputs a diagnostic report for Colonist Relative Chance from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_ColonistRelativeChance>
+  <Namae_DevOutputDesc_KidnappedPawns>Outputs a diagnostic report for Kidnapped Pawns from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_KidnappedPawns>
+  <Namae_DevOutputDesc_WorldPawnList>Outputs a diagnostic report for World Pawn List from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_WorldPawnList>
+  <Namae_DevOutputDesc_WorldPawnMothballInfo>Outputs a diagnostic report for World Pawn Mothball Info from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_WorldPawnMothballInfo>
+  <Namae_DevOutputDesc_WorldPawnGcBreakdown>Outputs a diagnostic report for World Pawn Gc Breakdown from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_WorldPawnGcBreakdown>
+  <Namae_DevOutputDesc_WorldPawnDotgraph>Outputs a diagnostic report for World Pawn Dotgraph from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_WorldPawnDotgraph>
+  <Namae_DevOutputDesc_RunWorldPawnGc>Runs world-pawn garbage collection immediately and outputs the result. Pawns judged unnecessary can be discarded from world-pawn storage, so this can change the current save.</Namae_DevOutputDesc_RunWorldPawnGc>
+  <Namae_DevOutputDesc_RunWorldPawnMothball>Runs world-pawn mothballing immediately and outputs the result. It can move eligible pawns into a reduced-update state in the current save.</Namae_DevOutputDesc_RunWorldPawnMothball>
+  <Namae_DevOutputDesc_PawnColumnTest>Outputs a diagnostic report for Pawn Column Test from the currently loaded definitions or game state. It reads the source data without modifying it.</Namae_DevOutputDesc_PawnColumnTest>
+  <Namae_DevOutputDesc_TestMathPerf>Runs repeated math operations and outputs timing results. It can temporarily use significant CPU time but does not change the save.</Namae_DevOutputDesc_TestMathPerf>
+  <Namae_DevOutputDesc_AllGraphicsLoaded>Collects or tests runtime diagnostics for All Graphics Loaded and outputs the result. It can take time or produce a large report, but does not normally change the save.</Namae_DevOutputDesc_AllGraphicsLoaded>
+  <Namae_DevOutputDesc_MaterialReport>Collects or tests runtime diagnostics for Material Report and outputs the result. It can take time or produce a large report, but does not normally change the save.</Namae_DevOutputDesc_MaterialReport>
+  <Namae_DevOutputDesc_MaterialSnapshot>Captures the current loaded-material counts as an in-memory comparison baseline. It does not change the save, but a later Material Delta report uses this snapshot.</Namae_DevOutputDesc_MaterialSnapshot>
+  <Namae_DevOutputDesc_MaterialDelta>Compares current loaded materials with the last Material Snapshot and outputs additions and removals. A snapshot must be captured first.</Namae_DevOutputDesc_MaterialDelta>
+  <Namae_DevOutputDesc_MeshPoolStats>Collects or tests runtime diagnostics for Mesh Pool Stats and outputs the result. It can take time or produce a large report, but does not normally change the save.</Namae_DevOutputDesc_MeshPoolStats>
+  <Namae_DevOutputDesc_PawnGenerationHistogram>Generates a large diagnostic sample of pawns and outputs a timing or distribution histogram. It may take time; sampled pawns are not added to the save.</Namae_DevOutputDesc_PawnGenerationHistogram>
+  <Namae_DevOutputDesc_RandTests>Collects or tests runtime diagnostics for Rand Tests and outputs the result. It can take time or produce a large report, but does not normally change the save.</Namae_DevOutputDesc_RandTests>
+  <Namae_DevOutputDesc_SteamWorkshopStatus>Collects or tests runtime diagnostics for Steam Workshop Status and outputs the result. It can take time or produce a large report, but does not normally change the save.</Namae_DevOutputDesc_SteamWorkshopStatus>
+</LanguageData>

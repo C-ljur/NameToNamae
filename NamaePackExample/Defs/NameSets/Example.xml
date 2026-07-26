@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <Namae.NamaeNameSetDef>
+    <defName>Example_NamaeNameSet</defName>
+    <language>ReplaceWithLanguageFolderName</language>
+    <firstMale>Data/Names/Example/FirstMale.xml</firstMale>
+    <firstFemale>Data/Names/Example/FirstFemale.xml</firstFemale>
+    <last>Data/Names/Example/Last.xml</last>
+    <nickMale>Data/Names/Example/NickMale.xml</nickMale>
+    <nickFemale>Data/Names/Example/NickFemale.xml</nickFemale>
+    <nickUnisex>Data/Names/Example/NickUnisex.xml</nickUnisex>
+    <animalMale>Data/Names/Example/AnimalMale.xml</animalMale>
+    <animalFemale>Data/Names/Example/AnimalFemale.xml</animalFemale>
+    <animalUnisex>Data/Names/Example/AnimalUnisex.xml</animalUnisex>
+  </Namae.NamaeNameSetDef>
+</Defs>

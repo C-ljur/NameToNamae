@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Namaé Language Pack Example</name>
+  <author>Replace with your name</author>
+  <packageId>example.namae.languagepack</packageId>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <description>Template for a standalone Namaé name pack.</description>
+  <modDependencies>
+    <li>
+      <packageId>djur.namae</packageId>
+      <displayName>Name to Namaé</displayName>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>djur.namae</li>
+  </loadAfter>
+</ModMetaData>

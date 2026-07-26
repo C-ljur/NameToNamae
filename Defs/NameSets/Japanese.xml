@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Defs>
+  <Namae.NamaeNameSetDef>
+    <defName>Namae_Japanese</defName>
+    <language>Japanese</language>
+    <firstMale>Data/Names/Japanese/FirstMale.xml</firstMale>
+    <firstFemale>Data/Names/Japanese/FirstFemale.xml</firstFemale>
+    <last>Data/Names/Japanese/Last.xml</last>
+    <nickMale>Data/Names/Japanese/NickMale.xml</nickMale>
+    <nickFemale>Data/Names/Japanese/NickFemale.xml</nickFemale>
+    <nickUnisex>Data/Names/Japanese/NickUnisex.xml</nickUnisex>
+    <animalMale>Data/Names/Japanese/AnimalMale.xml</animalMale>
+    <animalFemale>Data/Names/Japanese/AnimalFemale.xml</animalFemale>
+    <animalUnisex>Data/Names/Japanese/AnimalUnisex.xml</animalUnisex>
+  </Namae.NamaeNameSetDef>
+</Defs>
