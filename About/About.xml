@@ -6,15 +6,13 @@
   <supportedVersions>
     <li>1.6</li>
   </supportedVersions>
-  <description>Replaces RimWorld's built-in English pawn and animal names when they are generated. The bundled name pack provides Japanese kana readings; other languages can be added as separate name-pack mods.
+  <description>Replaces RimWorld's built-in English pawn and animal names when they are generated. The included Japanese name pack contains kana readings for 27,914 pawn names and 1,962 animal names. Separate name-pack mods can add other languages.
 
-Includes 27,914 pawn names and 1,962 animal names. Pawn names are converted when generated. Colony animals can receive proper names when born, hatched, tamed, self-tamed, or added to the colony. Player-entered names and existing proper names are left unchanged.
+Pawn first names, last names, and nicknames are replaced on generation. Colony animals can receive proper names when they are born, hatched, tamed, self-tamed, or join the colony. Player-entered names and existing proper names are left alone.
 
-Also provides Japanese labels and tooltips for developer-mode actions, settings, and output reports.
+Names already stored in a save are not changed unless you use the one-way conversion in the mod settings. Back up the save before converting them.
 
-Names are stored in the save file. Pawns created before installing Namaé are not changed automatically. The mod settings include a one-way conversion for existing pawn names; back up the save before using it.
-
-Features can be disabled separately. Requires Harmony.</description>
+Also includes Japanese text for developer-mode actions, name reports, and optional experimental line breaking. Requires Harmony.</description>
   <modDependencies>
     <li>
       <packageId>brrainz.harmony</packageId>

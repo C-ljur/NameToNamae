@@ -1,35 +1,25 @@
 Namaé replaces RimWorld's built-in English pawn and animal names when they are generated.
 
-The included name pack provides Japanese kana readings for 27,914 pawn names and 1,962 animal names. Other languages can be supplied by separate name-pack mods.
+The included Japanese name pack contains kana readings for 27,914 pawn names and 1,962 animal names. Separate name-pack mods can add other languages.
 
-[h1]Pawn names[/h1]
-First names, last names, and nicknames are replaced when a pawn is generated. Names already stored in a save are left alone.
+[b]Pawns[/b]
+First names, last names, and nicknames are replaced on generation. Existing names are left alone unless you use the one-way conversion in the mod settings. Back up the save before converting them.
 
-The mod settings include an optional one-way conversion for existing pawn names. Back up the save before using it.
+[b]Animals[/b]
+Colony animals can receive proper names when they are born, hatched, tamed, self-tamed, or join the colony. Player-entered names and existing proper names are left alone. Automatic naming and duplicate avoidance have separate settings.
 
-[h1]Animal names[/h1]
-Colony animals can receive proper names when they are born, hatched, tamed, self-tamed, or join the colony. Player-entered names and existing proper names are not changed.
+[b]Also included[/b]
+• Japanese text for developer-mode actions
+• Reports for new and untranslated names
+• Experimental line breaking for Japanese, Chinese, and Korean (off by default)
 
-Automatic naming and duplicate avoidance can be disabled separately.
+[b]Requires[/b]
+• RimWorld 1.6
+• [url=https://steamcommunity.com/workshop/filedetails/?id=2009463077]Harmony[/url]
 
-[h1]Other features[/h1]
-• Japanese labels and tooltips for developer-mode actions
-• Reports for new or untranslated names
-• Experimental natural line breaks for Japanese, Chinese, and Korean; disabled by default
+Name-pack mods must depend on Namaé and load after it.
 
-[h1]Requirements[/h1]
-[url=https://steamcommunity.com/workshop/filedetails/?id=2009463077]Harmony[/url]
-
-RimWorld 1.6
-
-[h1]Compatibility[/h1]
-Namaé changes names when they are generated. It does not rename existing pawns automatically.
-
-Name-pack mods should depend on Namaé and load after it.
-
-[h1]License[/h1]
+[b]License[/b]
 Code and functional XML: MIT
-
 Original translations, documentation, and artwork: CC BY 4.0
-
-Third-party materials are excluded from these licenses.
+Third-party materials are excluded.
