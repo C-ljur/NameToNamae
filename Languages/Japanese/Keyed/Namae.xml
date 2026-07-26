@@ -1777,4 +1777,7 @@
   <Namae_DevOutputDesc_PawnGenerationHistogram>入植者ポーンを100人生成し、1人ごとの生成時間をミリ秒単位のヒストグラムで表示します。生成したポーンは計測直後に破棄します。</Namae_DevOutputDesc_PawnGenerationHistogram>
   <Namae_DevOutputDesc_RandTests>Randの性能を1,000万回の乱数生成で測定し、さらに10万回の分布を2種類のヒストグラムで検査します。CPU負荷とログ量の大きい処理です。</Namae_DevOutputDesc_RandTests>
   <Namae_DevOutputDesc_SteamWorkshopStatus>Steam Workshopの購読項目と導入済みMODについて、公開ID、インストール状態、フォルダ、容量をログへ出力し、項目詳細をSteamへ要求します。</Namae_DevOutputDesc_SteamWorkshopStatus>
+  <Namae_NaturalLineBreaksHeader>自然な改行</Namae_NaturalLineBreaksHeader>
+  <Namae_NaturalLineBreaksEnable>自然な改行を有効にする（試験機能）</Namae_NaturalLineBreaksEnable>
+  <Namae_NaturalLineBreaksEnableDesc>日本語、中国語、韓国語の句読点や括弧に配慮して文章を折り返します。</Namae_NaturalLineBreaksEnableDesc>
 </LanguageData>

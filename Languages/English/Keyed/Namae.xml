@@ -915,4 +915,7 @@
   <Namae_DevOutputDesc_PawnGenerationHistogram>Generates a large diagnostic sample of pawns and outputs a timing or distribution histogram. It may take time; sampled pawns are not added to the save.</Namae_DevOutputDesc_PawnGenerationHistogram>
   <Namae_DevOutputDesc_RandTests>Collects or tests runtime diagnostics for Rand Tests and outputs the result. It can take time or produce a large report, but does not normally change the save.</Namae_DevOutputDesc_RandTests>
   <Namae_DevOutputDesc_SteamWorkshopStatus>Collects or tests runtime diagnostics for Steam Workshop Status and outputs the result. It can take time or produce a large report, but does not normally change the save.</Namae_DevOutputDesc_SteamWorkshopStatus>
+  <Namae_NaturalLineBreaksHeader>Natural line breaks</Namae_NaturalLineBreaksHeader>
+  <Namae_NaturalLineBreaksEnable>Enable natural line breaks (experimental)</Namae_NaturalLineBreaksEnable>
+  <Namae_NaturalLineBreaksEnableDesc>Improves line wrapping around punctuation and brackets in Japanese, Chinese, and Korean text.</Namae_NaturalLineBreaksEnableDesc>
 </LanguageData>

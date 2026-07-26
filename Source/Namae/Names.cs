@@ -36,6 +36,7 @@ namespace Namae
         public bool disablePseudoTranslation = true;
         public bool devModeTooltips = true;
         public bool translateDevModeLabels = true;
+        public bool naturalLineBreaks = false;
 
         public override void ExposeData()
         {
@@ -46,6 +47,7 @@ namespace Namae
             Scribe_Values.Look(ref disablePseudoTranslation, "disablePseudoTranslation", true);
             Scribe_Values.Look(ref devModeTooltips, "devModeTooltips", true);
             Scribe_Values.Look(ref translateDevModeLabels, "translateDevModeLabels", true);
+            Scribe_Values.Look(ref naturalLineBreaks, "naturalLineBreaks", false);
             base.ExposeData();
         }
     }
@@ -170,6 +172,14 @@ namespace Namae
             {
                 lastExportPath = MissingDevActions.Export();
             }
+
+            list.GapLine();
+            Text.Font = GameFont.Medium;
+            list.Label("Namae_NaturalLineBreaksHeader".Translate());
+            Text.Font = GameFont.Small;
+            list.CheckboxLabeled("Namae_NaturalLineBreaksEnable".Translate(),
+                ref s.naturalLineBreaks,
+                "Namae_NaturalLineBreaksEnableDesc".Translate());
 
             if (!string.IsNullOrEmpty(lastExportPath))
             {
