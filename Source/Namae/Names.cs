@@ -66,7 +66,7 @@ namespace Namae
             Settings = GetSettings<NamaeSettings>();
             try
             {
-                new Harmony("djur.namae").PatchAll(Assembly.GetExecutingAssembly());
+                new Harmony("cljur.namae").PatchAll(Assembly.GetExecutingAssembly());
             }
             catch (Exception e)
             {

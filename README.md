@@ -27,7 +27,7 @@ Build the Steam Workshop folder with:
 python Source/tools/build_workshop_package.py
 ```
 
-The output is written to `dist/Namae/`.
+The outputs are written to `dist/GitHub/Namae/` and `dist/Steam/Namae/`.
 
 ## Pawn names
 
@@ -87,12 +87,12 @@ The language pack must depend on Namaé and load after it.
 ```xml
 <modDependencies>
   <li>
-    <packageId>djur.namae</packageId>
+    <packageId>cljur.namae</packageId>
     <displayName>Name to Namaé</displayName>
   </li>
 </modDependencies>
 <loadAfter>
-  <li>djur.namae</li>
+  <li>cljur.namae</li>
 </loadAfter>
 ```
 

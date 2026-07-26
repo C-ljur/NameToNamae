@@ -9,11 +9,11 @@
   <description>Template for a standalone Namaé name pack.</description>
   <modDependencies>
     <li>
-      <packageId>djur.namae</packageId>
+      <packageId>cljur.namae</packageId>
       <displayName>Name to Namaé</displayName>
     </li>
   </modDependencies>
   <loadAfter>
-    <li>djur.namae</li>
+    <li>cljur.namae</li>
   </loadAfter>
 </ModMetaData>
