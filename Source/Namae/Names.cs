@@ -180,6 +180,7 @@ namespace Namae
             list.CheckboxLabeled("Namae_NaturalLineBreaksEnable".Translate(),
                 ref s.naturalLineBreaks,
                 "Namae_NaturalLineBreaksEnableDesc".Translate());
+            DrawNaturalLineBreaksPreview(list, s.naturalLineBreaks);
 
             if (!string.IsNullOrEmpty(lastExportPath))
             {
@@ -191,6 +192,22 @@ namespace Namae
             settingsContentHeight = Math.Max(inRect.height, list.CurHeight + 40f);
             list.End();
             Widgets.EndScrollView();
+        }
+
+        private static void DrawNaturalLineBreaksPreview(Listing_Standard list, bool enabled)
+        {
+            list.Gap();
+            list.Label(enabled
+                ? "Namae_NaturalLineBreaksPreviewEnabled".Translate()
+                : "Namae_NaturalLineBreaksPreviewDisabled".Translate());
+
+            const float previewWidth = 280f;
+            string sample = "Namae_NaturalLineBreaksPreviewText".Translate();
+            float height = Math.Max(Text.LineHeight * 3f, Text.CalcHeight(sample, previewWidth) + 12f);
+            Rect outer = list.GetRect(height);
+            outer.width = Math.Min(previewWidth + 12f, outer.width);
+            Widgets.DrawMenuSection(outer);
+            Widgets.Label(outer.ContractedBy(6f), sample);
         }
 
         private static string PseudoTranslationCheckText()

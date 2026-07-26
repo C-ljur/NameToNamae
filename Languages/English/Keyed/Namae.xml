@@ -918,4 +918,7 @@
   <Namae_NaturalLineBreaksHeader>Natural line breaks</Namae_NaturalLineBreaksHeader>
   <Namae_NaturalLineBreaksEnable>Enable natural line breaks (experimental)</Namae_NaturalLineBreaksEnable>
   <Namae_NaturalLineBreaksEnableDesc>Improves line wrapping around punctuation and brackets in Japanese, Chinese, and Korean text.</Namae_NaturalLineBreaksEnableDesc>
+  <Namae_NaturalLineBreaksPreviewEnabled>If the text below wraps without punctuation on a line by itself, the feature is working.</Namae_NaturalLineBreaksPreviewEnabled>
+  <Namae_NaturalLineBreaksPreviewDisabled>Enable the option to test line wrapping in the box below.</Namae_NaturalLineBreaksPreviewDisabled>
+  <Namae_NaturalLineBreaksPreviewText>This preview contains Japanese text「括弧と句読点を含む文章です。」It should wrap naturally.</Namae_NaturalLineBreaksPreviewText>
 </LanguageData>

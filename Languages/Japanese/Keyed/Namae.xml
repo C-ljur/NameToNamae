@@ -1780,4 +1780,7 @@
   <Namae_NaturalLineBreaksHeader>自然な改行</Namae_NaturalLineBreaksHeader>
   <Namae_NaturalLineBreaksEnable>自然な改行を有効にする（試験機能）</Namae_NaturalLineBreaksEnable>
   <Namae_NaturalLineBreaksEnableDesc>日本語、中国語、韓国語の句読点や括弧に配慮して文章を折り返します。</Namae_NaturalLineBreaksEnableDesc>
+  <Namae_NaturalLineBreaksPreviewEnabled>下の文章で、句読点だけの行や行末の開き括弧がなければ機能しています。</Namae_NaturalLineBreaksPreviewEnabled>
+  <Namae_NaturalLineBreaksPreviewDisabled>有効にすると、下の欄で改行を確認できます。</Namae_NaturalLineBreaksPreviewDisabled>
+  <Namae_NaturalLineBreaksPreviewText>これは改行確認用の文章です。「括弧と句読点が不自然な位置に分かれなければ成功です。」</Namae_NaturalLineBreaksPreviewText>
 </LanguageData>
