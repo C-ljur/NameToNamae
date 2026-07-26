@@ -88,38 +88,10 @@ namespace Namae
             NamaeSettings s = Settings;
 
             Text.Font = GameFont.Medium;
-            list.Label("Namae_NamesHeader".Translate());
+            list.Label("Namae_PawnNamesHeader".Translate());
             Text.Font = GameFont.Small;
             list.CheckboxLabeled("Namae_NamesEnable".Translate(), ref s.translateNames,
                 "Namae_NamesEnableDesc".Translate());
-            list.CheckboxLabeled("Namae_AnimalNamesEnable".Translate(), ref s.translateAnimalNames,
-                "Namae_AnimalNamesEnableDesc".Translate());
-            list.CheckboxLabeled("Namae_AutoNameColonyAnimals".Translate(), ref s.autoNameColonyAnimals,
-                "Namae_AutoNameColonyAnimalsDesc".Translate());
-            list.CheckboxLabeled("Namae_AvoidDuplicateAnimalNames".Translate(), ref s.avoidDuplicateAnimalNames,
-                "Namae_AvoidDuplicateAnimalNamesDesc".Translate());
-            list.GapLine();
-
-            list.Label("Namae_Counts".Translate(MissingNames.NewTotal, MissingNames.Total));
-            list.Gap();
-
-            if (list.ButtonText("Namae_ExportNew".Translate()))
-            {
-                lastExportPath = MissingNames.ExportNewNames();
-            }
-            if (list.ButtonText("Namae_ExportUntranslated".Translate()))
-            {
-                lastExportPath = MissingNames.Export();
-            }
-            if (list.ButtonText("Namae_ExportNickAudit".Translate()))
-            {
-                lastExportPath = MissingNames.ExportNickAudit();
-            }
-            if (list.ButtonText("Namae_OpenFolder".Translate()))
-            {
-                Application.OpenURL(MissingNames.OutputFolder());
-            }
-
             list.Gap();
             if (Current.Game != null)
             {
@@ -143,8 +115,63 @@ namespace Namae
 
             list.GapLine();
             Text.Font = GameFont.Medium;
-            list.Label("Namae_PseudoTranslationHeader".Translate());
+            list.Label("Namae_AnimalNamesHeader".Translate());
             Text.Font = GameFont.Small;
+            list.CheckboxLabeled("Namae_AnimalNamesEnable".Translate(), ref s.translateAnimalNames,
+                "Namae_AnimalNamesEnableDesc".Translate());
+            list.CheckboxLabeled("Namae_AutoNameColonyAnimals".Translate(), ref s.autoNameColonyAnimals,
+                "Namae_AutoNameColonyAnimalsDesc".Translate());
+            list.CheckboxLabeled("Namae_AvoidDuplicateAnimalNames".Translate(), ref s.avoidDuplicateAnimalNames,
+                "Namae_AvoidDuplicateAnimalNamesDesc".Translate());
+            list.Gap();
+            if (Current.Game != null)
+            {
+                if (list.ButtonText("Namae_RetranslateAnimalsButton".Translate()))
+                {
+                    Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation(
+                        "Namae_RetranslateAnimalsConfirm".Translate(),
+                        () =>
+                        {
+                            int n = NameDictionaries.RetranslateExistingAnimals();
+                            Messages.Message("Namae_RetranslateAnimalsResult".Translate(n),
+                                MessageTypeDefOf.TaskCompletion, false);
+                        },
+                        destructive: true));
+                }
+            }
+            else
+            {
+                list.Label("Namae_AnimalsPlayingOnly".Translate());
+            }
+            list.GapLine();
+            Text.Font = GameFont.Medium;
+            list.Label("Namae_NameReportsHeader".Translate());
+            Text.Font = GameFont.Small;
+            list.Label("Namae_Counts".Translate(MissingNames.NewTotal, MissingNames.Total));
+            list.Gap();
+
+            if (list.ButtonText("Namae_ExportNew".Translate()))
+            {
+                lastExportPath = MissingNames.ExportNewNames();
+            }
+            if (list.ButtonText("Namae_ExportUntranslated".Translate()))
+            {
+                lastExportPath = MissingNames.Export();
+            }
+            if (list.ButtonText("Namae_ExportNickAudit".Translate()))
+            {
+                lastExportPath = MissingNames.ExportNickAudit();
+            }
+            if (list.ButtonText("Namae_OpenFolder".Translate()))
+            {
+                Application.OpenURL(MissingNames.OutputFolder());
+            }
+
+            list.GapLine();
+            Text.Font = GameFont.Medium;
+            list.Label("Namae_DeveloperModeHeader".Translate());
+            Text.Font = GameFont.Small;
+            list.Label("Namae_PseudoTranslationHeader".Translate());
             list.CheckboxLabeled("Namae_PseudoTranslationEnable".Translate(),
                 ref s.disablePseudoTranslation,
                 "Namae_PseudoTranslationEnableDesc".Translate());
@@ -152,18 +179,14 @@ namespace Namae
             list.Label("Namae_PseudoTranslationCheckDesc".Translate());
             list.Label(PseudoTranslationCheckText());
 
-            list.GapLine();
-            Text.Font = GameFont.Medium;
+            list.Gap();
             list.Label("Namae_DevTooltipsHeader".Translate());
-            Text.Font = GameFont.Small;
             list.CheckboxLabeled("Namae_DevTooltipsEnable".Translate(),
                 ref s.devModeTooltips,
                 "Namae_DevTooltipsEnableDesc".Translate());
 
-            list.GapLine();
-            Text.Font = GameFont.Medium;
+            list.Gap();
             list.Label("Namae_DevLabelsHeader".Translate());
-            Text.Font = GameFont.Small;
             list.CheckboxLabeled("Namae_DevLabelsEnable".Translate(),
                 ref s.translateDevModeLabels,
                 "Namae_DevLabelsEnableDesc".Translate());
@@ -637,6 +660,90 @@ namespace Namae
                 changed++;
             }
             return changed;
+        }
+
+        public static int RetranslateExistingAnimals()
+        {
+            if (!Active) return 0;
+            int changed = 0;
+            foreach (Pawn p in PawnsFinder.All_AliveOrDead)
+            {
+                if (p?.RaceProps?.Animal != true || !(p.Name is NameSingle ns)) continue;
+
+                if (p.Name.Numerical && p.Faction == Faction.OfPlayer)
+                {
+                    Dictionary<string, string> numericGendered =
+                        p.gender == Gender.Female ? AnimalFemale : AnimalMale;
+                    List<string> candidates =
+                        numericGendered.Values.Concat(AnimalUnisex.Values).ToList();
+                    if (NamaeMod.Settings?.avoidDuplicateAnimalNames == true)
+                    {
+                        var used = new HashSet<string>(
+                            PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive
+                                .Where(other => other != p && other.Faction == Faction.OfPlayer &&
+                                    other.def == p.def && other.Name != null && !other.Name.Numerical)
+                                .Select(other => other.Name.ToStringFull));
+                        List<string> unused = candidates.Where(value => !used.Contains(value)).ToList();
+                        if (unused.Count > 0) candidates = unused;
+                    }
+                    if (candidates.Count == 0) continue;
+                    p.Name = new NameSingle(candidates[Rand.Range(0, candidates.Count)]);
+                    changed++;
+                    continue;
+                }
+
+                Dictionary<string, string> gendered =
+                    p.gender == Gender.Female ? AnimalFemale : AnimalMale;
+                string original = ns.Name;
+                string translated = Lookup(gendered, original);
+                if (translated == original) translated = Lookup(AnimalUnisex, original);
+                if (translated == original)
+                {
+                    translated = LookupLocalizedAnimalName(p.gender, original, gendered);
+                }
+                if (translated == original) continue;
+
+                p.Name = new NameSingle(translated);
+                changed++;
+            }
+            return changed;
+        }
+
+        private static string LookupLocalizedAnimalName(
+            Gender gender,
+            string value,
+            Dictionary<string, string> gendered)
+        {
+            string genderedFile =
+                gender == Gender.Female ? "Names/Animal_Female" : "Names/Animal_Male";
+            string translated = LookupLocalizedAnimalFile(genderedFile, value, gendered);
+            return translated != value
+                ? translated
+                : LookupLocalizedAnimalFile("Names/Animal_Unisex", value, AnimalUnisex);
+        }
+
+        private static string LookupLocalizedAnimalFile(
+            string fileName,
+            string value,
+            Dictionary<string, string> dictionary)
+        {
+            LoadedLanguage active = LanguageDatabase.activeLanguage;
+            LoadedLanguage english = LanguageDatabase.defaultLanguage;
+            if (active == null || english == null ||
+                !active.TryGetStringsFromFile(fileName, out List<string> localized) ||
+                !english.TryGetStringsFromFile(fileName, out List<string> originals))
+            {
+                return value;
+            }
+
+            int count = Math.Min(localized.Count, originals.Count);
+            for (int i = 0; i < count; i++)
+            {
+                if (localized[i] != value) continue;
+                string translated = Lookup(dictionary, originals[i]);
+                if (translated != originals[i]) return translated;
+            }
+            return value;
         }
 
         private static string Lookup(Dictionary<string, string> dict, string value)

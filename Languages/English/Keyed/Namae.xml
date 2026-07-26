@@ -1,6 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
 <LanguageData>
   <Namae_NamesHeader>Pawn name translation</Namae_NamesHeader>
+  <Namae_PawnNamesHeader>Pawn names</Namae_PawnNamesHeader>
+  <Namae_AnimalNamesHeader>Animal names</Namae_AnimalNamesHeader>
+  <Namae_NameReportsHeader>Name reports</Namae_NameReportsHeader>
+  <Namae_DeveloperModeHeader>Developer mode</Namae_DeveloperModeHeader>
   <Namae_NamesEnable>Enable</Namae_NamesEnable>
   <Namae_NamesEnableDesc>Replace generated pawn names (first, last, nickname) using the loaded language pack.</Namae_NamesEnableDesc>
   <Namae_AnimalNamesEnableDesc>Use ordinary katakana pet names instead of localized concept words or untranslated English names. Numeric animal labels and names entered by the player are unchanged.</Namae_AnimalNamesEnableDesc>
@@ -9,6 +13,10 @@
   <Namae_AutoNameColonyAnimalsDesc>Replace a colony animal's numeric label with a proper name when it is born, hatched, tamed, self-tamed, or joins the colony. Existing proper names and player-entered names are unchanged.</Namae_AutoNameColonyAnimalsDesc>
   <Namae_AvoidDuplicateAnimalNames>Avoid duplicate names within the same animal species</Namae_AvoidDuplicateAnimalNames>
   <Namae_AvoidDuplicateAnimalNamesDesc>Choose a name not currently used by another colony animal of the same species. If every available name is already in use, duplicates are allowed.</Namae_AvoidDuplicateAnimalNamesDesc>
+  <Namae_RetranslateAnimalsButton>Convert existing animal names</Namae_RetranslateAnimalsButton>
+  <Namae_RetranslateAnimalsConfirm>Convert existing animal names using the loaded name dictionary.\n\n- This cannot be undone. Back up your save first.\n- Player-entered names cannot be distinguished from generated names. A player-entered name matching a source name will also be converted.\n- Numeric names on colony animals will be replaced with generated proper names.\n- Names with no matching source entry are left as they are.</Namae_RetranslateAnimalsConfirm>
+  <Namae_RetranslateAnimalsResult>Namae: converted {0} existing animal name(s).</Namae_RetranslateAnimalsResult>
+  <Namae_AnimalsPlayingOnly>(Converting existing animal names is only available while a save is loaded.)</Namae_AnimalsPlayingOnly>
   <Namae_Counts>New names: {0} / Untranslated: {1}</Namae_Counts>
   <Namae_ExportNew>Export new names</Namae_ExportNew>
   <Namae_ExportUntranslated>Export untranslated names</Namae_ExportUntranslated>

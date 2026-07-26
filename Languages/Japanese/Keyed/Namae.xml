@@ -1,6 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
 <LanguageData>
   <Namae_NamesHeader>人名の翻訳</Namae_NamesHeader>
+  <Namae_PawnNamesHeader>人物の名前</Namae_PawnNamesHeader>
+  <Namae_AnimalNamesHeader>動物の名前</Namae_AnimalNamesHeader>
+  <Namae_NameReportsHeader>名前データの確認</Namae_NameReportsHeader>
+  <Namae_DeveloperModeHeader>開発者モード</Namae_DeveloperModeHeader>
   <Namae_NamesEnable>有効にする</Namae_NamesEnable>
   <Namae_NamesEnableDesc>生成される人物名（名・姓・ニックネーム）を、読み込まれた言語パックの辞書で置換します。</Namae_NamesEnableDesc>
   <Namae_AnimalNamesEnableDesc>公式訳の一般語や未翻訳の英字名ではなく、通常のカナのペット名を付けます。番号形式の動物名とプレイヤーが入力した名前は変更しません。</Namae_AnimalNamesEnableDesc>
@@ -9,6 +13,10 @@
   <Namae_AutoNameColonyAnimalsDesc>誕生、孵化、手懐け、自己手懐け、加入の時点で、動物種名と番号だけの名前を固有名へ置き換えます。すでに固有名がある動物と、プレイヤーが入力した名前は変更しません。</Namae_AutoNameColonyAnimalsDesc>
   <Namae_AvoidDuplicateAnimalNames>同じ種の動物には別の名前を付ける</Namae_AvoidDuplicateAnimalNames>
   <Namae_AvoidDuplicateAnimalNamesDesc>同じ種のコロニー動物が現在使っている名前を候補から除外します。すべての候補が使われている場合は、名前の重複を許可します。</Namae_AvoidDuplicateAnimalNamesDesc>
+  <Namae_RetranslateAnimalsButton>既存動物の名前も変換する</Namae_RetranslateAnimalsButton>
+  <Namae_RetranslateAnimalsConfirm>ロード中のセーブにいる既存動物の名前を、辞書で一括変換します。\n\n・元に戻せません。実行前にセーブのバックアップを推奨します。\n・プレイヤーが入力した名前と自動生成名は区別できません。変換元の名前と一致するプレイヤー入力名も変換されます。\n・コロニー動物の番号名は、自動生成した固有名へ置き換わります。\n・対応する変換元が無い名前はそのまま残ります。</Namae_RetranslateAnimalsConfirm>
+  <Namae_RetranslateAnimalsResult>Namae: 既存動物 {0} 体の名前を変換しました。</Namae_RetranslateAnimalsResult>
+  <Namae_AnimalsPlayingOnly>（既存動物の一括変換はセーブデータのプレイ中に使用できます）</Namae_AnimalsPlayingOnly>
   <Namae_Counts>新規名: {0} / 未翻訳: {1}</Namae_Counts>
   <Namae_ExportNew>新規の名前を書き出す</Namae_ExportNew>
   <Namae_ExportUntranslated>未翻訳の名前を書き出す</Namae_ExportUntranslated>
