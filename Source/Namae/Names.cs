@@ -150,6 +150,7 @@ namespace Namae
             Text.Font = GameFont.Medium;
             list.Label("Namae_NameReportsHeader".Translate());
             Text.Font = GameFont.Small;
+            list.Label("Namae_NameReportsDesc".Translate());
             list.Label("Namae_Counts".Translate(MissingNames.NewTotal, MissingNames.Total));
             list.Gap();
 
@@ -308,9 +309,7 @@ namespace Namae
         {
             if (method == null || attribute == null) return;
 
-            string translated = MissingDevActions.Observe(method, attribute);
-            if (NamaeMod.Settings == null || !NamaeMod.Settings.translateDevModeLabels) return;
-            if (!string.IsNullOrEmpty(translated)) attribute.name = translated;
+            MissingDevActions.Observe(method, attribute);
         }
     }
 
@@ -350,8 +349,8 @@ namespace Namae
                 ? GenText.SplitCamelCase(method.Name)
                 : attribute.name;
             string key = "Namae_DevOutput_" + method.Name;
-            if (key.CanTranslate()) attribute.name = key.TranslateSimple();
-            DevMenuDescriptions.Register(original, attribute.name ?? original, key);
+            string translated = key.CanTranslate() ? key.TranslateSimple() : original;
+            DevMenuDescriptions.Register(original, translated, key);
         }
     }
 
@@ -391,13 +390,17 @@ namespace Namae
     {
         static void Postfix(DebugActionNode __instance, ref string __result)
         {
-            if (__instance == null || __instance.sourceAttribute != null || __instance.labelGetter == null) return;
-            string original = __instance.label;
-            string translated = MissingDevActions.ObserveDynamic(__instance);
+            if (__instance == null) return;
+            string translated = MissingDevActions.TranslationFor(__instance);
+            if (__instance.sourceAttribute == null && __instance.labelGetter != null)
+            {
+                translated = MissingDevActions.ObserveDynamic(__instance) ?? translated;
+            }
             if (NamaeMod.Settings == null || !NamaeMod.Settings.translateDevModeLabels) return;
             if (string.IsNullOrEmpty(translated) || string.IsNullOrEmpty(__result)) return;
 
-            if (!string.IsNullOrEmpty(original)
+            string original = __instance.label;
+            if (__instance.labelGetter != null && !string.IsNullOrEmpty(original)
                 && __result.StartsWith(original, StringComparison.Ordinal))
             {
                 __result = translated + __result.Substring(original.Length);

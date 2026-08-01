@@ -82,9 +82,11 @@ The report buttons are in the mod settings. Files are written to
 
 | Report | File | Contents |
 |---|---|---|
-| New names | `NewNames.txt` | Names found in the game but absent from every loaded name pack |
-| Untranslated names | `Untranslated.txt` | Rows whose `t` value is empty |
-| Nickname classification | `NickAudit.txt` | The gender category RimWorld uses for each nickname |
+| New names | `NewNames.tsv` | Names found in the game but absent from every loaded name pack |
+| Untranslated names | `UntranslatedNames.tsv` | Rows whose `t` value is empty |
+| Nickname classification | `NickAudit.tsv` | The gender category RimWorld uses for each nickname |
+
+Each TSV row includes the name category, spelling, script classification, source package ID, mod name, vanilla/mod origin, and report status. Non-Latin names are retained and marked as `NonLatin` or `Mixed`. Source attribution is based on the active mods' name and solid-biography files; entries that cannot be traced are marked `unknown`. If multiple mods provide the same name, the report contains one row for each source.
 
 A name row has one of these forms:
 

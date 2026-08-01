@@ -4,6 +4,7 @@
   <Namae_PawnNamesHeader>Pawn names</Namae_PawnNamesHeader>
   <Namae_AnimalNamesHeader>Animal names</Namae_AnimalNamesHeader>
   <Namae_NameReportsHeader>Name reports</Namae_NameReportsHeader>
+  <Namae_NameReportsDesc>Exports TSV files with name category, script type, source package ID, mod name, and vanilla/mod origin. Non-Latin names are retained and identified instead of being discarded.</Namae_NameReportsDesc>
   <Namae_DeveloperModeHeader>Developer mode</Namae_DeveloperModeHeader>
   <Namae_NamesEnable>Enable</Namae_NamesEnable>
   <Namae_NamesEnableDesc>Replace generated pawn names (first, last, nickname) using the loaded language pack.</Namae_NamesEnableDesc>

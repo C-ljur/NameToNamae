@@ -57,6 +57,7 @@ namespace Namae
             if (!NameDictionaries.Active) return;
             try
             {
+                NameSourceIndex.Rebuild();
                 foreach (PawnBio bio in SolidBioDatabase.allBios)
                 {
                     NameTriple nt = bio?.name;
@@ -186,16 +187,15 @@ namespace Namae
         public static string Export()
         {
             var sb = new StringBuilder();
-            sb.AppendLine($"# Namae untranslated names {DateTime.Now:yyyy-MM-dd HH:mm}");
-            sb.AppendLine($"# language='{LanguageDatabase.activeLanguage?.folderName}' total={Total}");
-            AppendSection(sb, "FirstMale", FirstMale);
-            AppendSection(sb, "FirstFemale", FirstFemale);
-            AppendSection(sb, "Last", Last);
-            AppendSection(sb, "NickMale", NickMale);
-            AppendSection(sb, "NickFemale", NickFemale);
-            AppendSection(sb, "NickUnisex", NickUnisex);
+            AppendReportHeader(sb);
+            AppendRows(sb, "FirstMale", FirstMale, "untranslated");
+            AppendRows(sb, "FirstFemale", FirstFemale, "untranslated");
+            AppendRows(sb, "Last", Last, "untranslated");
+            AppendRows(sb, "NickMale", NickMale, "untranslated");
+            AppendRows(sb, "NickFemale", NickFemale, "untranslated");
+            AppendRows(sb, "NickUnisex", NickUnisex, "untranslated");
 
-            string path = Path.Combine(OutputFolder(), "Untranslated.txt");
+            string path = Path.Combine(OutputFolder(), "UntranslatedNames.tsv");
             try
             {
                 File.WriteAllText(path, sb.ToString());
@@ -211,16 +211,15 @@ namespace Namae
         public static string ExportNewNames()
         {
             var sb = new StringBuilder();
-            sb.AppendLine($"# Namae new name rows {DateTime.Now:yyyy-MM-dd HH:mm}");
-            sb.AppendLine($"# language='{LanguageDatabase.activeLanguage?.folderName}' total={NewTotal}");
-            AppendSection(sb, "FirstMale", NewFirstMale);
-            AppendSection(sb, "FirstFemale", NewFirstFemale);
-            AppendSection(sb, "Last", NewLast);
-            AppendSection(sb, "NickMale", NewNickMale);
-            AppendSection(sb, "NickFemale", NewNickFemale);
-            AppendSection(sb, "NickUnisex", NewNickUnisex);
+            AppendReportHeader(sb);
+            AppendRows(sb, "FirstMale", NewFirstMale, "new");
+            AppendRows(sb, "FirstFemale", NewFirstFemale, "new");
+            AppendRows(sb, "Last", NewLast, "new");
+            AppendRows(sb, "NickMale", NewNickMale, "new");
+            AppendRows(sb, "NickFemale", NewNickFemale, "new");
+            AppendRows(sb, "NickUnisex", NewNickUnisex, "new");
 
-            string path = Path.Combine(OutputFolder(), "NewNames.txt");
+            string path = Path.Combine(OutputFolder(), "NewNames.tsv");
             try
             {
                 File.WriteAllText(path, sb.ToString());
@@ -271,14 +270,14 @@ namespace Namae
             var onlyFemale = new HashSet<string>(StringComparer.Ordinal);
             foreach (string f in female) if (!unisex.Contains(f)) onlyFemale.Add(f);
 
+            NameSourceIndex.Rebuild();
             var sb = new StringBuilder();
-            sb.AppendLine($"# Namae nick audit {DateTime.Now:yyyy-MM-dd HH:mm}");
-            sb.AppendLine($"# total male={onlyMale.Count} female={onlyFemale.Count} unisex={unisex.Count}");
-            AppendSection(sb, "NickMale", onlyMale);
-            AppendSection(sb, "NickFemale", onlyFemale);
-            AppendSection(sb, "NickUnisex", unisex);
+            AppendReportHeader(sb);
+            AppendRows(sb, "NickMale", onlyMale, "audit");
+            AppendRows(sb, "NickFemale", onlyFemale, "audit");
+            AppendRows(sb, "NickUnisex", unisex, "audit");
 
-            string path = Path.Combine(OutputFolder(), "NickAudit.txt");
+            string path = Path.Combine(OutputFolder(), "NickAudit.tsv");
             try
             {
                 File.WriteAllText(path, sb.ToString());
@@ -298,6 +297,36 @@ namespace Namae
             var list = new List<string>(set);
             list.Sort(StringComparer.OrdinalIgnoreCase);
             foreach (string s in list) sb.AppendLine(s);
+        }
+
+        private static void AppendReportHeader(StringBuilder sb)
+        {
+            sb.AppendLine("category\tname\tscript\tpackageId\tmodName\torigin\tstatus");
+        }
+
+        private static void AppendRows(StringBuilder sb, string category, HashSet<string> set, string status)
+        {
+            var names = new List<string>(set);
+            names.Sort(StringComparer.OrdinalIgnoreCase);
+            foreach (string name in names)
+            {
+                IReadOnlyList<NameSourceIndex.Source> sources = NameSourceIndex.Find(category, name);
+                foreach (NameSourceIndex.Source source in sources)
+                {
+                    sb.Append(Tsv(category)).Append('\t')
+                        .Append(Tsv(name)).Append('\t')
+                        .Append(Tsv(NameSourceIndex.ScriptOf(name))).Append('\t')
+                        .Append(Tsv(source.PackageId)).Append('\t')
+                        .Append(Tsv(source.ModName)).Append('\t')
+                        .Append(Tsv(source.Origin)).Append('\t')
+                        .AppendLine(Tsv(status));
+                }
+            }
+        }
+
+        private static string Tsv(string value)
+        {
+            return (value ?? string.Empty).Replace('\t', ' ').Replace('\r', ' ').Replace('\n', ' ');
         }
 
         private enum NickGender { Male, Female, Unisex }
@@ -428,6 +457,22 @@ namespace Namae
         {
             if (!string.IsNullOrEmpty(original)) LabelKeys[original] = key;
             if (!string.IsNullOrEmpty(translated)) LabelKeys[translated] = key;
+        }
+
+        public static string TranslationFor(DebugActionNode node)
+        {
+            if (node == null) return null;
+            string key = null;
+            if (node.sourceAttribute != null) AttributeKeys.TryGetValue(node.sourceAttribute, out key);
+            if (string.IsNullOrEmpty(key) && node.settingsField != null)
+                key = "Namae_DevSetting_" + node.settingsField.DeclaringType.Name + "_" + node.settingsField.Name;
+            if (string.IsNullOrEmpty(key) && node.action?.Method != null)
+            {
+                string outputKey = "Namae_DevOutput_" + node.action.Method.Name;
+                if (outputKey.CanTranslate()) key = outputKey;
+            }
+            if (string.IsNullOrEmpty(key)) NodeKeys.TryGetValue(node, out key);
+            return !string.IsNullOrEmpty(key) && key.CanTranslate() ? key.TranslateSimple() : null;
         }
 
         public static string DescriptionFor(DebugActionNode node)
