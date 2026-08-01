@@ -603,7 +603,7 @@ namespace Namae
             Dictionary<string, string> firstDict = female ? FirstFemale : FirstMale;
             Dictionary<string, string> nickDict = female ? NickFemale : NickMale;
 
-            MissingNames.Observe(nt, female);
+            MissingNames.Observe(nt, female, pawn);
 
             string first = Lookup(firstDict, nt.First);
             string last = Lookup(Last, nt.Last);

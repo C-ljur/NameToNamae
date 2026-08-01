@@ -113,12 +113,12 @@ namespace Namae
         {
             NameBank bank = PawnNameDatabaseShuffled.BankOf(PawnNameCategory.HumanStandard);
             if (bank == null || NamesForMethod == null) return;
-            foreach (string s in Names(bank, PawnNameSlot.First, Gender.Male)) NoteFirst(s, false);
-            foreach (string s in Names(bank, PawnNameSlot.First, Gender.Female)) NoteFirst(s, true);
-            foreach (string s in Names(bank, PawnNameSlot.Nick, Gender.Male)) NoteNick(s, NickGender.Male);
-            foreach (string s in Names(bank, PawnNameSlot.Nick, Gender.Female)) NoteNick(s, NickGender.Female);
-            foreach (string s in Names(bank, PawnNameSlot.Nick, Gender.None)) NoteNick(s, NickGender.Unisex);
-            foreach (string s in Names(bank, PawnNameSlot.Last, Gender.None)) NoteLast(s);
+            foreach (string s in Names(bank, PawnNameSlot.First, Gender.Male)) { NameSourceIndex.AddBaseName("FirstMale", s); NoteFirst(s, false); }
+            foreach (string s in Names(bank, PawnNameSlot.First, Gender.Female)) { NameSourceIndex.AddBaseName("FirstFemale", s); NoteFirst(s, true); }
+            foreach (string s in Names(bank, PawnNameSlot.Nick, Gender.Male)) { NameSourceIndex.AddBaseName("NickMale", s); NoteNick(s, NickGender.Male); }
+            foreach (string s in Names(bank, PawnNameSlot.Nick, Gender.Female)) { NameSourceIndex.AddBaseName("NickFemale", s); NoteNick(s, NickGender.Female); }
+            foreach (string s in Names(bank, PawnNameSlot.Nick, Gender.None)) { NameSourceIndex.AddBaseName("NickUnisex", s); NoteNick(s, NickGender.Unisex); }
+            foreach (string s in Names(bank, PawnNameSlot.Last, Gender.None)) { NameSourceIndex.AddBaseName("Last", s); NoteLast(s); }
         }
 
         private static List<string> Names(NameBank bank, PawnNameSlot slot, Gender gender)
@@ -126,9 +126,10 @@ namespace Namae
             return (List<string>)NamesForMethod.Invoke(bank, new object[] { slot, gender }) ?? new List<string>();
         }
 
-        public static void Observe(NameTriple nt, bool female)
+        public static void Observe(NameTriple nt, bool female, Pawn pawn = null)
         {
             if (nt == null) return;
+            NameSourceIndex.AddPawn(pawn, nt, female);
             NoteFirst(nt.First, female);
             NoteNick(nt.Nick, female ? NickGender.Female : NickGender.Male);
             NoteLast(nt.Last);
@@ -196,7 +197,7 @@ namespace Namae
             AppendRows(sb, "NickFemale", NickFemale, "untranslated");
             AppendRows(sb, "NickUnisex", NickUnisex, "untranslated");
 
-            string path = Path.Combine(OutputFolder(), "UntranslatedNames.tsv");
+            string path = Path.Combine(OutputFolder(), "UntranslatedNames.csv");
             try
             {
                 File.WriteAllText(path, sb.ToString(), new UTF8Encoding(true));
@@ -220,7 +221,7 @@ namespace Namae
             AppendRows(sb, "NickFemale", NewNickFemale, "new");
             AppendRows(sb, "NickUnisex", NewNickUnisex, "new");
 
-            string path = Path.Combine(OutputFolder(), "NewNames.tsv");
+            string path = Path.Combine(OutputFolder(), "NewNames.csv");
             try
             {
                 File.WriteAllText(path, sb.ToString(), new UTF8Encoding(true));
@@ -278,7 +279,7 @@ namespace Namae
             AppendRows(sb, "NickFemale", onlyFemale, "audit");
             AppendRows(sb, "NickUnisex", unisex, "audit");
 
-            string path = Path.Combine(OutputFolder(), "NickAudit.tsv");
+            string path = Path.Combine(OutputFolder(), "NickAudit.csv");
             try
             {
                 File.WriteAllText(path, sb.ToString(), new UTF8Encoding(true));
@@ -302,7 +303,7 @@ namespace Namae
 
         private static void AppendReportHeader(StringBuilder sb)
         {
-            sb.AppendLine("category\tname\tscript\tpackageId\tmodName\torigin\tstatus");
+            sb.AppendLine("category,name,script,packageId,modName,origin,sourceKind,status");
         }
 
         private static void AppendRows(StringBuilder sb, string category, HashSet<string> set, string status)
@@ -314,20 +315,22 @@ namespace Namae
                 IReadOnlyList<NameSourceIndex.Source> sources = NameSourceIndex.Find(category, name);
                 foreach (NameSourceIndex.Source source in sources)
                 {
-                    sb.Append(Tsv(category)).Append('\t')
-                        .Append(Tsv(name)).Append('\t')
-                        .Append(Tsv(NameSourceIndex.ScriptOf(name))).Append('\t')
-                        .Append(Tsv(source.PackageId)).Append('\t')
-                        .Append(Tsv(source.ModName)).Append('\t')
-                        .Append(Tsv(source.Origin)).Append('\t')
-                        .AppendLine(Tsv(status));
+                    sb.Append(Csv(category)).Append(',')
+                        .Append(Csv(name)).Append(',')
+                        .Append(Csv(NameSourceIndex.ScriptOf(name))).Append(',')
+                        .Append(Csv(source.PackageId)).Append(',')
+                        .Append(Csv(source.ModName)).Append(',')
+                        .Append(Csv(source.Origin)).Append(',')
+                        .Append(Csv(source.SourceKind)).Append(',')
+                        .AppendLine(Csv(status));
                 }
             }
         }
 
-        private static string Tsv(string value)
+        private static string Csv(string value)
         {
-            return (value ?? string.Empty).Replace('\t', ' ').Replace('\r', ' ').Replace('\n', ' ');
+            string sanitized = (value ?? string.Empty).Replace('\r', ' ').Replace('\n', ' ');
+            return "\"" + sanitized.Replace("\"", "\"\"") + "\"";
         }
 
         private enum NickGender { Male, Female, Unisex }
@@ -522,20 +525,20 @@ namespace Namae
             rows.Sort((a, b) => string.Compare(a.Key, b.Key, StringComparison.OrdinalIgnoreCase));
 
             var sb = new StringBuilder();
-            sb.AppendLine("packageId\tassembly\ttype\tmethod\tkey\tenglishLabel\tcategory\ttranslation");
+            sb.AppendLine("packageId,assembly,type,method,key,englishLabel,category,translation");
             foreach (Entry e in rows)
             {
-                sb.Append(Tsv(e.PackageId)).Append('\t')
-                    .Append(Tsv(e.AssemblyName)).Append('\t')
-                    .Append(Tsv(e.TypeName)).Append('\t')
-                    .Append(Tsv(e.MethodName)).Append('\t')
-                    .Append(Tsv(e.Key)).Append('\t')
-                    .Append(Tsv(e.Label)).Append('\t')
-                    .Append(Tsv(e.Category)).Append('\t')
-                    .AppendLine();
+                sb.Append(Csv(e.PackageId)).Append(',')
+                    .Append(Csv(e.AssemblyName)).Append(',')
+                    .Append(Csv(e.TypeName)).Append(',')
+                    .Append(Csv(e.MethodName)).Append(',')
+                    .Append(Csv(e.Key)).Append(',')
+                    .Append(Csv(e.Label)).Append(',')
+                    .Append(Csv(e.Category)).Append(',')
+                    .AppendLine(Csv(string.Empty));
             }
 
-            string path = Path.Combine(MissingNames.OutputFolder(), "NewDevActions.tsv");
+            string path = Path.Combine(MissingNames.OutputFolder(), "NewDevActions.csv");
             try
             {
                 File.WriteAllText(path, sb.ToString(), new UTF8Encoding(true));
@@ -602,9 +605,10 @@ namespace Namae
             return false;
         }
 
-        private static string Tsv(string value)
+        private static string Csv(string value)
         {
-            return (value ?? string.Empty).Replace('\t', ' ').Replace('\r', ' ').Replace('\n', ' ');
+            string sanitized = (value ?? string.Empty).Replace('\r', ' ').Replace('\n', ' ');
+            return "\"" + sanitized.Replace("\"", "\"\"") + "\"";
         }
     }
 }

@@ -4,7 +4,7 @@
   <Namae_PawnNamesHeader>人物の名前</Namae_PawnNamesHeader>
   <Namae_AnimalNamesHeader>動物の名前</Namae_AnimalNamesHeader>
   <Namae_NameReportsHeader>名前データの確認</Namae_NameReportsHeader>
-  <Namae_NameReportsDesc>名前のカテゴリ、文字種、由来packageId、MOD名、バニラ・MODの区分をTSVへ書き出します。英字以外の名前も除外せず、文字種を付けて記録します。</Namae_NameReportsDesc>
+  <Namae_NameReportsDesc>名前のカテゴリ、文字種、由来packageId、MOD名、バニラ・MODの区分、由来の種類をExcelで開きやすいCSVへ書き出します。英字以外の名前も除外しません。</Namae_NameReportsDesc>
   <Namae_DeveloperModeHeader>開発者モード</Namae_DeveloperModeHeader>
   <Namae_NamesEnable>有効にする</Namae_NamesEnable>
   <Namae_NamesEnableDesc>生成される人物名（名・姓・ニックネーム）を、読み込まれた言語パックの辞書で置換します。</Namae_NamesEnableDesc>

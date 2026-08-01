@@ -14,13 +14,14 @@ namespace Namae
             public string PackageId;
             public string ModName;
             public string Origin;
+            public string SourceKind;
         }
 
         private static readonly Dictionary<string, List<Source>> Sources =
             new Dictionary<string, List<Source>>(StringComparer.Ordinal);
         private static readonly Source Unknown = new Source
         {
-            PackageId = "unknown", ModName = "Unknown", Origin = "unknown"
+            PackageId = "unknown", ModName = "Unknown", Origin = "unknown", SourceKind = "unresolved"
         };
 
         internal static void Rebuild()
@@ -64,7 +65,7 @@ namespace Namae
                 try { value = rule.Generate()?.Trim(); }
                 catch { continue; }
                 if (string.IsNullOrEmpty(value) || value.IndexOf('[') >= 0 || value.IndexOf(']') >= 0) continue;
-                Add(category, value, mod);
+                Add(category, value, mod, "rule-pack");
             }
         }
 
@@ -90,12 +91,35 @@ namespace Namae
             if (mod == null) return;
             bool male = bio.gender != RimWorld.GenderPossibility.Female;
             bool female = bio.gender != RimWorld.GenderPossibility.Male;
-            if (male) Add("FirstMale", bio.name.First, mod);
-            if (female) Add("FirstFemale", bio.name.First, mod);
-            if (bio.gender == RimWorld.GenderPossibility.Male) Add("NickMale", bio.name.Nick, mod);
-            else if (bio.gender == RimWorld.GenderPossibility.Female) Add("NickFemale", bio.name.Nick, mod);
-            else Add("NickUnisex", bio.name.Nick, mod);
-            Add("Last", bio.name.Last, mod);
+            if (male) Add("FirstMale", bio.name.First, mod, "pawn-bio");
+            if (female) Add("FirstFemale", bio.name.First, mod, "pawn-bio");
+            if (bio.gender == RimWorld.GenderPossibility.Male) Add("NickMale", bio.name.Nick, mod, "pawn-bio");
+            else if (bio.gender == RimWorld.GenderPossibility.Female) Add("NickFemale", bio.name.Nick, mod, "pawn-bio");
+            else Add("NickUnisex", bio.name.Nick, mod, "pawn-bio");
+            Add("Last", bio.name.Last, mod, "pawn-bio");
+        }
+
+        internal static void AddBaseName(string category, string name)
+        {
+            string key = Key(category, name);
+            if (Sources.ContainsKey(key)) return;
+            foreach (ModContentPack mod in LoadedModManager.RunningMods)
+            {
+                if (mod != null && "ludeon.rimworld".Equals(mod.PackageId, StringComparison.OrdinalIgnoreCase))
+                {
+                    Add(category, name, mod, "base-name-bank");
+                    return;
+                }
+            }
+        }
+
+        internal static void AddPawn(Pawn pawn, NameTriple name, bool female)
+        {
+            ModContentPack mod = pawn?.kindDef?.modContentPack;
+            if (mod == null || name == null) return;
+            Add(female ? "FirstFemale" : "FirstMale", name.First, mod, "pawn-kind-candidate");
+            Add(female ? "NickFemale" : "NickMale", name.Nick, mod, "pawn-kind-candidate");
+            Add("Last", name.Last, mod, "pawn-kind-candidate");
         }
 
         internal static IReadOnlyList<Source> Find(string category, string name)
@@ -135,7 +159,7 @@ namespace Namae
                 foreach (string line in File.ReadAllLines(file))
                 {
                     string name = line.Trim();
-                    if (name.Length > 0 && !name.StartsWith("#", StringComparison.Ordinal)) Add(category, name, mod);
+                    if (name.Length > 0 && !name.StartsWith("#", StringComparison.Ordinal)) Add(category, name, mod, "name-file");
                 }
             }
         }
@@ -158,16 +182,16 @@ namespace Namae
                         string last = ChildText(bio, "Last") ?? ChildText(bio, "lastInt");
                         if (!string.IsNullOrEmpty(first))
                         {
-                            if (!"Female".Equals(gender, StringComparison.OrdinalIgnoreCase)) Add("FirstMale", first, mod);
-                            if (!"Male".Equals(gender, StringComparison.OrdinalIgnoreCase)) Add("FirstFemale", first, mod);
+                            if (!"Female".Equals(gender, StringComparison.OrdinalIgnoreCase)) Add("FirstMale", first, mod, "solid-bio-file");
+                            if (!"Male".Equals(gender, StringComparison.OrdinalIgnoreCase)) Add("FirstFemale", first, mod, "solid-bio-file");
                         }
                         if (!string.IsNullOrEmpty(nick))
                         {
-                            if ("Male".Equals(gender, StringComparison.OrdinalIgnoreCase)) Add("NickMale", nick, mod);
-                            else if ("Female".Equals(gender, StringComparison.OrdinalIgnoreCase)) Add("NickFemale", nick, mod);
-                            else Add("NickUnisex", nick, mod);
+                            if ("Male".Equals(gender, StringComparison.OrdinalIgnoreCase)) Add("NickMale", nick, mod, "solid-bio-file");
+                            else if ("Female".Equals(gender, StringComparison.OrdinalIgnoreCase)) Add("NickFemale", nick, mod, "solid-bio-file");
+                            else Add("NickUnisex", nick, mod, "solid-bio-file");
                         }
-                        if (!string.IsNullOrEmpty(last)) Add("Last", last, mod);
+                        if (!string.IsNullOrEmpty(last)) Add("Last", last, mod, "solid-bio-file");
                     }
                 }
                 catch (Exception e)
@@ -192,7 +216,7 @@ namespace Namae
             return null;
         }
 
-        private static void Add(string category, string name, ModContentPack mod)
+        private static void Add(string category, string name, ModContentPack mod, string sourceKind)
         {
             if (string.IsNullOrEmpty(name) || mod == null) return;
             string key = Key(category, name);
@@ -203,7 +227,8 @@ namespace Namae
             {
                 PackageId = packageId,
                 ModName = mod.Name ?? packageId,
-                Origin = mod.IsOfficialMod ? "vanilla" : "mod"
+                Origin = mod.IsOfficialMod ? "vanilla" : "mod",
+                SourceKind = sourceKind
             });
         }
 
