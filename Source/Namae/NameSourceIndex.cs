@@ -19,6 +19,8 @@ namespace Namae
 
         private static readonly Dictionary<string, List<Source>> Sources =
             new Dictionary<string, List<Source>>(StringComparer.Ordinal);
+        private static readonly Dictionary<string, List<Source>> SourcesByName =
+            new Dictionary<string, List<Source>>(StringComparer.Ordinal);
         private static readonly Source Unknown = new Source
         {
             PackageId = "unknown", ModName = "Unknown", Origin = "unknown", SourceKind = "unresolved"
@@ -27,6 +29,7 @@ namespace Namae
         internal static void Rebuild()
         {
             Sources.Clear();
+            SourcesByName.Clear();
             foreach (ModContentPack mod in LoadedModManager.RunningMods)
             {
                 if (mod == null || mod.foldersToLoadDescendingOrder == null) continue;
@@ -34,9 +37,13 @@ namespace Namae
                 foreach (string folder in mod.foldersToLoadDescendingOrder)
                 {
                     ScanNameFolder(mod, Path.Combine(folder, "Languages", "English", "Names"), seenFiles);
+                    ScanNameFolder(mod, Path.Combine(folder, "Languages", "English", "Strings", "Names"), seenFiles);
                     string active = LanguageDatabase.activeLanguage?.folderName;
                     if (!string.IsNullOrEmpty(active) && !active.Equals("English", StringComparison.OrdinalIgnoreCase))
+                    {
                         ScanNameFolder(mod, Path.Combine(folder, "Languages", active, "Names"), seenFiles);
+                        ScanNameFolder(mod, Path.Combine(folder, "Languages", active, "Strings", "Names"), seenFiles);
+                    }
                     ScanBioFolder(mod, Path.Combine(folder, "Resources", "Backstories", "Solid"), seenFiles);
                 }
             }
@@ -87,7 +94,7 @@ namespace Namae
         internal static void AddBio(RimWorld.PawnBio bio)
         {
             if (bio?.name == null) return;
-            ModContentPack mod = bio.childhood?.modContentPack ?? bio.adulthood?.modContentPack;
+            ModContentPack mod = bio.childhood?.modContentPack ?? bio.adulthood?.modContentPack ?? CoreMod();
             if (mod == null) return;
             bool male = bio.gender != RimWorld.GenderPossibility.Female;
             bool female = bio.gender != RimWorld.GenderPossibility.Male;
@@ -103,19 +110,13 @@ namespace Namae
         {
             string key = Key(category, name);
             if (Sources.ContainsKey(key)) return;
-            foreach (ModContentPack mod in LoadedModManager.RunningMods)
-            {
-                if (mod != null && "ludeon.rimworld".Equals(mod.PackageId, StringComparison.OrdinalIgnoreCase))
-                {
-                    Add(category, name, mod, "base-name-bank");
-                    return;
-                }
-            }
+            ModContentPack mod = CoreMod();
+            if (mod != null) Add(category, name, mod, "base-name-bank");
         }
 
         internal static void AddPawn(Pawn pawn, NameTriple name, bool female)
         {
-            ModContentPack mod = pawn?.kindDef?.modContentPack;
+            ModContentPack mod = pawn?.kindDef?.modContentPack ?? CoreMod();
             if (mod == null || name == null) return;
             Add(female ? "FirstFemale" : "FirstMale", name.First, mod, "pawn-kind-candidate");
             Add(female ? "NickFemale" : "NickMale", name.Nick, mod, "pawn-kind-candidate");
@@ -124,8 +125,8 @@ namespace Namae
 
         internal static IReadOnlyList<Source> Find(string category, string name)
         {
-            return Sources.TryGetValue(Key(category, name), out List<Source> value)
-                ? value : new[] { Unknown };
+            if (Sources.TryGetValue(Key(category, name), out List<Source> exact)) return exact;
+            return SourcesByName.TryGetValue(name, out List<Source> any) ? any : new[] { Unknown };
         }
 
         internal static string ScriptOf(string value)
@@ -150,7 +151,9 @@ namespace Namae
             {
                 ["First_Male"] = "FirstMale", ["First_Female"] = "FirstFemale",
                 ["Last"] = "Last", ["Nick_Male"] = "NickMale",
-                ["Nick_Female"] = "NickFemale", ["Nick_Unisex"] = "NickUnisex"
+                ["Nick_Female"] = "NickFemale", ["Nick_Unisex"] = "NickUnisex",
+                ["Animal_Male"] = "AnimalMale", ["Animal_Female"] = "AnimalFemale",
+                ["Animal_Unisex"] = "AnimalUnisex"
             };
             foreach (string file in Directory.GetFiles(dir, "*.txt", SearchOption.AllDirectories))
             {
@@ -223,13 +226,23 @@ namespace Namae
             if (!Sources.TryGetValue(key, out List<Source> list)) Sources[key] = list = new List<Source>();
             string packageId = mod.PackageId ?? "unknown";
             if (list.Exists(x => x.PackageId.Equals(packageId, StringComparison.OrdinalIgnoreCase))) return;
-            list.Add(new Source
+            var source = new Source
             {
                 PackageId = packageId,
                 ModName = mod.Name ?? packageId,
                 Origin = mod.IsOfficialMod ? "vanilla" : "mod",
                 SourceKind = sourceKind
-            });
+            };
+            list.Add(source);
+            if (!SourcesByName.TryGetValue(name, out List<Source> byName)) SourcesByName[name] = byName = new List<Source>();
+            if (!byName.Exists(x => x.PackageId.Equals(packageId, StringComparison.OrdinalIgnoreCase))) byName.Add(source);
+        }
+
+        private static ModContentPack CoreMod()
+        {
+            foreach (ModContentPack mod in LoadedModManager.RunningMods)
+                if (mod != null && "ludeon.rimworld".Equals(mod.PackageId, StringComparison.OrdinalIgnoreCase)) return mod;
+            return null;
         }
 
         private static string Key(string category, string name) => category + "\0" + name;

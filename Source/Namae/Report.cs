@@ -137,7 +137,7 @@ namespace Namae
 
         private static void NoteFirst(string v, bool female)
         {
-            if (string.IsNullOrEmpty(v) || NameDictionaries.HumanTranslationValues.Contains(v)) return;
+            if (!HasAsciiLetter(v) || NameDictionaries.HumanTranslationValues.Contains(v)) return;
             if (female)
             {
                 if (NameDictionaries.FirstFemaleValues.Contains(v)) return;
@@ -154,7 +154,7 @@ namespace Namae
 
         private static void NoteNick(string v, NickGender g)
         {
-            if (string.IsNullOrEmpty(v) || NameDictionaries.HumanTranslationValues.Contains(v)) return;
+            if (!HasAsciiLetter(v) || NameDictionaries.HumanTranslationValues.Contains(v)) return;
             if (g == NickGender.Male && NameDictionaries.NickMaleValues.Contains(v)) return;
             if (g == NickGender.Female && NameDictionaries.NickFemaleValues.Contains(v)) return;
             switch (g)
@@ -185,7 +185,7 @@ namespace Namae
 
         private static void NoteLast(string v)
         {
-            if (string.IsNullOrEmpty(v) || NameDictionaries.HumanTranslationValues.Contains(v)) return;
+            if (!HasAsciiLetter(v) || NameDictionaries.HumanTranslationValues.Contains(v)) return;
             if (!NameDictionaries.LastRows.Contains(v)) NewLast.Add(v);
             else if (!NameDictionaries.Last.ContainsKey(v)) Last.Add(v);
         }
@@ -335,6 +335,14 @@ namespace Namae
         {
             string sanitized = (value ?? string.Empty).Replace('\r', ' ').Replace('\n', ' ');
             return "\"" + sanitized.Replace("\"", "\"\"") + "\"";
+        }
+
+        private static bool HasAsciiLetter(string value)
+        {
+            if (string.IsNullOrEmpty(value)) return false;
+            foreach (char c in value)
+                if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z')) return true;
+            return false;
         }
 
         private enum NickGender { Male, Female, Unisex }
