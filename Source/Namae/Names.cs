@@ -508,6 +508,13 @@ namespace Namae
         public static readonly HashSet<string> AnimalMaleRows = new HashSet<string>(StringComparer.Ordinal);
         public static readonly HashSet<string> AnimalFemaleRows = new HashSet<string>(StringComparer.Ordinal);
         public static readonly HashSet<string> AnimalUnisexRows = new HashSet<string>(StringComparer.Ordinal);
+        public static readonly HashSet<string> FirstMaleValues = new HashSet<string>(StringComparer.Ordinal);
+        public static readonly HashSet<string> FirstFemaleValues = new HashSet<string>(StringComparer.Ordinal);
+        public static readonly HashSet<string> LastValues = new HashSet<string>(StringComparer.Ordinal);
+        public static readonly HashSet<string> NickMaleValues = new HashSet<string>(StringComparer.Ordinal);
+        public static readonly HashSet<string> NickFemaleValues = new HashSet<string>(StringComparer.Ordinal);
+        public static readonly HashSet<string> NickUnisexValues = new HashSet<string>(StringComparer.Ordinal);
+        public static readonly HashSet<string> HumanTranslationValues = new HashSet<string>(StringComparer.Ordinal);
 
         public static void LoadFromDefs()
         {
@@ -536,6 +543,19 @@ namespace Namae
                     packs++;
                 }
 
+                CopyValues(FirstMale, FirstMaleValues);
+                CopyValues(FirstFemale, FirstFemaleValues);
+                CopyValues(Last, LastValues);
+                CopyValues(NickMale, NickMaleValues);
+                CopyValues(NickFemale, NickFemaleValues);
+                CopyValues(NickUnisex, NickUnisexValues);
+                CopyValues(FirstMale, HumanTranslationValues);
+                CopyValues(FirstFemale, HumanTranslationValues);
+                CopyValues(Last, HumanTranslationValues);
+                CopyValues(NickMale, HumanTranslationValues);
+                CopyValues(NickFemale, HumanTranslationValues);
+                CopyValues(NickUnisex, HumanTranslationValues);
+
                 Active = packs > 0;
                 Log.Message($"[Namae] language='{activeName}' packs={packs} "
                     + $"FM={FirstMale.Count} FF={FirstFemale.Count} Last={Last.Count} "
@@ -557,6 +577,17 @@ namespace Namae
             FirstMaleRows.Clear(); FirstFemaleRows.Clear(); LastRows.Clear();
             NickMaleRows.Clear(); NickFemaleRows.Clear(); NickUnisexRows.Clear();
             AnimalMaleRows.Clear(); AnimalFemaleRows.Clear(); AnimalUnisexRows.Clear();
+            FirstMaleValues.Clear(); FirstFemaleValues.Clear(); LastValues.Clear();
+            NickMaleValues.Clear(); NickFemaleValues.Clear(); NickUnisexValues.Clear();
+            HumanTranslationValues.Clear();
+        }
+
+        private static void CopyValues(Dictionary<string, string> source, HashSet<string> target)
+        {
+            foreach (string value in source.Values)
+            {
+                if (!string.IsNullOrEmpty(value)) target.Add(value);
+            }
         }
 
         // Match on the language code (folderName up to " ("), not a prefix.
