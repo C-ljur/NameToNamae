@@ -27,6 +27,13 @@ Build the Steam Workshop folder with:
 python Source/tools/build_workshop_package.py
 ```
 
+If the development copy keeps its Workshop metadata outside `About/`, pass that
+directory explicitly. It is still packaged as `About/`:
+
+```text
+python Source/tools/build_workshop_package.py --about-source _About-Development
+```
+
 The outputs are written to `dist/GitHub/Namae/` and `dist/Steam/Namae/`.
 
 ## Pawn names
