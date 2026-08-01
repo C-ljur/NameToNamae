@@ -307,8 +307,10 @@ namespace Namae
             var none = new HashSet<string>(StringComparer.Ordinal);
             try
             {
+                NameSourceIndex.Rebuild();
                 foreach (PawnBio bio in SolidBioDatabase.allBios)
                 {
+                    NameSourceIndex.AddBio(bio);
                     string nick = bio?.name?.Nick;
                     if (string.IsNullOrEmpty(nick)) continue;
                     if (bio.gender == GenderPossibility.Male) male.Add(nick);
@@ -319,9 +321,21 @@ namespace Namae
                 NameBank bank = PawnNameDatabaseShuffled.BankOf(PawnNameCategory.HumanStandard);
                 if (bank != null && NamesForMethod != null)
                 {
-                    foreach (string s in Names(bank, PawnNameSlot.Nick, Gender.Male)) male.Add(s);
-                    foreach (string s in Names(bank, PawnNameSlot.Nick, Gender.Female)) female.Add(s);
-                    foreach (string s in Names(bank, PawnNameSlot.Nick, Gender.None)) none.Add(s);
+                    foreach (string s in Names(bank, PawnNameSlot.Nick, Gender.Male))
+                    {
+                        male.Add(s);
+                        NameSourceIndex.AddBaseName("NickMale", s);
+                    }
+                    foreach (string s in Names(bank, PawnNameSlot.Nick, Gender.Female))
+                    {
+                        female.Add(s);
+                        NameSourceIndex.AddBaseName("NickFemale", s);
+                    }
+                    foreach (string s in Names(bank, PawnNameSlot.Nick, Gender.None))
+                    {
+                        none.Add(s);
+                        NameSourceIndex.AddBaseName("NickUnisex", s);
+                    }
                 }
             }
             catch (Exception e)
@@ -337,7 +351,6 @@ namespace Namae
             var onlyFemale = new HashSet<string>(StringComparer.Ordinal);
             foreach (string f in female) if (!unisex.Contains(f)) onlyFemale.Add(f);
 
-            NameSourceIndex.Rebuild();
             var sb = new StringBuilder();
             AppendReportHeader(sb);
             AppendRows(sb, "NickMale", onlyMale, "audit");
