@@ -59,9 +59,21 @@ Automatic naming and duplicate avoidance can be disabled separately.
 
 ## Reading data
 
-`NameReadings.tsv` contains the source spelling, kana spelling, assumed language,
-pronunciation, references, review status, and homophone distinctions for every
-included name. The file is UTF-8 with BOM and tab-separated.
+`NameReadings.tsv` is a simple correspondence table for the bundled Japanese
+pawn-name data. The file is UTF-8 with BOM and tab-separated.
+
+| Column | Meaning |
+|---|---|
+| カテゴリ | RimWorld name category |
+| 原綴り | Original spelling |
+| 日本語表記 | Kana spelling used by the name pack |
+| 由来・語圏 | Assumed origin or naming tradition |
+| 発音（簡易IPA） | Simplified pronunciation, when known |
+| 出典名 | Reference name |
+| 出典URL | Reference URL |
+
+Some kana spellings are adjusted to keep names unique within RimWorld's name
+categories.
 
 ## Name reports
 
