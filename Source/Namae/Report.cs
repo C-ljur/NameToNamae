@@ -83,6 +83,7 @@ namespace Namae
 
                 ScanBaseBank();
                 ScanAnimalBanks();
+                ScanNameFileCandidates();
 
                 if (NewTotal > 0)
                 {
@@ -102,6 +103,26 @@ namespace Namae
             catch (Exception e)
             {
                 Log.Error("[Namae] ScanLoadedNames failed: " + e);
+            }
+        }
+
+        private static void ScanNameFileCandidates()
+        {
+            foreach (KeyValuePair<string, HashSet<string>> entry in NameSourceIndex.Candidates)
+            {
+                foreach (string name in entry.Value)
+                {
+                    switch (entry.Key)
+                    {
+                        case "FirstMale": NoteFirst(name, false); break;
+                        case "FirstFemale": NoteFirst(name, true); break;
+                        case "FirstUnisex": NoteFirst(name, false); NoteFirst(name, true); break;
+                        case "Last": NoteLast(name); break;
+                        case "NickMale": NoteNick(name, NickGender.Male); break;
+                        case "NickFemale": NoteNick(name, NickGender.Female); break;
+                        case "NickUnisex": NoteNick(name, NickGender.Unisex); break;
+                    }
+                }
             }
         }
 

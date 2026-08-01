@@ -21,6 +21,8 @@ namespace Namae
             new Dictionary<string, List<Source>>(StringComparer.Ordinal);
         private static readonly Dictionary<string, List<Source>> SourcesByName =
             new Dictionary<string, List<Source>>(StringComparer.Ordinal);
+        private static readonly Dictionary<string, HashSet<string>> FileCandidates =
+            new Dictionary<string, HashSet<string>>(StringComparer.Ordinal);
         private static readonly Source Unknown = new Source
         {
             PackageId = "unknown", ModName = "Unknown", Origin = "unknown", SourceKind = "unresolved"
@@ -30,19 +32,20 @@ namespace Namae
         {
             Sources.Clear();
             SourcesByName.Clear();
+            FileCandidates.Clear();
             foreach (ModContentPack mod in LoadedModManager.RunningMods)
             {
                 if (mod == null || mod.foldersToLoadDescendingOrder == null) continue;
                 var seenFiles = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
                 foreach (string folder in mod.foldersToLoadDescendingOrder)
                 {
-                    ScanNameFolder(mod, Path.Combine(folder, "Languages", "English", "Names"), seenFiles);
-                    ScanNameFolder(mod, Path.Combine(folder, "Languages", "English", "Strings", "Names"), seenFiles);
+                    ScanNameFolder(mod, Path.Combine(folder, "Languages", "English", "Names"), seenFiles, true);
+                    ScanNameFolder(mod, Path.Combine(folder, "Languages", "English", "Strings", "Names"), seenFiles, true);
                     string active = LanguageDatabase.activeLanguage?.folderName;
                     if (!string.IsNullOrEmpty(active) && !active.Equals("English", StringComparison.OrdinalIgnoreCase))
                     {
-                        ScanNameFolder(mod, Path.Combine(folder, "Languages", active, "Names"), seenFiles);
-                        ScanNameFolder(mod, Path.Combine(folder, "Languages", active, "Strings", "Names"), seenFiles);
+                        ScanNameFolder(mod, Path.Combine(folder, "Languages", active, "Names"), seenFiles, false);
+                        ScanNameFolder(mod, Path.Combine(folder, "Languages", active, "Strings", "Names"), seenFiles, false);
                     }
                     ScanBioFolder(mod, Path.Combine(folder, "Resources", "Backstories", "Solid"), seenFiles);
                 }
@@ -129,6 +132,8 @@ namespace Namae
             return SourcesByName.TryGetValue(name, out List<Source> any) ? any : new[] { Unknown };
         }
 
+        internal static IEnumerable<KeyValuePair<string, HashSet<string>>> Candidates => FileCandidates;
+
         internal static string ScriptOf(string value)
         {
             bool ascii = false;
@@ -144,7 +149,7 @@ namespace Namae
             return "Other";
         }
 
-        private static void ScanNameFolder(ModContentPack mod, string dir, HashSet<string> seenFiles)
+        private static void ScanNameFolder(ModContentPack mod, string dir, HashSet<string> seenFiles, bool collectCandidates)
         {
             if (!Directory.Exists(dir)) return;
             var categories = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
@@ -164,7 +169,16 @@ namespace Namae
                 foreach (string line in File.ReadAllLines(file))
                 {
                     string name = line.Trim();
-                    if (name.Length > 0 && !name.StartsWith("#", StringComparison.Ordinal)) Add(category, name, mod, "name-file");
+                    if (name.Length > 0 && !name.StartsWith("#", StringComparison.Ordinal))
+                    {
+                        Add(category, name, mod, "name-file");
+                        if (collectCandidates)
+                        {
+                            if (!FileCandidates.TryGetValue(category, out HashSet<string> names))
+                                FileCandidates[category] = names = new HashSet<string>(StringComparer.Ordinal);
+                            names.Add(name);
+                        }
+                    }
                 }
             }
         }
