@@ -25,7 +25,7 @@ namespace Namae
             new Dictionary<string, HashSet<string>>(StringComparer.Ordinal);
         private static readonly Source Unknown = new Source
         {
-            PackageId = "unknown", ModName = "Unknown", Origin = "unknown", SourceKind = "unresolved"
+            PackageId = "unknown", ModName = "Unknown", Origin = "unknown", SourceKind = "runtime-observation"
         };
 
         internal static void Rebuild()
@@ -119,11 +119,8 @@ namespace Namae
 
         internal static void AddPawn(Pawn pawn, NameTriple name, bool female)
         {
-            ModContentPack mod = pawn?.kindDef?.modContentPack ?? CoreMod();
-            if (mod == null || name == null) return;
-            Add(female ? "FirstFemale" : "FirstMale", name.First, mod, "pawn-kind-candidate");
-            Add(female ? "NickFemale" : "NickMale", name.Nick, mod, "pawn-kind-candidate");
-            Add("Last", name.Last, mod, "pawn-kind-candidate");
+            // A pawn kind identifies the pawn definition, not the code or file that generated its name.
+            // File and rule-pack sources are indexed separately; unmatched values remain runtime observations.
         }
 
         internal static IReadOnlyList<Source> Find(string category, string name)
