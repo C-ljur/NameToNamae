@@ -2,7 +2,7 @@
 <Names>
   <n en="A" t="エー" />
   <n en="Abby" t="アビー" />
-  <n en="Ace" t="エイス" />
+  <n en="Ace" t="エース" />
   <n en="Acid" t="アシッド" />
   <n en="Acorn" t="エイコーン" />
   <n en="Ad" t="アド" />
@@ -11,9 +11,9 @@
   <n en="Addy" t="アディー" />
   <n en="Ade" t="エイド" />
   <n en="Aelina" t="エリナ" />
-  <n en="Aerin" t="エリン" />
+  <n en="Aerin" t="エアリン" />
   <n en="Aes" t="エス" />
-  <n en="Aesu" t="エース" />
+  <n en="Aesu" t="エスゥ" />
   <n en="Agriche" t="アグリチェ" />
   <n en="Ahmel" t="アーメル" />
   <n en="Ai" t="アイ" />
@@ -25,15 +25,15 @@
   <n en="Ajiko" t="アジコ" />
   <n en="Akari" t="アカリ" />
   <n en="Akayo" t="アカヨ" />
-  <n en="Ala" t="アラ" />
+  <n en="Ala" t="アーラ" />
   <n en="Ale" t="アレ" />
   <n en="Alex" t="アレックス" />
-  <n en="Ali" t="アリー" />
+  <n en="Ali" t="アリ" />
   <n en="Alia" t="アリア" />
   <n en="Alice" t="アリス" />
   <n en="Alina" t="アリーナ" />
   <n en="Allie" t="アーリー" />
-  <n en="Ally" t="アライ" />
+  <n en="Ally" t="アッリー" />
   <n en="Alona" t="アローナ" />
   <n en="Aluca" t="アルカ" />
   <n en="Alva" t="アルヴァ" />
@@ -60,19 +60,19 @@
   <n en="App" t="アップ" />
   <n en="April" t="エイプリル" />
   <n en="Aprillic" t="エイプリリック" />
-  <n en="Ara" t="アーラ" />
+  <n en="Ara" t="アラ" />
   <n en="Arc" t="アーク" />
   <n en="Are" t="アーレ" />
   <n en="Arelynn" t="アレリン" />
-  <n en="Ari" t="アリ" />
+  <n en="Ari" t="アリー" />
   <n en="Aria" t="アーリア" />
   <n en="Ark" t="アークー" />
-  <n en="Arlene" t="アーリーン" />
+  <n en="Arlene" t="アーリン" />
   <n en="Arri" t="アリィ" />
   <n en="Art" t="アート" />
-  <n en="Arty" t="アーティー" />
-  <n en="Ash" t="アシュ" />
-  <n en="Ashe" t="アッシュ" />
+  <n en="Arty" t="アーティ" />
+  <n en="Ash" t="アッシュ" />
+  <n en="Ashe" t="アーシュ" />
   <n en="Ashley" t="アシュリー" />
   <n en="Asti" t="アスティ" />
   <n en="Astrid" t="アストリッド" />
@@ -87,14 +87,14 @@
   <n en="Az" t="アズ" />
   <n en="Azalia" t="アザリア" />
   <n en="Azukitten" t="アズキッテン" />
-  <n en="Azzura" t="アズーラ" />
+  <n en="Azzura" t="アッズーラ" />
   <n en="Babbi" t="バビ" />
   <n en="Babeta" t="バベタ" />
   <n en="Babs" t="バブス" />
   <n en="Babygirl" t="ベイビーガール" />
   <n en="Baka" t="バカ" />
   <n en="Bambi" t="バンビ" />
-  <n en="Bea" t="ビー" />
+  <n en="Bea" t="ビーイ" />
   <n en="Beach" t="ビーチ" />
   <n en="Bean" t="ビーン" />
   <n en="Bear" t="ベア" />
@@ -151,7 +151,7 @@
   <n en="Caitlin" t="ケイトリン" />
   <n en="Caitlyn" t="セイトリン" />
   <n en="Cake" t="ケーキ" />
-  <n en="Callie" t="キャリー" />
+  <n en="Callie" t="キャリィ" />
   <n en="Cami" t="キャミ" />
   <n en="Camille" t="カミール" />
   <n en="Cammy" t="キャミー" />
@@ -168,11 +168,11 @@
   <n en="Carol" t="キャロル" />
   <n en="Carolynne" t="キャロリン" />
   <n en="Cass" t="キャス" />
-  <n en="Cassie" t="キャシ" />
+  <n en="Cassie" t="キャシィ" />
   <n en="Cat" t="キャット" />
   <n en="Catfish" t="キャットフィッシュ" />
   <n en="Cathryn" t="キャスリン" />
-  <n en="Cathy" t="キャシィ" />
+  <n en="Cathy" t="キャシー" />
   <n en="Catlady" t="キャットレディ" />
   <n en="Cattleya" t="カトレア" />
   <n en="Catty" t="キャッティー" />
@@ -182,7 +182,7 @@
   <n en="Cella" t="チェッラ" />
   <n en="Chalys" t="チャリス" />
   <n en="Char" t="チャー" />
-  <n en="Chara" t="チャラ" />
+  <n en="Chara" t="キャラ" />
   <n en="Charlie" t="チャーリー" />
   <n en="Charna" t="チャルナ" />
   <n en="Chatty" t="チャッティー" />
@@ -208,12 +208,12 @@
   <n en="Christy" t="クリスティ" />
   <n en="Chudonga" t="チュドンガ" />
   <n en="Cicada" t="シケイダ" />
-  <n en="Cin" t="シン" />
-  <n en="Cindy" t="シンディー" />
+  <n en="Cin" t="チン" />
+  <n en="Cindy" t="シンディ" />
   <n en="Circe" t="シルセ" />
   <n en="Cirkeline" t="キルケリーネ" />
-  <n en="Cissy" t="シシー" />
-  <n en="Citlally" t="シトラリ" />
+  <n en="Cissy" t="シシィ" />
+  <n en="Citlally" t="シトラリー" />
   <n en="Claire" t="クレア" />
   <n en="Clara" t="クララ" />
   <n en="Claula" t="クラウラ" />
@@ -232,7 +232,7 @@
   <n en="Corsi" t="コルシ" />
   <n en="Corynn" t="コリン" />
   <n en="Cosmine" t="コスミン" />
-  <n en="Cottery" t="コッタリー" />
+  <n en="Cottery" t="コッテリー" />
   <n en="Cotwo" t="コトゥー" />
   <n en="County" t="カウンティー" />
   <n en="Courtanne" t="コータン" />
@@ -242,7 +242,7 @@
   <n en="Crown" t="クラウン" />
   <n en="Cub" t="カブ" />
   <n en="Cupcake" t="カップケーキ" />
-  <n en="Cy" t="サイ" />
+  <n en="Cy" t="サイー" />
   <n en="Dadoo" t="ダドゥー" />
   <n en="Daidai" t="ダイダイ" />
   <n en="Daimao" t="ダイマオ" />
@@ -260,7 +260,7 @@
   <n en="Daye" t="デイ" />
   <n en="DD" t="ディーディー" />
   <n en="Debs" t="デブズ" />
-  <n en="Dee" t="ディー" />
+  <n en="Dee" t="ディ" />
   <n en="Deer" t="ディアー" />
   <n en="Desiree" t="デジレ" />
   <n en="Desselle" t="デセル" />
@@ -301,7 +301,7 @@
   <n en="Eggnog" t="エッグノッグ" />
   <n en="Eggs" t="エッグス" />
   <n en="El" t="エル" />
-  <n en="Ela" t="エラ" />
+  <n en="Ela" t="エーラ" />
   <n en="Elana" t="エラナ" />
   <n en="Elariah" t="エラリア" />
   <n en="Ele" t="エレ" />
@@ -309,7 +309,7 @@
   <n en="Element" t="エレメント" />
   <n en="Elf" t="エルフ" />
   <n en="Elina" t="エリーナ" />
-  <n en="Ella" t="エーラ" />
+  <n en="Ella" t="エラ" />
   <n en="Ellie" t="エリー" />
   <n en="Elly" t="エリィー" />
   <n en="Elvee" t="エルヴィー" />
@@ -318,13 +318,13 @@
   <n en="Emi" t="エミ" />
   <n en="Emily" t="エミリー" />
   <n en="Eminent" t="エミネント" />
-  <n en="Emma" t="エマ" />
-  <n en="Emmeke" t="エムメケ" />
+  <n en="Emma" t="エッマ" />
+  <n en="Emmeke" t="エメケ" />
   <n en="Emmi" t="エミー" />
   <n en="Ems" t="エムズ" />
   <n en="Enyo" t="エンヨ" />
   <n en="Eri" t="エリ" />
-  <n en="Erika" t="エリカ" />
+  <n en="Erika" t="エリカー" />
   <n en="Erri" t="エリィ" />
   <n en="Eryl" t="エリル" />
   <n en="Erys" t="エリス" />
@@ -333,22 +333,22 @@
   <n en="Ess" t="エスエ" />
   <n en="Essie" t="エッシー" />
   <n en="Est" t="エスト" />
-  <n en="Esther" t="エスター" />
+  <n en="Esther" t="エステル" />
   <n en="Eu" t="イーユー" />
   <n en="Ev" t="エヴ" />
   <n en="EV" t="イーヴィー" />
   <n en="Eva" t="エヴァ" />
-  <n en="Eve" t="イーヴ" />
+  <n en="Eve" t="イヴ" />
   <n en="Evie" t="エヴィー" />
   <n en="Evy" t="エヴィ" />
   <n en="Fair" t="フェア" />
   <n en="Fannie" t="ファニー" />
   <n en="Faux" t="フォー" />
   <n en="Fawx" t="フォークス" />
-  <n en="Faye" t="フェエ" />
+  <n en="Faye" t="フェイ" />
   <n en="Feather" t="フェザー" />
   <n en="Feeb" t="フィーブ" />
-  <n en="Fey" t="フェイ" />
+  <n en="Fey" t="フェイー" />
   <n en="Fidi" t="フィディ" />
   <n en="Fii" t="フィー" />
   <n en="Fio" t="フィオ" />
@@ -379,7 +379,7 @@
   <n en="FT" t="エフティー" />
   <n en="Fuwari" t="フワリ" />
   <n en="Gaia" t="ガイア" />
-  <n en="Gem" t="ジェム" />
+  <n en="Gem" t="ゲム" />
   <n en="Gen" t="ジェン" />
   <n en="General" t="ジェネラル" />
   <n en="Gessyca" t="ジェッシカ" />
@@ -392,7 +392,7 @@
   <n en="Goose" t="グース" />
   <n en="Grace" t="グレイス" />
   <n en="Gracie" t="グレイシー" />
-  <n en="Grey" t="グレイ" />
+  <n en="Grey" t="グレー" />
   <n en="Griffin" t="グリフィン" />
   <n en="Gundi" t="グンディ" />
   <n en="Gwen" t="グウェン" />
@@ -400,8 +400,8 @@
   <n en="Gwendigo" t="グウェンディゴ" />
   <n en="Gwinn" t="グウィン" />
   <n en="Gypsy" t="ジプシー" />
-  <n en="Haf" t="ハフ" />
-  <n en="Hallie" t="ホーリー" />
+  <n en="Haf" t="ハーフ" />
+  <n en="Hallie" t="ハリー" />
   <n en="Hamster" t="ハムスター" />
   <n en="Han" t="ハン" />
   <n en="Handy" t="ハンディー" />
@@ -436,7 +436,7 @@
   <n en="Hune" t="フネ" />
   <n en="Hyf" t="ヒフ" />
   <n en="Ia" t="イア" />
-  <n en="Ibrahim" t="イブラヒーム" />
+  <n en="Ibrahim" t="イブラヒム" />
   <n en="Iko" t="イコ" />
   <n en="Ill" t="イル" />
   <n en="Illy" t="イリィ" />
@@ -461,7 +461,7 @@
   <n en="Jacky" t="ジャッキィ" />
   <n en="Jaclyn" t="ジャクリン" />
   <n en="Jade" t="ジェイド" />
-  <n en="Jae" t="ジェイ" />
+  <n en="Jae" t="ジェエ" />
   <n en="Jails" t="ジェイルズ" />
   <n en="James" t="ジェイムズ" />
   <n en="Jana" t="ジャナ" />
@@ -469,19 +469,19 @@
   <n en="Janette" t="ジャネット" />
   <n en="Jaqi" t="ジャキ" />
   <n en="Java" t="ジャヴァ" />
-  <n en="Jaye" t="ジェエ" />
+  <n en="Jaye" t="ジェイー" />
   <n en="Jazz" t="ジャズ" />
   <n en="Jazzy" t="ジャジー" />
-  <n en="Jem" t="ヂェム" />
-  <n en="Jen" t="ヂェン" />
+  <n en="Jem" t="ジェム" />
+  <n en="Jen" t="ジェーン" />
   <n en="Jenn" t="ジェンヌ" />
   <n en="Jenna" t="ジェンナ" />
   <n en="JennaLou" t="ジェナルー" />
-  <n en="Jennii" t="ジェニィ" />
+  <n en="Jennii" t="ジェンニー" />
   <n en="Jerbine" t="ジェルビネ" />
   <n en="Jess" t="ジェス" />
   <n en="Jesse" t="ジェシー" />
-  <n en="Jessy" t="ジェシィ" />
+  <n en="Jessy" t="ジェシィー" />
   <n en="Jester" t="ジェスター" />
   <n en="Jhannyok" t="ジャニョク" />
   <n en="Jill" t="ジル" />
@@ -511,14 +511,14 @@
   <n en="Kairi" t="カイリ" />
   <n en="Kajdua" t="カジドゥア" />
   <n en="Kali" t="カーリ" />
-  <n en="Kalie" t="ケイリー" />
+  <n en="Kalie" t="カリー" />
   <n en="Kalli" t="カリィ" />
   <n en="Kallisti" t="カリスティ" />
   <n en="Kami" t="カミ" />
   <n en="Kanata" t="カナタ" />
   <n en="Kaos" t="カオス" />
   <n en="Karo" t="カーロ" />
-  <n en="Kassie" t="キャシー" />
+  <n en="Kassie" t="キャッシー" />
   <n en="Kat" t="キャットー" />
   <n en="Kath" t="キャスー" />
   <n en="Kathi" t="カーティ" />
@@ -526,7 +526,7 @@
   <n en="Katniss" t="カットニス" />
   <n en="Kato" t="カトー" />
   <n en="Katt" t="キャットエ" />
-  <n en="Katya" t="カティア" />
+  <n en="Katya" t="カーチャ" />
   <n en="Kay" t="ケイ" />
   <n en="Kaylena" t="ケイレナ" />
   <n en="Keegs" t="キーグス" />
@@ -551,7 +551,7 @@
   <n en="Kitsune" t="キツネ" />
   <n en="Kitten" t="キトゥン" />
   <n en="Kitti" t="キッティ" />
-  <n en="Kitty" t="キッティー" />
+  <n en="Kitty" t="キティー" />
   <n en="Kiva" t="キヴァ" />
   <n en="Kivy" t="キヴィ" />
   <n en="Kiyomi" t="キヨミ" />
@@ -567,9 +567,9 @@
   <n en="Krista" t="クリスタ" />
   <n en="Kristen" t="クリステン" />
   <n en="Kristil" t="クリスティル" />
-  <n en="Krys" t="クリス" />
-  <n en="Krystal" t="クリスタル" />
-  <n en="Krystyn" t="クリスティン" />
+  <n en="Krys" t="クリイース" />
+  <n en="Krystal" t="クリスタール" />
+  <n en="Krystyn" t="クリスティンー" />
   <n en="Kuma" t="クマ" />
   <n en="Kuro" t="クロ" />
   <n en="Ky" t="キー" />
@@ -596,7 +596,7 @@
   <n en="LeeLou" t="リールー" />
   <n en="Lefia" t="レフィア" />
   <n en="Leia" t="レイア" />
-  <n en="Lela" t="リーラ" />
+  <n en="Lela" t="レラ" />
   <n en="Lelya" t="レリア" />
   <n en="Lena" t="リーナ" />
   <n en="Leng" t="レング" />
@@ -608,14 +608,14 @@
   <n en="Lexie" t="レクシー" />
   <n en="Leya" t="レイヤ" />
   <n en="Li" t="リ" />
-  <n en="Lia" t="リア" />
+  <n en="Lia" t="リーア" />
   <n en="Libby" t="リビー" />
   <n en="Lidini" t="リディニ" />
   <n en="Lilac" t="ライラック" />
   <n en="Lilith" t="リリス" />
-  <n en="Lilly" t="リリー" />
+  <n en="Lilly" t="リリィ" />
   <n en="Lilu" t="リル" />
-  <n en="Lily" t="リリィ" />
+  <n en="Lily" t="リリー" />
   <n en="Lima" t="リマ" />
   <n en="Lime" t="ライム" />
   <n en="Linda" t="リンダ" />
@@ -623,11 +623,11 @@
   <n en="Linds" t="リンズ" />
   <n en="Ling" t="リング" />
   <n en="Lingmei" t="リングメイ" />
-  <n en="Linn" t="リン" />
+  <n en="Linn" t="リンヌ" />
   <n en="Linnea" t="リネア" />
   <n en="Lion" t="ライオン" />
   <n en="Lis" t="リス" />
-  <n en="Lisa" t="リーサ" />
+  <n en="Lisa" t="リサ" />
   <n en="Lithiea" t="リティア" />
   <n en="Livi" t="リーヴィ" />
   <n en="Livvy" t="リヴィ" />
@@ -635,7 +635,7 @@
   <n en="Liza" t="ライザ" />
   <n en="Lizz" t="リッズ" />
   <n en="Lizzie" t="リジー" />
-  <n en="Lo" t="ロー" />
+  <n en="Lo" t="ロオ" />
   <n en="Lobster" t="ロブスター" />
   <n en="Loca" t="ローカ" />
   <n en="Lock" t="ロック" />
@@ -643,47 +643,47 @@
   <n en="Lollipop" t="ロリポップ" />
   <n en="Lolo" t="ロロ" />
   <n en="Loreen" t="ロリーン" />
-  <n en="Lori" t="ローリー" />
+  <n en="Lori" t="ローリ" />
   <n en="Lour" t="ラウアー" />
-  <n en="Love" t="ラブ" />
+  <n en="Love" t="ロヴ" />
   <n en="Lows" t="ロウズ" />
   <n en="Lucca" t="ルーカ" />
-  <n en="Luci" t="ルーシー" />
-  <n en="Lucia" t="ルシア" />
-  <n en="Lucky" t="ラッキィ" />
-  <n en="Lucy" t="ルーシィ" />
+  <n en="Luci" t="ルシー" />
+  <n en="Lucia" t="ルチア" />
+  <n en="Lucky" t="ラッキー" />
+  <n en="Lucy" t="ルーシー" />
   <n en="Luenchen" t="ルエンチェン" />
-  <n en="Lui" t="ルイ" />
+  <n en="Lui" t="ルーイ" />
   <n en="Lulu" t="ルル" />
   <n en="Lumi" t="ルミ" />
-  <n en="Luna" t="ルーナ" />
+  <n en="Luna" t="ルナ" />
   <n en="Lupa" t="ルーパ" />
   <n en="Lurkie" t="ラーキィ" />
   <n en="Lux" t="ラックス" />
   <n en="Luya" t="ルヤ" />
   <n en="Ly" t="ラーイ" />
   <n en="Lya" t="リヤ" />
-  <n en="Lyn" t="リーヌ" />
-  <n en="Lynn" t="リンヌ" />
+  <n en="Lyn" t="リン" />
+  <n en="Lynn" t="リーヌ" />
   <n en="Lynnn" t="リィン" />
-  <n en="Lyra" t="ライラ" />
+  <n en="Lyra" t="リーラ" />
   <n en="Lys" t="リース" />
-  <n en="Maay" t="メイ" />
-  <n en="Mac" t="マック" />
+  <n en="Maay" t="メェーイ" />
+  <n en="Mac" t="マク" />
   <n en="Madam" t="マダム" />
   <n en="Maddie" t="マディ" />
   <n en="Mado" t="マド" />
-  <n en="Mads" t="マッツ" />
-  <n en="Mae" t="メエ" />
+  <n en="Mads" t="マッヅ" />
+  <n en="Mae" t="メイ" />
   <n en="Maebi" t="マエビ" />
-  <n en="Maetel" t="マエテル" />
+  <n en="Maetel" t="メーテル" />
   <n en="Maggie" t="マギー" />
   <n en="Mags" t="マグズ" />
   <n en="Manju" t="マンジュ" />
   <n en="Manu" t="マヌ" />
   <n en="Mar" t="マー" />
-  <n en="Mara" t="マラ" />
-  <n en="Mari" t="マリー" />
+  <n en="Mara" t="マーラ" />
+  <n en="Mari" t="マリ" />
   <n en="Marichan" t="マリちゃん" />
   <n en="Marin" t="マリン" />
   <n en="Maris" t="マリス" />
@@ -709,11 +709,11 @@
   <n en="Mel" t="メル" />
   <n en="Melee" t="メレー" />
   <n en="Mellia" t="メリア" />
-  <n en="Melly" t="メリー" />
+  <n en="Melly" t="メリィ" />
   <n en="Meme" t="ミーム" />
   <n en="Mena" t="ミーナ" />
-  <n en="Meowski" t="メオスキー" />
-  <n en="Merrie" t="メーリー" />
+  <n en="Meowski" t="ミャウスキー" />
+  <n en="Merrie" t="メリー" />
   <n en="Meruru" t="メルル" />
   <n en="Mesa" t="メイサ" />
   <n en="Metroa" t="メトロア" />
@@ -721,14 +721,14 @@
   <n en="Mey" t="メー" />
   <n en="Mia" t="ミア" />
   <n en="Miana" t="ミアナ" />
-  <n en="Mic" t="ミック" />
+  <n en="Mic" t="ミーック" />
   <n en="Michael" t="マイケル" />
   <n en="Michi" t="ミチ" />
   <n en="Mieko" t="ミエコ" />
-  <n en="Mik" t="ミク" />
+  <n en="Mik" t="ミーク" />
   <n en="Mika" t="ミカ" />
   <n en="Milena" t="ミレナ" />
-  <n en="Milly" t="ミリィ" />
+  <n en="Milly" t="ミリー" />
   <n en="Mimi" t="ミミ" />
   <n en="Minnie" t="ミニー" />
   <n en="Minty" t="ミンティ" />
@@ -751,8 +751,8 @@
   <n en="Molly" t="モリー" />
   <n en="Momo" t="モモ" />
   <n en="Monia" t="モニア" />
-  <n en="Monica" t="モニッカ" />
-  <n en="Monika" t="モニカ" />
+  <n en="Monica" t="モニカ" />
+  <n en="Monika" t="モーニカ" />
   <n en="Monkey" t="モンキー" />
   <n en="Montse" t="モンセ" />
   <n en="Mony" t="モニー" />
@@ -765,7 +765,7 @@
   <n en="Morri" t="モリィ" />
   <n en="Mother" t="マザー" />
   <n en="Mouse" t="マウス" />
-  <n en="Mox" t="モックス" />
+  <n en="Mox" t="モクス" />
   <n en="Muffin" t="マフィン" />
   <n en="Muffins" t="マフィンズ" />
   <n en="Mummy" t="マミー" />
@@ -773,14 +773,14 @@
   <n en="Myka" t="マイカ" />
   <n en="Nabs" t="ナブズ" />
   <n en="Nada" t="ナダ" />
-  <n en="Nadya" t="ナージャ" />
+  <n en="Nadya" t="ナディア" />
   <n en="Nagis" t="ナジス" />
   <n en="Naharis" t="ナハリス" />
   <n en="Nahli" t="ナリ" />
   <n en="Nana" t="ナナ" />
   <n en="Nanette" t="ナネット" />
   <n en="Narc" t="ナーク" />
-  <n en="Nash" t="ナシュ" />
+  <n en="Nash" t="ナッシュ" />
   <n en="Nat" t="ナット" />
   <n en="Nata" t="ナタ" />
   <n en="Natal" t="ネイタル" />
@@ -799,9 +799,9 @@
   <n en="Nickie" t="ニッキー" />
   <n en="Nickle" t="ニッケル" />
   <n en="Nico" t="ニコ" />
-  <n en="Night" t="ナイト" />
+  <n en="Night" t="ナーイト" />
   <n en="Nikita" t="ニキータ" />
-  <n en="Nikki" t="ニーッキー" />
+  <n en="Nikki" t="ニッキ" />
   <n en="Nila" t="ニーラ" />
   <n en="Nina" t="ニーナ" />
   <n en="Ningkang" t="ニングカング" />
@@ -812,13 +812,13 @@
   <n en="Noodle" t="ヌードル" />
   <n en="Noodles" t="ヌードルズ" />
   <n en="Nossi" t="ノシ" />
-  <n en="Nova" t="ノーヴァ" />
+  <n en="Nova" t="ノヴァ" />
   <n en="Nuffke" t="ヌッフケ" />
   <n en="Nug" t="ナグ" />
   <n en="Nummy" t="ナミー" />
   <n en="Nuri" t="ヌリ" />
   <n en="Nyn" t="ニン" />
-  <n en="Nyx" t="ニクス" />
+  <n en="Nyx" t="ニュクス" />
   <n en="Oca" t="オカ" />
   <n en="Ocelotte" t="オセロット" />
   <n en="Ocerx" t="オセルクス" />
@@ -831,7 +831,7 @@
   <n en="Omochi" t="オモチ" />
   <n en="Onion" t="オニオン" />
   <n en="Onyou" t="オンヨウ" />
-  <n en="Ophelian" t="オフィリアン" />
+  <n en="Ophelian" t="オフェリアン" />
   <n en="Orca" t="オルカ" />
   <n en="Owlie" t="アウリー" />
   <n en="Paige" t="ペイジ" />
@@ -844,8 +844,8 @@
   <n en="Parks" t="パークス" />
   <n en="Parrot" t="パロット" />
   <n en="Parsnip" t="パースニップ" />
-  <n en="Pattie" t="パティ" />
-  <n en="Patty" t="パティー" />
+  <n en="Pattie" t="パティー" />
+  <n en="Patty" t="パティ" />
   <n en="Paynes" t="ペイネス" />
   <n en="Paynsli" t="ペインスリ" />
   <n en="Peachy" t="ピーチー" />
@@ -868,7 +868,7 @@
   <n en="Platy" t="プラティ" />
   <n en="Plinkey" t="プランキー" />
   <n en="Po" t="ポー" />
-  <n en="Poppy" t="ポッピー" />
+  <n en="Poppy" t="ポピー" />
   <n en="Porky" t="ポーキー" />
   <n en="Potato" t="ポテト" />
   <n en="Poukram" t="パウクラム" />
@@ -891,8 +891,8 @@
   <n en="Rabbit" t="ラビット" />
   <n en="Rachel" t="レイチェル" />
   <n en="Rad" t="ラッド" />
-  <n en="Rae" t="レイ" />
-  <n en="Rai" t="ライ" />
+  <n en="Rae" t="レエ" />
+  <n en="Rai" t="ラーイー" />
   <n en="Rain" t="レーイン" />
   <n en="Rainy" t="レイニィ" />
   <n en="Raj" t="ラージ" />
@@ -903,12 +903,12 @@
   <n en="Rarity" t="レアリティ" />
   <n en="Rascal" t="ラスカル" />
   <n en="Rat" t="ラット" />
-  <n en="Raven" t="レイヴェン" />
-  <n en="Ray" t="レー" />
+  <n en="Raven" t="レイヴン" />
+  <n en="Ray" t="レイ" />
   <n en="Rebecca" t="レベッカ" />
   <n en="Red" t="レッド" />
-  <n en="Rei" t="レーイ" />
-  <n en="Remi" t="レミー" />
+  <n en="Rei" t="レー" />
+  <n en="Remi" t="レミ" />
   <n en="Ren-ben" t="レンベン" />
   <n en="Rena" t="レナ" />
   <n en="Rennie" t="レニー" />
@@ -929,7 +929,7 @@
   <n en="Romy" t="ロミー" />
   <n en="Roni" t="ロニ" />
   <n en="Ronja" t="ロニャ" />
-  <n en="Roo" t="ルー" />
+  <n en="Roo" t="ルウ" />
   <n en="Rora" t="ロラ" />
   <n en="Rosa" t="ローザ" />
   <n en="Rose" t="ローズ" />
@@ -948,9 +948,9 @@
   <n en="Ryla" t="リラ" />
   <n en="Ryn" t="リーン" />
   <n en="Sa" t="サ" />
-  <n en="Saga" t="サガ" />
+  <n en="Saga" t="サーガ" />
   <n en="Sahmona" t="サモナ" />
-  <n en="Sai" t="サーイ" />
+  <n en="Sai" t="サイ" />
   <n en="Saki" t="サキ" />
   <n en="Sakii" t="サキィ" />
   <n en="Salad" t="サラダ" />
@@ -958,8 +958,8 @@
   <n en="Salsa" t="サルサ" />
   <n en="Sam" t="サム" />
   <n en="Sami" t="サミ" />
-  <n en="Sammi" t="サミー" />
-  <n en="Sammy" t="サミィ" />
+  <n en="Sammi" t="サミィ" />
+  <n en="Sammy" t="サミー" />
   <n en="Sanni" t="サニィ" />
   <n en="Sanya" t="サニャ" />
   <n en="Sapphire" t="サファイア" />
@@ -967,7 +967,7 @@
   <n en="Sapphy" t="サフィ" />
   <n en="Sarah" t="サラ" />
   <n en="Sari" t="サリ" />
-  <n en="Sasha" t="サシャ" />
+  <n en="Sasha" t="サーシャ" />
   <n en="Sass" t="サス" />
   <n en="Sausage" t="ソーセージ" />
   <n en="Scarlet" t="スカーレト" />
@@ -990,12 +990,12 @@
   <n en="Seva" t="セヴァ" />
   <n en="Shade" t="シェイド" />
   <n en="Shady" t="シェイディー" />
-  <n en="Shaira" t="シェイラ" />
+  <n en="Shaira" t="シャイラ" />
   <n en="Shaper" t="シェイパー" />
   <n en="Shar" t="シャル" />
   <n en="Sharee" t="シャリー" />
   <n en="Shauna" t="ショーナ" />
-  <n en="Shay" t="シェイ" />
+  <n en="Shay" t="シェーイ" />
   <n en="Sheba" t="シーバ" />
   <n en="Sheenz" t="シーンズ" />
   <n en="Sheep" t="シープ" />
@@ -1009,7 +1009,7 @@
   <n en="Shi" t="シ" />
   <n en="Shield" t="シールド" />
   <n en="Shiki" t="シキ" />
-  <n en="Shin" t="シーン" />
+  <n en="Shin" t="シン" />
   <n en="Shine" t="シャイン" />
   <n en="Shiro" t="シロ" />
   <n en="Shoaura" t="シャウーラ" />
@@ -1020,8 +1020,8 @@
   <n en="Shrike" t="シュライク" />
   <n en="Shy" t="シャイ" />
   <n en="Shyly" t="シャイリー" />
-  <n en="Sidney" t="シドニー" />
-  <n en="Sidoupiar" t="シダウピアル" />
+  <n en="Sidney" t="シドニィ" />
+  <n en="Sidoupiar" t="シドウピア" />
   <n en="Sierrap" t="シエラップ" />
   <n en="Sif" t="シフ" />
   <n en="Sigfier" t="シグフィエル" />
@@ -1035,13 +1035,13 @@
   <n en="Siren" t="サイレン" />
   <n en="Sis" t="シス" />
   <n en="Siska" t="シスカ" />
-  <n en="Sissy" t="シシィ" />
+  <n en="Sissy" t="シシー" />
   <n en="Sister" t="シスター" />
   <n en="SJ" t="エスジェイ" />
   <n en="Ski" t="スキー" />
   <n en="Skuld" t="スクルド" />
   <n en="Sky" t="スカイ" />
-  <n en="Skye" t="スカエ" />
+  <n en="Skye" t="スカイー" />
   <n en="Slippy" t="スリッピー" />
   <n en="Smarty" t="スマーティー" />
   <n en="Smash" t="スマッシュ" />
@@ -1062,7 +1062,7 @@
   <n en="Sooze" t="スーズ" />
   <n en="Soph" t="ソーフ" />
   <n en="Sophie" t="ソフィー" />
-  <n en="Sophiea" t="ソフィア" />
+  <n en="Sophiea" t="ソフィーア" />
   <n en="Sora" t="ソラ" />
   <n en="Soup" t="スープ" />
   <n en="Sowy" t="ソウィ" />
@@ -1096,8 +1096,8 @@
   <n en="Swanni" t="スワニー" />
   <n en="Sweetpea" t="スウィートピー" />
   <n en="Syd" t="シッド" />
-  <n en="Sydney" t="シドニィ" />
-  <n en="Syl" t="シル" />
+  <n en="Sydney" t="シドニー" />
+  <n en="Syl" t="シルー" />
   <n en="Sylv" t="シルヴ" />
   <n en="Sylvie" t="シルヴィー" />
   <n en="Taali" t="ターリ" />
@@ -1118,7 +1118,7 @@
   <n en="Tati" t="タティ" />
   <n en="Taya" t="タヤ" />
   <n en="Tayz" t="テイズ" />
-  <n en="Tee" t="ティー" />
+  <n en="Tee" t="ティィ" />
   <n en="Tekk" t="テック" />
   <n en="Teluna" t="テルナ" />
   <n en="Terryluff" t="テリーラフ" />
@@ -1136,13 +1136,13 @@
   <n en="Tiffany" t="ティファニー" />
   <n en="Tiffy" t="ティフィー" />
   <n en="Tigress" t="タイグレス" />
-  <n en="Tina" t="ティーナ" />
+  <n en="Tina" t="ティナ" />
   <n en="Tingting" t="ティングティング" />
   <n en="Tiny" t="タイニー" />
   <n en="TK" t="ティーケー" />
   <n en="Toa" t="トア" />
   <n en="Toast" t="トースト" />
-  <n en="Tobs" t="トブズ" />
+  <n en="Tobs" t="トブス" />
   <n en="Tofoo" t="トーフー" />
   <n en="Tomboy" t="トムボーイ" />
   <n en="Tome" t="トーム" />
@@ -1167,14 +1167,14 @@
   <n en="Tyra" t="タイラ" />
   <n en="Ubb" t="ウッブ" />
   <n en="Uma" t="ウマ" />
-  <n en="Val" t="ヴァル" />
+  <n en="Val" t="ヴァール" />
   <n en="Valerie" t="ヴァレリー" />
   <n en="Valkyrie" t="ヴァルキリー" />
   <n en="Vally" t="ヴァリ" />
   <n en="Vamp" t="ヴァンプ" />
   <n en="Vance" t="ヴァンス" />
   <n en="Vara" t="ヴァラ" />
-  <n en="Varrel" t="ヴァルレル" />
+  <n en="Varrel" t="ヴァレル" />
   <n en="Vee" t="ヴィー" />
   <n en="Velvet" t="ヴェルヴェット" />
   <n en="Venka" t="ヴェンカ" />
@@ -1186,11 +1186,11 @@
   <n en="Veteran" t="ベテラン" />
   <n en="Vex" t="ヴェックス" />
   <n en="Vick" t="ヴィック" />
-  <n en="Vicky" t="ヴィッキィ" />
+  <n en="Vicky" t="ヴィッキー" />
   <n en="Vie" t="ヴィ" />
   <n en="Vienna" t="ヴィエンナ" />
   <n en="Vikkisana" t="ヴィッキサナ" />
-  <n en="Vikky" t="ヴィッキー" />
+  <n en="Vikky" t="ヴィッキィ" />
   <n en="Violet" t="ヴァイオレット" />
   <n en="Viper" t="ヴァイパー" />
   <n en="Virtual" t="バーチャル" />
@@ -1207,7 +1207,7 @@
   <n en="War" t="ウォー" />
   <n en="Weasel" t="ウィーゼル" />
   <n en="Weezy" t="ウィージー" />
-  <n en="Weiss" t="ワイス" />
+  <n en="Weiss" t="ヴァイス" />
   <n en="Wester" t="ウェスター" />
   <n en="Whisper" t="ウィスパー" />
   <n en="Wiki" t="ウィキ" />
@@ -1228,33 +1228,33 @@
   <n en="Xueye" t="シュエイェ" />
   <n en="Yadi" t="ヤディ" />
   <n en="Yamalin" t="ヤマリン" />
-  <n en="Yang" t="ヤン" />
+  <n en="Yang" t="ヤァン" />
   <n en="Yarr" t="ヤール" />
   <n en="Yoonie" t="ユーニー" />
   <n en="Yorkie" t="ヨーキー" />
   <n en="Younha" t="ユンナ" />
-  <n en="Yu" t="ユー" />
+  <n en="Yu" t="ユウ" />
   <n en="Yue" t="ユエ" />
   <n en="Yuki" t="ユキ" />
   <n en="Yukie" t="ユキエ" />
   <n en="Yumi" t="ユミ" />
   <n en="Yun" t="ユン" />
   <n en="Yuya" t="ユウヤ" />
-  <n en="Yve" t="イヴ" />
+  <n en="Yve" t="イーヴ" />
   <n en="Yvela" t="イヴェラ" />
-  <n en="Yyve" t="イヴェ" />
+  <n en="Yyve" t="イィヴ" />
   <n en="Z" t="ゼット" />
   <n en="Zari" t="ザリ" />
   <n en="Zavorrina" t="ザヴォリナ" />
   <n en="Zed" t="ゼッド" />
-  <n en="Zee" t="ジー" />
+  <n en="Zee" t="ズィー" />
   <n en="Zele" t="ジール" />
   <n en="Zellian" t="ゼリアン" />
   <n en="Zero" t="ゼロ" />
   <n en="Zhangxuan" t="ジャンシュアン" />
   <n en="Zima" t="ジーマ" />
   <n en="Zion" t="ザイオン" />
-  <n en="Zoey" t="ゾーイ" />
+  <n en="Zoey" t="ゾーイー" />
   <n en="Zoodles" t="ズードルズ" />
   <n en="Zozo" t="ゾゾ" />
   <n en="Zulekia" t="ズレキア" />
@@ -1275,7 +1275,7 @@
   <n en="Hakuja" t="ハクジャ" />
   <n en="Ida" t="アイダ" />
   <n en="Jackalope" t="ジャッカロープ" />
-  <n en="Jenni" t="ジェニー" />
+  <n en="Jenni" t="ジェンニ" />
   <n en="Kaleun" t="カリューン" />
   <n en="Kena" t="ケナ" />
   <n en="Kimmy" t="キミー" />

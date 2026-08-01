@@ -9,14 +9,14 @@
   <n en="Glasses" t="グラセズ" />
   <n en="Grump" t="グランプ" />
   <n en="Gumpy" t="ガンピー" />
-  <n en="Hairy" t="ハリー" />
+  <n en="Hairy" t="ヘアリー" />
   <n en="Hammer" t="ハマー" />
   <n en="Happy" t="ハッピー" />
   <n en="Jumper" t="ジャンパー" />
   <n en="Lips" t="リプス" />
   <n en="Loser" t="ルーザー" />
   <n en="Lover" t="ロヴァー" />
-  <n en="Lucky" t="ラッキィ" />
+  <n en="Lucky" t="ラッキー" />
   <n en="Lumpy" t="ランピー" />
   <n en="Maverick" t="マヴェリック" />
   <n en="Nag" t="ナッグ" />
@@ -28,7 +28,7 @@
   <n en="Poopy" t="プーピィ" />
   <n en="Rubber" t="ラバー" />
   <n en="Sappy" t="サッピィ" />
-  <n en="Shorty" t="ショーティー" />
+  <n en="Shorty" t="ショーティ" />
   <n en="Sissy" t="シシー" />
   <n en="Sleepy" t="スリーピー" />
   <n en="Slick" t="スリック" />
@@ -46,36 +46,36 @@
   <n en="Bowman" t="ボーマン" />
   <n en="Diver" t="ダイヴァー" />
   <n en="Giggles" t="ギグルズ" />
-  <n en="Jet" t="ジェット" />
+  <n en="Jet" t="ジェト" />
   <n en="Mal" t="マル" />
   <n en="Marjot" t="マルジョト" />
   <n en="Mitsuya" t="ミツヤ" />
   <n en="Raywolfen" t="レイウォルフェン" />
-  <n en="Sammy" t="サミィ" />
+  <n en="Sammy" t="サミー" />
   <n en="Toni" t="トニ" />
   <n en="Ian" t="イアン" />
   <n en="Tsao" t="トサウ" />
-  <n en="Taz" t="タス" />
+  <n en="Taz" t="タズ" />
   <n en="Jude" t="ジュード" />
   <n en="Pacer" t="ペイサー" />
   <n en="Diva" t="ディーヴァ" />
   <n en="Pickle" t="ピッケル" />
   <n en="Vudojir" t="ヴドジル" />
   <n en="Raygun" t="レイグン" />
-  <n en="Ali" t="アリー" />
+  <n en="Ali" t="アリ" />
   <n en="Mispy" t="ミスピー" />
-  <n en="Nelly" t="ネリィ" />
+  <n en="Nelly" t="ネリー" />
   <n en="Steg" t="ステグ" />
   <n en="Jup" t="ジュプ" />
   <n en="Spiffy" t="スピフィー" />
-  <n en="Boots" t="ブートス" />
+  <n en="Boots" t="ブーツ" />
   <n en="Inigo" t="イニゴ" />
   <n en="Addi" t="アッディ" />
   <n en="Hrdina" t="ルディナ" />
   <n en="Saski" t="サスキー" />
   <n en="Ezra" t="エズラ" />
   <n en="Mickey" t="ミッキー" />
-  <n en="Toll" t="トール" />
+  <n en="Toll" t="トウル" />
   <n en="Snipe" t="スナイプ" />
   <n en="Tyspin" t="ティスピン" />
   <n en="Nicky" t="ニッキー" />
@@ -90,12 +90,12 @@
   <n en="Gundozer" t="グンドゼル" />
   <n en="Brown" t="ブラウン" />
   <n en="Caskey" t="キャスキー" />
-  <n en="Mac" t="マック" />
-  <n en="Soniai" t="ソニエイ" />
+  <n en="Mac" t="マク" />
+  <n en="Soniai" t="ソニアイ" />
   <n en="AJ" t="エージェイ" />
   <n en="Brett" t="ブレット" />
   <n en="Bud" t="バッド" />
-  <n en="Syr" t="シル" />
+  <n en="Syr" t="シルエ" />
   <n en="Bramble" t="ブランベル" />
   <n en="Chardies" t="チャルディース" />
   <n en="Skagnetti" t="スカニェッティ" />
@@ -107,7 +107,7 @@
   <n en="Ricky" t="リッキー" />
   <n en="Chicken" t="チッケン" />
   <n en="Devlin" t="デヴリン" />
-  <n en="Hun" t="ハン" />
+  <n en="Hun" t="フン" />
   <n en="Kally" t="キャリー" />
   <n en="Skippy" t="スキッピー" />
   <n en="Snap" t="スナップ" />
@@ -130,9 +130,9 @@
   <n en="Erin" t="エリン" />
   <n en="Saegge" t="セージ" />
   <n en="Marrion" t="マリオン" />
-  <n en="Rowan" t="ロアン" />
+  <n en="Rowan" t="ローワン" />
   <n en="Nelson" t="ネルソン" />
-  <n en="Cray" t="クレイ" />
+  <n en="Cray" t="クレー" />
   <n en="Itamu" t="イタム" />
   <n en="Gooey" t="グーイー" />
   <n en="Lucas" t="ルーカス" />
@@ -151,34 +151,34 @@
   <n en="Kana" t="キャナ" />
   <n en="Ferco" t="フェルコ" />
   <n en="Tomo" t="トモ" />
-  <n en="Eden" t="イーデン" />
-  <n en="Slag" t="スラッグ" />
+  <n en="Eden" t="エデン" />
+  <n en="Slag" t="スラグ" />
   <n en="Harms" t="ハームズ" />
-  <n en="Az" t="アス" />
+  <n en="Az" t="アズ" />
   <n en="Gustav" t="グスタフ" />
   <n en="Beto" t="ベト" />
-  <n en="Coyote" t="カイオーティー" />
+  <n en="Coyote" t="コヨーテ" />
   <n en="Bagger" t="バガー" />
   <n en="Wires" t="ワイアーズ" />
-  <n en="Jen" t="ジェン" />
+  <n en="Jen" t="ジェーン" />
   <n en="Forrix" t="フォリックス" />
   <n en="Nictis" t="ニクティス" />
   <n en="Dee" t="ディ" />
   <n en="Life" t="ライフ" />
-  <n en="Mazon" t="マゾーン" />
+  <n en="Mazon" t="マゾン" />
   <n en="Tzaeru" t="トザエル" />
   <n en="Bishop" t="ビショップ" />
-  <n en="Ahri" t="アリ" />
+  <n en="Ahri" t="アーリ" />
   <n en="Beast" t="ビースト" />
   <n en="Sparrow" t="スパロー" />
   <n en="Miksu" t="ミクス" />
   <n en="Lacks" t="ラクス" />
   <n en="Hes" t="ヘス" />
-  <n en="Sar" t="サー" />
+  <n en="Sar" t="サール" />
   <n en="Panda" t="パンダ" />
-  <n en="Jett" t="ヂェット" />
+  <n en="Jett" t="ジェット" />
   <n en="Moray" t="モレイ" />
-  <n en="Flan" t="フラン" />
+  <n en="Flan" t="フラーン" />
   <n en="Fergie" t="ファーギー" />
   <n en="Ness" t="ネス" />
   <n en="Ricey" t="ライシー" />
@@ -186,19 +186,19 @@
   <n en="Luke" t="ルーク" />
   <n en="Jambo" t="ジャムボ" />
   <n en="Pinky" t="ピンキー" />
-  <n en="Roo" t="ルー" />
+  <n en="Roo" t="ルウ" />
   <n en="Fred" t="フレッド" />
-  <n en="Lex" t="レックス" />
+  <n en="Lex" t="レクス" />
   <n en="Fieldy" t="フィールディー" />
   <n en="Khan" t="カン" />
-  <n en="Kat" t="キャット" />
+  <n en="Kat" t="キャットー" />
   <n en="Smooth" t="スムーズ" />
   <n en="Nix" t="ニックス" />
-  <n en="Robot" t="ローボット" />
+  <n en="Robot" t="ロボット" />
   <n en="Chacal" t="チャカル" />
   <n en="Holster" t="ホールスター" />
   <n en="Elikabu" t="エリカブ" />
-  <n en="Quin" t="クイン" />
+  <n en="Quin" t="クーイン" />
   <n en="Sky" t="スカイ" />
   <n en="Coogan" t="クーゴン" />
   <n en="Ace" t="エース" />
@@ -208,14 +208,14 @@
   <n en="Isaac" t="アイザック" />
   <n en="Feo" t="フェオ" />
   <n en="Lighter" t="ライター" />
-  <n en="Ari" t="アーリー" />
-  <n en="Jang" t="ジャング" />
+  <n en="Ari" t="アリー" />
+  <n en="Jang" t="ジャンー" />
   <n en="Birdie" t="バーディー" />
-  <n en="Zee" t="ズィ" />
-  <n en="Potato" t="ポッテイトー" />
+  <n en="Zee" t="ズィー" />
+  <n en="Potato" t="ポテト" />
   <n en="Silly" t="シリー" />
   <n en="Mugs" t="マグズ" />
-  <n en="Bild" t="ビルド" />
+  <n en="Bild" t="ビルト" />
   <n en="Flapjack" t="フラプジャック" />
   <n en="Blake" t="ブレイク" />
   <n en="Damage" t="ダマジ" />
@@ -226,14 +226,14 @@
   <n en="Iggy" t="イギー" />
   <n en="Zornie" t="ゾーニー" />
   <n en="Maxie" t="マクシー" />
-  <n en="Jidai" t="ジデイ" />
+  <n en="Jidai" t="ジダイ" />
   <n en="Phill" t="フィルル" />
   <n en="Redfoot" t="レドフート" />
   <n en="Tooth" t="トゥース" />
   <n en="Rikko" t="リッコ" />
   <n en="Luddel" t="ルッデル" />
   <n en="Raccoon" t="ラックーン" />
-  <n en="Thero" t="テロ" />
+  <n en="Thero" t="テーロ" />
   <n en="Micky" t="ミッキィ" />
   <n en="Reedy" t="リーディー" />
   <n en="Tidy" t="タイディー" />
@@ -253,10 +253,10 @@
   <n en="Renny" t="レニィ" />
   <n en="Leyton" t="レイトン" />
   <n en="Twiggy" t="トウィギー" />
-  <n en="Syl" t="シール" />
+  <n en="Syl" t="シルー" />
   <n en="Oaks" t="オークス" />
   <n en="Arc" t="アーク" />
-  <n en="Nuovo" t="ンウォーヴォー" />
+  <n en="Nuovo" t="ヌオーヴォ" />
   <n en="Biscuits" t="ビスクトス" />
   <n en="Fitzy" t="フィッツィ" />
   <n en="Beats" t="ビートス" />
@@ -266,15 +266,15 @@
   <n en="Sigma" t="シグマ" />
   <n en="Izzy" t="イジー" />
   <n en="Q" t="キュー" />
-  <n en="Fish" t="フィシュ" />
+  <n en="Fish" t="フィッシュ" />
   <n en="Merlin" t="マーリン" />
-  <n en="Siqueira" t="シクエイラ" />
+  <n en="Siqueira" t="シケイラ" />
   <n en="Mel" t="メル" />
   <n en="Ameki" t="アメキ" />
   <n en="Schmidty" t="シュミッティー" />
   <n en="Nonna" t="ノンナ" />
-  <n en="Yiling" t="イリング" />
-  <n en="Arty" t="アーティー" />
+  <n en="Yiling" t="イーリン" />
+  <n en="Arty" t="アーティ" />
   <n en="Araki" t="アラッキー" />
   <n en="Mai" t="マイ" />
   <n en="Apu" t="アプ" />
@@ -285,12 +285,12 @@
   <n en="Wobbler" t="ウォッブレル" />
   <n en="Wangleng" t="ワングレング" />
   <n en="Yanni" t="ヤニー" />
-  <n en="Jordy" t="ジョーディー" />
+  <n en="Jordy" t="ジョーディ" />
   <n en="Alarm" t="アラーム" />
   <n en="Tris" t="トリス" />
   <n en="D" t="ディー" />
   <n en="Trip" t="トリップ" />
-  <n en="Chelle" t="チェルレ" />
+  <n en="Chelle" t="シェル" />
   <n en="Jackal" t="ジャッカル" />
   <n en="Chadwick" t="チャドウィック" />
   <n en="Broman" t="ブローマン" />
@@ -299,7 +299,7 @@
   <n en="Dede" t="ディード" />
   <n en="Hibiki" t="ヒビキ" />
   <n en="Higgs" t="ヒグズ" />
-  <n en="Cale" t="ケイル" />
+  <n en="Cale" t="カーレ" />
   <n en="Truman" t="トルーマン" />
   <n en="Gabri" t="ガブリ" />
   <n en="Coco" t="コーコー" />
@@ -309,23 +309,23 @@
   <n en="Flex" t="フレックス" />
   <n en="Jonesy" t="ジョーンジー" />
   <n en="Turk" t="ターク" />
-  <n en="Von" t="ヴォーン" />
-  <n en="Silo" t="サイロー" />
+  <n en="Von" t="ヴォン" />
+  <n en="Silo" t="サイロ" />
   <n en="Richelieu" t="リシェルー" />
   <n en="Dipp" t="ディップ" />
   <n en="Aoba" t="アオバ" />
   <n en="Myrtle" t="マーテル" />
   <n en="Hya" t="ヒャ" />
   <n en="Hero" t="ヒロー" />
-  <n en="Val" t="ヴァル" />
-  <n en="Xin" t="シン" />
-  <n en="Ludo" t="ルードー" />
+  <n en="Val" t="ヴァール" />
+  <n en="Xin" t="シィン" />
+  <n en="Ludo" t="ルード" />
   <n en="Pants" t="パントス" />
   <n en="Fuba" t="フバ" />
   <n en="Crit" t="クリト" />
   <n en="Chia" t="チア" />
   <n en="Skunk" t="スカンク" />
-  <n en="Zinh" t="ジン" />
+  <n en="Zinh" t="ズィン" />
   <n en="Gomihito" t="ゴミヒト" />
   <n en="Mash" t="マシュ" />
   <n en="JT" t="ジェイティー" />
@@ -340,12 +340,12 @@
   <n en="Perseus" t="パルセウス" />
   <n en="Snow" t="スノー" />
   <n en="Yancey" t="ヤンシー" />
-  <n en="Bernie" t="バーニー" />
+  <n en="Bernie" t="バーニィ" />
   <n en="Zoska" t="ゾスカ" />
   <n en="Calvino" t="コールヴィーノー" />
-  <n en="Yuu" t="ユウ" />
-  <n en="Niro" t="ニロー" />
-  <n en="Lulu" t="ルールー" />
+  <n en="Yuu" t="ユウー" />
+  <n en="Niro" t="ニロ" />
+  <n en="Lulu" t="ルル" />
   <n en="Chap" t="チャップ" />
   <n en="Lazur" t="ラザー" />
   <n en="McLeod" t="マクラウド" />
@@ -357,11 +357,11 @@
   <n en="Kleč" t="クレチ" />
   <n en="Crowbar" t="クローバー" />
   <n en="Grain" t="グレイン" />
-  <n en="Bea" t="ビー" />
+  <n en="Bea" t="ビーイ" />
   <n en="Zog" t="ゾグ" />
   <n en="Alpha" t="アルファ" />
   <n en="Wobin" t="ウォビン" />
-  <n en="Felicity" t="フェリシッティー" />
+  <n en="Felicity" t="フェリシティ" />
   <n en="Bode" t="ボード" />
   <n en="Meli" t="メリー" />
   <n en="Temmie" t="テミー" />
@@ -377,7 +377,7 @@
   <n en="Lero" t="レロ" />
   <n en="Endra" t="エンドラ" />
   <n en="Kit" t="キット" />
-  <n en="Dimitri" t="ディミートリー" />
+  <n en="Dimitri" t="ディミトリ" />
   <n en="Speen" t="スピーン" />
   <n en="Frönki" t="フレンキ" />
   <n en="Donk" t="ドンク" />
@@ -391,24 +391,24 @@
   <n en="Spooky" t="スプーキー" />
   <n en="Skyler" t="スキレル" />
   <n en="Yeez" t="イェエス" />
-  <n en="Miah" t="ミア" />
+  <n en="Miah" t="ミーア" />
   <n en="Prince" t="プリンス" />
   <n en="Crabbier" t="クラビア" />
   <n en="Ratch" t="ラトチ" />
-  <n en="Lisa" t="リーサ" />
+  <n en="Lisa" t="リサ" />
   <n en="Loukas" t="ラウカス" />
   <n en="Fain" t="フェイン" />
   <n en="Klem" t="クレム" />
   <n en="Cass" t="キャス" />
   <n en="Star" t="スター" />
   <n en="Vay" t="ヴェイ" />
-  <n en="Tivo" t="ティヴォー" />
+  <n en="Tivo" t="ティヴォ" />
   <n en="Mox" t="モクス" />
   <n en="Siri" t="シリ" />
   <n en="Crab" t="クラッブ" />
   <n en="Peacock" t="ピーカック" />
-  <n en="Glenn" t="グレン" />
-  <n en="Ryder" t="ライダー" />
+  <n en="Glenn" t="グレーン" />
+  <n en="Ryder" t="ライダィー" />
   <n en="Mookie" t="ムーキー" />
   <n en="Ray" t="レイ" />
   <n en="Redrum" t="レドルム" />
@@ -416,13 +416,13 @@
   <n en="Solan" t="ソーラン" />
   <n en="Raido" t="レイド" />
   <n en="Dole" t="ドール" />
-  <n en="Cory" t="コーリィ" />
+  <n en="Cory" t="コリー" />
   <n en="Jenny" t="ジェニー" />
   <n en="Allu" t="アルル" />
-  <n en="Sil" t="シルー" />
+  <n en="Sil" t="シル" />
   <n en="Ice" t="アイセ" />
   <n en="Fox" t="フォックス" />
-  <n en="Marcy" t="マーシイ" />
+  <n en="Marcy" t="マーシー" />
   <n en="Goober" t="グーベル" />
   <n en="Kiro" t="キロ" />
   <n en="Duces" t="ドゥセス" />
@@ -433,11 +433,11 @@
   <n en="Strange" t="ストレインジ" />
   <n en="Beef" t="ビーフ" />
   <n en="Roach" t="ローチ" />
-  <n en="V" t="ヴィー" />
+  <n en="V" t="ブイ" />
   <n en="Chris" t="クリス" />
   <n en="Emoi" t="エモイ" />
   <n en="Vanethen" t="ヴァネテン" />
-  <n en="Jroc" t="ジロク" />
+  <n en="Jroc" t="ジェイロク" />
   <n en="Kibbe" t="キッブ" />
   <n en="Hansol" t="ハンソル" />
   <n en="Xiaolier" t="シャオリエル" />
@@ -445,11 +445,11 @@
   <n en="Sparky" t="スパーキィ" />
   <n en="Sungjoon" t="ソンジュン" />
   <n en="Sahib" t="サヒブ" />
-  <n en="Bubbles" t="バベルズ" />
+  <n en="Bubbles" t="バブルズ" />
   <n en="Mag" t="マッグ" />
   <n en="Jewels" t="ジュエルズ" />
   <n en="Sol" t="ソル" />
-  <n en="Robyn" t="ロビン" />
+  <n en="Robyn" t="ロービン" />
   <n en="Orto" t="オルト" />
   <n en="Tomkir" t="トムキル" />
   <n en="Mushy" t="マシィ" />
@@ -458,27 +458,27 @@
   <n en="Corporal" t="コーポラル" />
   <n en="Emeria" t="エメリア" />
   <n en="Calender" t="キャレンダー" />
-  <n en="Tory" t="トリィ" />
-  <n en="Moss" t="モースー" />
-  <n en="Kari" t="カリー" />
+  <n en="Tory" t="トーリー" />
+  <n en="Moss" t="モス" />
+  <n en="Kari" t="カリ" />
   <n en="Bonti" t="ボンティ" />
   <n en="Purrine" t="プリン" />
   <n en="Teddy" t="テディー" />
   <n en="Cam" t="キャム" />
   <n en="Jakey" t="ジェイキー" />
-  <n en="Bob" t="ボッブ" />
+  <n en="Bob" t="ボブ" />
   <n en="Foxxy" t="フォクシィ" />
   <n en="Ara" t="アラ" />
-  <n en="Shae" t="シャエ" />
+  <n en="Shae" t="シェイ" />
   <n en="Dome" t="ドーム" />
   <n en="Natrak" t="ナトラク" />
   <n en="Sekani" t="セカニ" />
   <n en="Gilliam" t="ギリアム" />
-  <n en="Rynn" t="リン" />
+  <n en="Rynn" t="リンヌ" />
   <n en="Natato" t="ナタト" />
   <n en="Binx" t="ビンクス" />
   <n en="Gary" t="ゲイリー" />
-  <n en="Brio" t="ブライオー" />
+  <n en="Brio" t="ブリオ" />
   <n en="Jixiang" t="ジーシャン" />
   <n en="Nator" t="ナトル" />
   <n en="Chavi" t="チャヴィ" />
@@ -487,23 +487,23 @@
   <n en="Boo" t="ブー" />
   <n en="Amaryllis" t="アマリリス" />
   <n en="Stoney" t="ストーニー" />
-  <n en="Milly" t="ミリィ" />
+  <n en="Milly" t="ミリー" />
   <n en="Jibbles" t="ジッブレス" />
   <n en="Woodstone" t="ウードストネ" />
   <n en="Dom" t="ドム" />
   <n en="Rose" t="ローズ" />
-  <n en="Yam" t="イム" />
+  <n en="Yam" t="ヤム" />
   <n en="Hollow" t="ホロー" />
   <n en="Blaze" t="ブレイズ" />
   <n en="Tova" t="トヴァ" />
   <n en="Kagamin" t="カガミン" />
   <n en="Rads" t="ラドス" />
   <n en="MJ" t="エムジェイ" />
-  <n en="Lizzy" t="リジィ" />
+  <n en="Lizzy" t="リジー" />
   <n en="Matt" t="マット" />
-  <n en="Dwarf" t="ドウォーフ" />
+  <n en="Dwarf" t="ドワーフ" />
   <n en="Medic" t="メディック" />
-  <n en="Prokop" t="プローコップ" />
+  <n en="Prokop" t="プロコプ" />
   <n en="Qingzhi" t="チンジー" />
   <n en="Spike" t="スパイク" />
   <n en="Toko" t="トコ" />
@@ -535,19 +535,19 @@
   <n en="Suhanmoo" t="スハンムー" />
   <n en="Jeter" t="ジーター" />
   <n en="Sethley" t="セスリー" />
-  <n en="Jin" t="ジーン" />
-  <n en="Dog" t="ドーグ" />
-  <n en="Reks" t="レクス" />
+  <n en="Jin" t="ジンー" />
+  <n en="Dog" t="ドッグ" />
+  <n en="Reks" t="レークス" />
   <n en="Don" t="ドン" />
   <n en="Cover" t="コヴァー" />
   <n en="Azz" t="アッズ" />
   <n en="Zhijie" t="ジージエ" />
-  <n en="Wu" t="ウー" />
+  <n en="Wu" t="ウゥ" />
   <n en="Yume" t="ユメ" />
   <n en="Bells" t="ベルズ" />
   <n en="Yawn" t="ヨーン" />
   <n en="Finch" t="フィンチ" />
-  <n en="Charly" t="チャーリー" />
+  <n en="Charly" t="チャーリ" />
   <n en="Beana" t="ビーナ" />
   <n en="Tay" t="テイ" />
   <n en="Thorn" t="ソーン" />
