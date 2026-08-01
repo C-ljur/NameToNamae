@@ -158,13 +158,35 @@ namespace Namae
             foreach (string file in Directory.GetFiles(dir, "*.txt", SearchOption.AllDirectories))
             {
                 if (!seenFiles.Add(Path.GetFullPath(file))) continue;
-                if (!categories.TryGetValue(Path.GetFileNameWithoutExtension(file), out string category)) continue;
+                if (!categories.TryGetValue(Path.GetFileNameWithoutExtension(file), out string category))
+                    category = CategoryForNameFile(file);
+                if (category == null) continue;
                 foreach (string line in File.ReadAllLines(file))
                 {
                     string name = line.Trim();
                     if (name.Length > 0 && !name.StartsWith("#", StringComparison.Ordinal)) Add(category, name, mod, "name-file");
                 }
             }
+        }
+
+        private static string CategoryForNameFile(string file)
+        {
+            string value = Path.GetFileNameWithoutExtension(file)
+                .Replace("_", string.Empty).Replace("-", string.Empty).ToLowerInvariant();
+            if (value.Contains("last") || value.Contains("surname")) return "Last";
+            if (value.Contains("nick") || value.Contains("side"))
+            {
+                if (value.Contains("female")) return "NickFemale";
+                if (value.Contains("male")) return "NickMale";
+                return "NickUnisex";
+            }
+            if (value.Contains("first"))
+            {
+                if (value.Contains("female")) return "FirstFemale";
+                if (value.Contains("male")) return "FirstMale";
+                return "FirstUnisex";
+            }
+            return null;
         }
 
         private static void ScanBioFolder(ModContentPack mod, string dir, HashSet<string> seenFiles)
