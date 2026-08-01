@@ -155,6 +155,7 @@ namespace Namae
             Text.Font = GameFont.Small;
             list.Label("Namae_NameReportsDesc".Translate());
             list.Label("Namae_Counts".Translate(MissingNames.NewTotal, MissingNames.Total));
+            list.Label("Namae_AnimalCounts".Translate(MissingNames.NewAnimalTotal, MissingNames.AnimalTotal));
             list.Gap();
 
             if (list.ButtonText("Namae_ExportNew".Translate()))
@@ -164,6 +165,14 @@ namespace Namae
             if (list.ButtonText("Namae_ExportUntranslated".Translate()))
             {
                 lastExportPath = MissingNames.Export();
+            }
+            if (list.ButtonText("Namae_ExportNewAnimals".Translate()))
+            {
+                lastExportPath = MissingNames.ExportAnimalNames(false);
+            }
+            if (list.ButtonText("Namae_ExportUntranslatedAnimals".Translate()))
+            {
+                lastExportPath = MissingNames.ExportAnimalNames(true);
             }
             if (list.ButtonText("Namae_ExportNickAudit".Translate()))
             {

@@ -84,6 +84,8 @@ The report buttons are in the mod settings. Files are written to
 |---|---|---|
 | New names | `NewNames.csv` | Names found in the game but absent from every loaded name pack |
 | Untranslated names | `UntranslatedNames.csv` | Rows whose `t` value is empty |
+| New animal names | `NewAnimalNames.csv` | Animal names absent from the loaded animal-name pack |
+| Untranslated animal names | `UntranslatedAnimalNames.csv` | Animal-name rows whose `t` value is empty |
 | Nickname classification | `NickAudit.csv` | The gender category RimWorld uses for each nickname |
 
 Each CSV row includes the name category, spelling, script classification, source package ID, mod name, vanilla/mod origin, and report status. Non-Latin names are retained and marked as `NonLatin` or `Mixed`. The `sourceKind` column distinguishes the base name bank, rule packs, pawn biographies, name files, and pawn-kind candidates. Source attribution is based on the active mods' name and solid-biography files; entries that cannot be traced are marked `unknown`. If multiple mods provide the same name, the report contains one row for each source.

@@ -19,8 +19,11 @@
   <Namae_RetranslateAnimalsResult>Namae: converted {0} existing animal name(s).</Namae_RetranslateAnimalsResult>
   <Namae_AnimalsPlayingOnly>(Converting existing animal names is only available while a save is loaded.)</Namae_AnimalsPlayingOnly>
   <Namae_Counts>New names: {0} / Untranslated: {1}</Namae_Counts>
+  <Namae_AnimalCounts>New animal names: {0} / Untranslated: {1}</Namae_AnimalCounts>
   <Namae_ExportNew>Export new names</Namae_ExportNew>
   <Namae_ExportUntranslated>Export untranslated names</Namae_ExportUntranslated>
+  <Namae_ExportNewAnimals>Export new animal names</Namae_ExportNewAnimals>
+  <Namae_ExportUntranslatedAnimals>Export untranslated animal names</Namae_ExportUntranslatedAnimals>
   <Namae_ExportNickAudit>Export nickname classification</Namae_ExportNickAudit>
   <Namae_OpenFolder>Open output folder</Namae_OpenFolder>
   <Namae_ExportedTo>Written to:</Namae_ExportedTo>

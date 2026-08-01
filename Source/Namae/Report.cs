@@ -25,11 +25,19 @@ namespace Namae
         public static readonly HashSet<string> NewNickMale = new HashSet<string>(StringComparer.Ordinal);
         public static readonly HashSet<string> NewNickFemale = new HashSet<string>(StringComparer.Ordinal);
         public static readonly HashSet<string> NewNickUnisex = new HashSet<string>(StringComparer.Ordinal);
+        public static readonly HashSet<string> AnimalMale = new HashSet<string>(StringComparer.Ordinal);
+        public static readonly HashSet<string> AnimalFemale = new HashSet<string>(StringComparer.Ordinal);
+        public static readonly HashSet<string> AnimalUnisex = new HashSet<string>(StringComparer.Ordinal);
+        public static readonly HashSet<string> NewAnimalMale = new HashSet<string>(StringComparer.Ordinal);
+        public static readonly HashSet<string> NewAnimalFemale = new HashSet<string>(StringComparer.Ordinal);
+        public static readonly HashSet<string> NewAnimalUnisex = new HashSet<string>(StringComparer.Ordinal);
 
         public static int Total =>
             FirstMale.Count + FirstFemale.Count + Last.Count + NickMale.Count + NickFemale.Count + NickUnisex.Count;
         public static int NewTotal =>
             NewFirstMale.Count + NewFirstFemale.Count + NewLast.Count + NewNickMale.Count + NewNickFemale.Count + NewNickUnisex.Count;
+        public static int AnimalTotal => AnimalMale.Count + AnimalFemale.Count + AnimalUnisex.Count;
+        public static int NewAnimalTotal => NewAnimalMale.Count + NewAnimalFemale.Count + NewAnimalUnisex.Count;
 
         // NameBank.NamesFor is non-public; access it via reflection.
         private static readonly MethodInfo NamesForMethod =
@@ -74,6 +82,7 @@ namespace Namae
                 }
 
                 ScanBaseBank();
+                ScanAnimalBanks();
 
                 if (NewTotal > 0)
                 {
@@ -100,6 +109,8 @@ namespace Namae
         {
             FirstMale.Clear(); FirstFemale.Clear(); Last.Clear(); NickMale.Clear(); NickFemale.Clear(); NickUnisex.Clear();
             NewFirstMale.Clear(); NewFirstFemale.Clear(); NewLast.Clear(); NewNickMale.Clear(); NewNickFemale.Clear(); NewNickUnisex.Clear();
+            AnimalMale.Clear(); AnimalFemale.Clear(); AnimalUnisex.Clear();
+            NewAnimalMale.Clear(); NewAnimalFemale.Clear(); NewAnimalUnisex.Clear();
         }
 
         private static NickGender NickGenderOf(GenderPossibility g)
@@ -124,6 +135,32 @@ namespace Namae
         private static List<string> Names(NameBank bank, PawnNameSlot slot, Gender gender)
         {
             return (List<string>)NamesForMethod.Invoke(bank, new object[] { slot, gender }) ?? new List<string>();
+        }
+
+        private static void ScanAnimalBanks()
+        {
+            LoadedLanguage english = LanguageDatabase.defaultLanguage;
+            if (english == null) return;
+            ScanAnimalFile(english, "Names/Animal_Male", "AnimalMale", NameDictionaries.AnimalMale,
+                NameDictionaries.AnimalMaleRows, AnimalMale, NewAnimalMale);
+            ScanAnimalFile(english, "Names/Animal_Female", "AnimalFemale", NameDictionaries.AnimalFemale,
+                NameDictionaries.AnimalFemaleRows, AnimalFemale, NewAnimalFemale);
+            ScanAnimalFile(english, "Names/Animal_Unisex", "AnimalUnisex", NameDictionaries.AnimalUnisex,
+                NameDictionaries.AnimalUnisexRows, AnimalUnisex, NewAnimalUnisex);
+        }
+
+        private static void ScanAnimalFile(LoadedLanguage english, string file, string category,
+            Dictionary<string, string> translated, HashSet<string> rows,
+            HashSet<string> untranslated, HashSet<string> newNames)
+        {
+            if (!english.TryGetStringsFromFile(file, out List<string> names)) return;
+            foreach (string name in names)
+            {
+                if (!HasAsciiLetter(name)) continue;
+                NameSourceIndex.AddBaseName(category, name);
+                if (!rows.Contains(name)) newNames.Add(name);
+                else if (!translated.ContainsKey(name)) untranslated.Add(name);
+            }
         }
 
         public static void Observe(NameTriple nt, bool female, Pawn pawn = null)
@@ -234,6 +271,30 @@ namespace Namae
             catch (Exception e)
             {
                 Log.Error("[Namae] new-name export failed: " + e);
+            }
+            return path;
+        }
+
+        public static string ExportAnimalNames(bool untranslated)
+        {
+            var sb = new StringBuilder();
+            AppendReportHeader(sb);
+            AppendRows(sb, "AnimalMale", untranslated ? AnimalMale : NewAnimalMale,
+                untranslated ? "untranslated" : "new");
+            AppendRows(sb, "AnimalFemale", untranslated ? AnimalFemale : NewAnimalFemale,
+                untranslated ? "untranslated" : "new");
+            AppendRows(sb, "AnimalUnisex", untranslated ? AnimalUnisex : NewAnimalUnisex,
+                untranslated ? "untranslated" : "new");
+            string file = untranslated ? "UntranslatedAnimalNames.csv" : "NewAnimalNames.csv";
+            string path = Path.Combine(OutputFolder(), file);
+            try
+            {
+                File.WriteAllText(path, sb.ToString(), new UTF8Encoding(true));
+                Log.Message($"[Namae] exported animal name report to {path}");
+            }
+            catch (Exception e)
+            {
+                Log.Error("[Namae] animal-name export failed: " + e);
             }
             return path;
         }

@@ -19,8 +19,11 @@
   <Namae_RetranslateAnimalsResult>Namae: 既存動物 {0} 体の名前を変換しました。</Namae_RetranslateAnimalsResult>
   <Namae_AnimalsPlayingOnly>（既存動物の一括変換はセーブデータのプレイ中に使用できます）</Namae_AnimalsPlayingOnly>
   <Namae_Counts>新規名: {0} / 未翻訳: {1}</Namae_Counts>
+  <Namae_AnimalCounts>動物の新規名: {0} / 未翻訳: {1}</Namae_AnimalCounts>
   <Namae_ExportNew>新規の名前を書き出す</Namae_ExportNew>
   <Namae_ExportUntranslated>未翻訳の名前を書き出す</Namae_ExportUntranslated>
+  <Namae_ExportNewAnimals>動物の新規名を書き出す</Namae_ExportNewAnimals>
+  <Namae_ExportUntranslatedAnimals>動物の未翻訳名を書き出す</Namae_ExportUntranslatedAnimals>
   <Namae_ExportNickAudit>ニックネームの分類を書き出す</Namae_ExportNickAudit>
   <Namae_OpenFolder>出力フォルダを開く</Namae_OpenFolder>
   <Namae_ExportedTo>出力先:</Namae_ExportedTo>
