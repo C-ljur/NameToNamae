@@ -81,7 +81,8 @@ namespace Namae
 
         public override void DoSettingsWindowContents(Rect inRect)
         {
-            float viewHeight = Math.Max(1400f, Math.Max(inRect.height + 1f, settingsContentHeight + 80f));
+            float minimumViewHeight = Prefs.DevMode ? 1400f : 760f;
+            float viewHeight = Math.Max(minimumViewHeight, Math.Max(inRect.height + 1f, settingsContentHeight + 80f));
             var viewRect = new Rect(0f, 0f, inRect.width - 18f, viewHeight);
             Widgets.BeginScrollView(inRect, ref settingsScrollPosition, viewRect);
 
@@ -146,6 +147,8 @@ namespace Namae
             {
                 list.Label("Namae_AnimalsPlayingOnly".Translate());
             }
+            if (Prefs.DevMode)
+            {
             list.GapLine();
             Text.Font = GameFont.Medium;
             list.Label("Namae_NameReportsHeader".Translate());
@@ -198,6 +201,7 @@ namespace Namae
             if (list.ButtonText("Namae_ExportDevActions".Translate()))
             {
                 lastExportPath = MissingDevActions.Export();
+            }
             }
 
             list.GapLine();
