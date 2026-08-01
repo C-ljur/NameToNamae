@@ -123,6 +123,12 @@ namespace Namae
         {
             if (__state) Text.CurFontStyle.wordWrap = true;
         }
+
+        static Exception Finalizer(Exception __exception, bool __state)
+        {
+            if (__state) Text.CurFontStyle.wordWrap = true;
+            return __exception;
+        }
     }
 
     [HarmonyPatch(typeof(Text), nameof(Text.CalcHeight))]

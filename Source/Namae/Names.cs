@@ -55,6 +55,7 @@ namespace Namae
     public class NamaeMod : Mod
     {
         public static NamaeSettings Settings;
+        private static bool patchesApplied;
         private static readonly MethodInfo PseudoTranslatedMethod =
             AccessTools.Method(typeof(Translator), "PseudoTranslated");
         private string lastExportPath;
@@ -64,9 +65,11 @@ namespace Namae
         public NamaeMod(ModContentPack content) : base(content)
         {
             Settings = GetSettings<NamaeSettings>();
+            if (patchesApplied) return;
             try
             {
                 new Harmony("cljur.namae").PatchAll(Assembly.GetExecutingAssembly());
+                patchesApplied = true;
             }
             catch (Exception e)
             {
@@ -505,6 +508,7 @@ namespace Namae
 
         public static void LoadFromDefs()
         {
+            Clear();
             try
             {
                 string activeName = LanguageDatabase.activeLanguage?.folderName;
@@ -539,6 +543,17 @@ namespace Namae
             {
                 Log.Error("[Namae] LoadFromDefs failed: " + e);
             }
+        }
+
+        private static void Clear()
+        {
+            Active = false;
+            FirstMale.Clear(); FirstFemale.Clear(); Last.Clear();
+            NickMale.Clear(); NickFemale.Clear(); NickUnisex.Clear();
+            AnimalMale.Clear(); AnimalFemale.Clear(); AnimalUnisex.Clear();
+            FirstMaleRows.Clear(); FirstFemaleRows.Clear(); LastRows.Clear();
+            NickMaleRows.Clear(); NickFemaleRows.Clear(); NickUnisexRows.Clear();
+            AnimalMaleRows.Clear(); AnimalFemaleRows.Clear(); AnimalUnisexRows.Clear();
         }
 
         // Match on the language code (folderName up to " ("), not a prefix.
@@ -601,15 +616,11 @@ namespace Namae
             if (!Active || pawn?.RaceProps?.Animal != true || style != NameStyle.Full) return false;
             if (NamaeMod.Settings != null && !NamaeMod.Settings.translateAnimalNames) return false;
 
-            Dictionary<string, string> gendered = pawn.gender == Gender.Female ? AnimalFemale : AnimalMale;
-            int total = gendered.Count + AnimalUnisex.Count;
-            if (total == 0) return false;
-
-            int index = Rand.Range(0, total);
-            string value = index < gendered.Count
-                ? gendered.Values.ElementAt(index)
-                : AnimalUnisex.Values.ElementAt(index - gendered.Count);
-            name = new NameSingle(value);
+            List<string> candidates = AnimalNameCandidates(pawn,
+                pawn.Faction == Faction.OfPlayer &&
+                NamaeMod.Settings?.avoidDuplicateAnimalNames == true);
+            if (candidates.Count == 0) return false;
+            name = new NameSingle(candidates[Rand.Range(0, candidates.Count)]);
             return true;
         }
 
@@ -619,23 +630,28 @@ namespace Namae
             if (pawn.Name == null || !pawn.Name.Numerical) return;
             if (NamaeMod.Settings == null || !NamaeMod.Settings.autoNameColonyAnimals) return;
             if (!NamaeMod.Settings.translateAnimalNames) return;
-            if (NamaeMod.Settings.avoidDuplicateAnimalNames)
-            {
-                Dictionary<string, string> gendered = pawn.gender == Gender.Female ? AnimalFemale : AnimalMale;
-                var used = new HashSet<string>(
-                    PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive
-                        .Where(p => p != pawn && p.Faction == Faction.OfPlayer && p.def == pawn.def &&
-                            p.Name != null && !p.Name.Numerical)
-                        .Select(p => p.Name.ToStringFull));
-                List<string> available = gendered.Values.Concat(AnimalUnisex.Values)
-                    .Where(value => !used.Contains(value)).ToList();
-                if (available.Count > 0)
-                {
-                    pawn.Name = new NameSingle(available[Rand.Range(0, available.Count)]);
-                    return;
-                }
-            }
-            if (TryGenerateAnimalName(pawn, NameStyle.Full, out Name name)) pawn.Name = name;
+            List<string> candidates = AnimalNameCandidates(pawn,
+                NamaeMod.Settings.avoidDuplicateAnimalNames);
+            if (candidates.Count > 0)
+                pawn.Name = new NameSingle(candidates[Rand.Range(0, candidates.Count)]);
+        }
+
+        private static List<string> AnimalNameCandidates(Pawn pawn, bool avoidDuplicates)
+        {
+            Dictionary<string, string> gendered =
+                pawn.gender == Gender.Female ? AnimalFemale : AnimalMale;
+            List<string> candidates = gendered.Values.Concat(AnimalUnisex.Values)
+                .Distinct(StringComparer.Ordinal).ToList();
+            if (!avoidDuplicates || candidates.Count == 0) return candidates;
+
+            var used = new HashSet<string>(
+                PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive
+                    .Where(other => other != pawn && other.Faction == Faction.OfPlayer &&
+                        other.def == pawn.def && other.Name != null && !other.Name.Numerical)
+                    .Select(other => other.Name.ToStringFull),
+                StringComparer.Ordinal);
+            List<string> unused = candidates.Where(value => !used.Contains(value)).ToList();
+            return unused.Count > 0 ? unused : candidates;
         }
 
         // One-time pass over existing pawns in the loaded game. Names are baked into
@@ -672,20 +688,8 @@ namespace Namae
 
                 if (p.Name.Numerical && p.Faction == Faction.OfPlayer)
                 {
-                    Dictionary<string, string> numericGendered =
-                        p.gender == Gender.Female ? AnimalFemale : AnimalMale;
-                    List<string> candidates =
-                        numericGendered.Values.Concat(AnimalUnisex.Values).ToList();
-                    if (NamaeMod.Settings?.avoidDuplicateAnimalNames == true)
-                    {
-                        var used = new HashSet<string>(
-                            PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive
-                                .Where(other => other != p && other.Faction == Faction.OfPlayer &&
-                                    other.def == p.def && other.Name != null && !other.Name.Numerical)
-                                .Select(other => other.Name.ToStringFull));
-                        List<string> unused = candidates.Where(value => !used.Contains(value)).ToList();
-                        if (unused.Count > 0) candidates = unused;
-                    }
+                    List<string> candidates = AnimalNameCandidates(p,
+                        NamaeMod.Settings?.avoidDuplicateAnimalNames == true);
                     if (candidates.Count == 0) continue;
                     p.Name = new NameSingle(candidates[Rand.Range(0, candidates.Count)]);
                     changed++;
@@ -805,13 +809,23 @@ namespace Namae
         }
     }
 
-    [HarmonyPatch(typeof(Thing), nameof(Thing.SetFaction),
+    [HarmonyPatch(typeof(Pawn), nameof(Pawn.SetFaction),
         new[] { typeof(Faction), typeof(Pawn) })]
-    internal static class Patch_Thing_SetFaction
+    internal static class Patch_Pawn_SetFaction
     {
-        static void Postfix(Thing __instance)
+        static void Postfix(Pawn __instance)
         {
-            if (__instance is Pawn pawn) NameDictionaries.TryAutoNameColonyAnimal(pawn);
+            NameDictionaries.TryAutoNameColonyAnimal(__instance);
+        }
+    }
+
+    [HarmonyPatch(typeof(PlayDataLoader), nameof(PlayDataLoader.LoadAllPlayData))]
+    internal static class Patch_PlayDataLoader_LoadAllPlayData
+    {
+        static void Postfix()
+        {
+            NameDictionaries.LoadFromDefs();
+            LongEventHandler.ExecuteWhenFinished(MissingNames.ScanLoadedNames);
         }
     }
 }

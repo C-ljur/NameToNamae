@@ -53,10 +53,10 @@ namespace Namae
 
         public static void ScanLoadedNames()
         {
+            Clear();
             if (!NameDictionaries.Active) return;
             try
             {
-                Clear();
                 foreach (PawnBio bio in SolidBioDatabase.allBios)
                 {
                     NameTriple nt = bio?.name;
