@@ -60,6 +60,7 @@ namespace Namae
                 NameSourceIndex.Rebuild();
                 foreach (PawnBio bio in SolidBioDatabase.allBios)
                 {
+                    NameSourceIndex.AddBio(bio);
                     NameTriple nt = bio?.name;
                     if (nt == null) continue;
 
@@ -198,7 +199,7 @@ namespace Namae
             string path = Path.Combine(OutputFolder(), "UntranslatedNames.tsv");
             try
             {
-                File.WriteAllText(path, sb.ToString());
+                File.WriteAllText(path, sb.ToString(), new UTF8Encoding(true));
                 Log.Message($"[Namae] exported {Total} untranslated names to {path}");
             }
             catch (Exception e)
@@ -222,7 +223,7 @@ namespace Namae
             string path = Path.Combine(OutputFolder(), "NewNames.tsv");
             try
             {
-                File.WriteAllText(path, sb.ToString());
+                File.WriteAllText(path, sb.ToString(), new UTF8Encoding(true));
                 Log.Message($"[Namae] exported {NewTotal} new name rows to {path}");
             }
             catch (Exception e)
@@ -280,7 +281,7 @@ namespace Namae
             string path = Path.Combine(OutputFolder(), "NickAudit.tsv");
             try
             {
-                File.WriteAllText(path, sb.ToString());
+                File.WriteAllText(path, sb.ToString(), new UTF8Encoding(true));
                 Log.Message($"[Namae] wrote nick audit to {path}");
             }
             catch (Exception e)
@@ -537,7 +538,7 @@ namespace Namae
             string path = Path.Combine(MissingNames.OutputFolder(), "NewDevActions.tsv");
             try
             {
-                File.WriteAllText(path, sb.ToString(), new UTF8Encoding(false));
+                File.WriteAllText(path, sb.ToString(), new UTF8Encoding(true));
                 Log.Message($"[Namae] exported {rows.Count} untranslated developer actions to {path}");
             }
             catch (Exception e)

@@ -81,7 +81,7 @@ namespace Namae
 
         public override void DoSettingsWindowContents(Rect inRect)
         {
-            float viewHeight = Math.Max(1000f, Math.Max(inRect.height, settingsContentHeight));
+            float viewHeight = Math.Max(1400f, Math.Max(inRect.height + 1f, settingsContentHeight + 80f));
             var viewRect = new Rect(0f, 0f, inRect.width - 18f, viewHeight);
             Widgets.BeginScrollView(inRect, ref settingsScrollPosition, viewRect);
 

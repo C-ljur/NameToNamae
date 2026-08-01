@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Xml;
 using Verse;
+using Verse.Grammar;
 
 namespace Namae
 {
@@ -38,6 +39,63 @@ namespace Namae
                     ScanBioFolder(mod, Path.Combine(folder, "Resources", "Backstories", "Solid"), seenFiles);
                 }
             }
+            ScanRulePacks();
+        }
+
+        private static void ScanRulePacks()
+        {
+            foreach (RulePackDef def in DefDatabase<RulePackDef>.AllDefsListForReading)
+            {
+                if (def?.modContentPack == null) continue;
+                AddRules(def.RulesImmediate, def.modContentPack);
+                AddRules(def.UntranslatedRulesImmediate, def.modContentPack);
+            }
+        }
+
+        private static void AddRules(List<Rule> rules, ModContentPack mod)
+        {
+            if (rules == null) return;
+            foreach (Rule rule in rules)
+            {
+                string keyword = rule?.keyword ?? string.Empty;
+                string category = CategoryForKeyword(keyword);
+                if (category == null) continue;
+                string value;
+                try { value = rule.Generate()?.Trim(); }
+                catch { continue; }
+                if (string.IsNullOrEmpty(value) || value.IndexOf('[') >= 0 || value.IndexOf(']') >= 0) continue;
+                Add(category, value, mod);
+            }
+        }
+
+        private static string CategoryForKeyword(string keyword)
+        {
+            string value = keyword.Replace("_", string.Empty).Replace("-", string.Empty).ToLowerInvariant();
+            if (value.Contains("lastname") || value.Contains("surname")) return "Last";
+            if (value.Contains("nick"))
+            {
+                if (value.Contains("female")) return "NickFemale";
+                if (value.Contains("male")) return "NickMale";
+                return "NickUnisex";
+            }
+            if (value.Contains("female")) return "FirstFemale";
+            if (value.Contains("male")) return "FirstMale";
+            return null;
+        }
+
+        internal static void AddBio(RimWorld.PawnBio bio)
+        {
+            if (bio?.name == null) return;
+            ModContentPack mod = bio.childhood?.modContentPack ?? bio.adulthood?.modContentPack;
+            if (mod == null) return;
+            bool male = bio.gender != RimWorld.GenderPossibility.Female;
+            bool female = bio.gender != RimWorld.GenderPossibility.Male;
+            if (male) Add("FirstMale", bio.name.First, mod);
+            if (female) Add("FirstFemale", bio.name.First, mod);
+            if (bio.gender == RimWorld.GenderPossibility.Male) Add("NickMale", bio.name.Nick, mod);
+            else if (bio.gender == RimWorld.GenderPossibility.Female) Add("NickFemale", bio.name.Nick, mod);
+            else Add("NickUnisex", bio.name.Nick, mod);
+            Add("Last", bio.name.Last, mod);
         }
 
         internal static IReadOnlyList<Source> Find(string category, string name)
@@ -136,6 +194,7 @@ namespace Namae
 
         private static void Add(string category, string name, ModContentPack mod)
         {
+            if (string.IsNullOrEmpty(name) || mod == null) return;
             string key = Key(category, name);
             if (!Sources.TryGetValue(key, out List<Source> list)) Sources[key] = list = new List<Source>();
             string packageId = mod.PackageId ?? "unknown";
