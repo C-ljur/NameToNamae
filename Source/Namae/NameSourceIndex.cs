@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Xml;
 using Verse;
 using Verse.Grammar;
@@ -55,12 +56,96 @@ namespace Namae
 
         private static void ScanRulePacks()
         {
+            var rulesByMod = new Dictionary<ModContentPack, Dictionary<string, List<string>>>();
             foreach (RulePackDef def in DefDatabase<RulePackDef>.AllDefsListForReading)
             {
                 if (def?.modContentPack == null) continue;
                 AddRules(def.RulesImmediate, def.modContentPack);
                 AddRules(def.UntranslatedRulesImmediate, def.modContentPack);
+                if (!rulesByMod.TryGetValue(def.modContentPack, out Dictionary<string, List<string>> rules))
+                    rulesByMod[def.modContentPack] = rules = new Dictionary<string, List<string>>(StringComparer.OrdinalIgnoreCase);
+                CollectRules(def.RulesImmediate, rules);
+                CollectRules(def.UntranslatedRulesImmediate, rules);
             }
+            foreach (KeyValuePair<ModContentPack, Dictionary<string, List<string>>> entry in rulesByMod)
+                ExpandPawnNameRules(entry.Key, entry.Value);
+        }
+
+        private static void CollectRules(List<Rule> source, Dictionary<string, List<string>> target)
+        {
+            if (source == null) return;
+            foreach (Rule rule in source)
+            {
+                if (rule == null || string.IsNullOrEmpty(rule.keyword)) continue;
+                string value;
+                try { value = rule.Generate()?.Trim(); }
+                catch { continue; }
+                if (string.IsNullOrEmpty(value)) continue;
+                if (!target.TryGetValue(rule.keyword, out List<string> values))
+                    target[rule.keyword] = values = new List<string>();
+                if (!values.Contains(value)) values.Add(value);
+            }
+        }
+
+        private static void ExpandPawnNameRules(ModContentPack mod, Dictionary<string, List<string>> rules)
+        {
+            if (!rules.TryGetValue("r_name", out List<string> roots)) return;
+            foreach (string root in roots)
+            {
+                int firstQuote = root.IndexOf('\'');
+                int secondQuote = firstQuote < 0 ? -1 : root.IndexOf('\'', firstQuote + 1);
+                if (firstQuote < 0 || secondQuote < 0) continue;
+                AddExpandedSegment("FirstUnisex", root.Substring(0, firstQuote), mod, rules);
+                AddExpandedSegment("NickUnisex", root.Substring(firstQuote + 1, secondQuote - firstQuote - 1), mod, rules);
+                AddExpandedSegment("Last", root.Substring(secondQuote + 1), mod, rules);
+            }
+        }
+
+        private static void AddExpandedSegment(string category, string expression, ModContentPack mod,
+            Dictionary<string, List<string>> rules)
+        {
+            foreach (string value in ExpandExpression(expression.Trim(), rules, new HashSet<string>(StringComparer.OrdinalIgnoreCase), 0))
+            {
+                string name = value.Trim();
+                if (string.IsNullOrEmpty(name) || name.IndexOf('[') >= 0) continue;
+                Add(category, name, mod, "rule-pack-expanded");
+                AddCandidate(category, name);
+            }
+        }
+
+        private static HashSet<string> ExpandExpression(string expression, Dictionary<string, List<string>> rules,
+            HashSet<string> stack, int depth)
+        {
+            var result = new HashSet<string>(StringComparer.Ordinal);
+            if (depth > 12) return result;
+            Match match = Regex.Match(expression, @"\[([^\]]+)\]");
+            if (!match.Success)
+            {
+                result.Add(expression);
+                return result;
+            }
+            string keyword = match.Groups[1].Value;
+            if (!rules.TryGetValue(keyword, out List<string> replacements) || !stack.Add(keyword)) return result;
+            string before = expression.Substring(0, match.Index);
+            string after = expression.Substring(match.Index + match.Length);
+            foreach (string replacement in replacements)
+            {
+                foreach (string expanded in ExpandExpression(before + replacement + after, rules, stack, depth + 1))
+                {
+                    result.Add(expanded);
+                    if (result.Count >= 20000) break;
+                }
+                if (result.Count >= 20000) break;
+            }
+            stack.Remove(keyword);
+            return result;
+        }
+
+        private static void AddCandidate(string category, string name)
+        {
+            if (!FileCandidates.TryGetValue(category, out HashSet<string> names))
+                FileCandidates[category] = names = new HashSet<string>(StringComparer.Ordinal);
+            names.Add(name);
         }
 
         private static void AddRules(List<Rule> rules, ModContentPack mod)
@@ -160,9 +245,7 @@ namespace Namae
             foreach (string file in Directory.GetFiles(dir, "*.txt", SearchOption.AllDirectories))
             {
                 if (!seenFiles.Add(Path.GetFullPath(file))) continue;
-                if (!categories.TryGetValue(Path.GetFileNameWithoutExtension(file), out string category))
-                    category = CategoryForNameFile(file);
-                if (category == null) continue;
+                if (!categories.TryGetValue(Path.GetFileNameWithoutExtension(file), out string category)) continue;
                 foreach (string line in File.ReadAllLines(file))
                 {
                     string name = line.Trim();
@@ -171,33 +254,11 @@ namespace Namae
                         Add(category, name, mod, "name-file");
                         if (collectCandidates)
                         {
-                            if (!FileCandidates.TryGetValue(category, out HashSet<string> names))
-                                FileCandidates[category] = names = new HashSet<string>(StringComparer.Ordinal);
-                            names.Add(name);
+                            AddCandidate(category, name);
                         }
                     }
                 }
             }
-        }
-
-        private static string CategoryForNameFile(string file)
-        {
-            string value = Path.GetFileNameWithoutExtension(file)
-                .Replace("_", string.Empty).Replace("-", string.Empty).ToLowerInvariant();
-            if (value.Contains("last") || value.Contains("surname")) return "Last";
-            if (value.Contains("nick") || value.Contains("side"))
-            {
-                if (value.Contains("female")) return "NickFemale";
-                if (value.Contains("male")) return "NickMale";
-                return "NickUnisex";
-            }
-            if (value.Contains("first"))
-            {
-                if (value.Contains("female")) return "FirstFemale";
-                if (value.Contains("male")) return "FirstMale";
-                return "FirstUnisex";
-            }
-            return null;
         }
 
         private static void ScanBioFolder(ModContentPack mod, string dir, HashSet<string> seenFiles)
