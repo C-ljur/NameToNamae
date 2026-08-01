@@ -194,19 +194,20 @@ namespace Namae
             if (!HasAsciiLetter(v) || NameDictionaries.HumanTranslationValues.Contains(v)) return;
             if (g == NickGender.Male && NameDictionaries.NickMaleValues.Contains(v)) return;
             if (g == NickGender.Female && NameDictionaries.NickFemaleValues.Contains(v)) return;
+            if (NickCoveredCommon(v)) return;
             switch (g)
             {
                 case NickGender.Male:
                     if (!NameDictionaries.NickMaleRows.Contains(v)) NewNickMale.Add(v);
-                    else if (!NameDictionaries.NickMale.ContainsKey(v) && !NickCoveredCommon(v)) NickMale.Add(v);
+                    else if (!NameDictionaries.NickMale.ContainsKey(v)) NickMale.Add(v);
                     break;
                 case NickGender.Female:
                     if (!NameDictionaries.NickFemaleRows.Contains(v)) NewNickFemale.Add(v);
-                    else if (!NameDictionaries.NickFemale.ContainsKey(v) && !NickCoveredCommon(v)) NickFemale.Add(v);
+                    else if (!NameDictionaries.NickFemale.ContainsKey(v)) NickFemale.Add(v);
                     break;
                 default:
                     if (!NameDictionaries.NickUnisexRows.Contains(v)) NewNickUnisex.Add(v);
-                    else if (!NickCoveredCommon(v)) NickUnisex.Add(v);
+                    else NickUnisex.Add(v);
                     break;
             }
         }
