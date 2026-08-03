@@ -60,11 +60,10 @@ namespace Namae
             foreach (RulePackDef def in DefDatabase<RulePackDef>.AllDefsListForReading)
             {
                 if (def?.modContentPack == null) continue;
-                AddRules(def.RulesImmediate, def.modContentPack);
-                AddRules(def.UntranslatedRulesImmediate, def.modContentPack);
+                List<Rule> rulesForDef = def.UntranslatedRulesPlusIncludes;
+                AddRules(rulesForDef, def.modContentPack);
                 var rules = new Dictionary<string, List<string>>(StringComparer.OrdinalIgnoreCase);
-                CollectRules(def.RulesImmediate, rules);
-                CollectRules(def.UntranslatedRulesImmediate, rules);
+                CollectRules(rulesForDef, rules);
                 ExpandPawnNameRules(def.modContentPack, rules);
             }
         }
