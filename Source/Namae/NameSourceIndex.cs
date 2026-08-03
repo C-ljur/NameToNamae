@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Xml;
 using Verse;
@@ -56,20 +57,20 @@ namespace Namae
 
         private static void ScanRulePacks()
         {
-            var rulesByMod = new Dictionary<ModContentPack, Dictionary<string, List<string>>>();
             foreach (RulePackDef def in DefDatabase<RulePackDef>.AllDefsListForReading)
             {
                 if (def?.modContentPack == null) continue;
                 AddRules(def.RulesImmediate, def.modContentPack);
                 AddRules(def.UntranslatedRulesImmediate, def.modContentPack);
-                if (!rulesByMod.TryGetValue(def.modContentPack, out Dictionary<string, List<string>> rules))
-                    rulesByMod[def.modContentPack] = rules = new Dictionary<string, List<string>>(StringComparer.OrdinalIgnoreCase);
+                var rules = new Dictionary<string, List<string>>(StringComparer.OrdinalIgnoreCase);
                 CollectRules(def.RulesImmediate, rules);
                 CollectRules(def.UntranslatedRulesImmediate, rules);
+                ExpandPawnNameRules(def.modContentPack, rules);
             }
-            foreach (KeyValuePair<ModContentPack, Dictionary<string, List<string>>> entry in rulesByMod)
-                ExpandPawnNameRules(entry.Key, entry.Value);
         }
+
+        private static readonly FieldInfo CachedStringsField =
+            typeof(Rule_File).GetField("cachedStrings", BindingFlags.Instance | BindingFlags.NonPublic);
 
         private static void CollectRules(List<Rule> source, Dictionary<string, List<string>> target)
         {
@@ -77,13 +78,18 @@ namespace Namae
             foreach (Rule rule in source)
             {
                 if (rule == null || string.IsNullOrEmpty(rule.keyword)) continue;
-                string value;
-                try { value = rule.Generate()?.Trim(); }
-                catch { continue; }
-                if (string.IsNullOrEmpty(value)) continue;
                 if (!target.TryGetValue(rule.keyword, out List<string> values))
                     target[rule.keyword] = values = new List<string>();
-                if (!values.Contains(value)) values.Add(value);
+                if (rule is Rule_File file && CachedStringsField?.GetValue(file) is List<string> strings)
+                {
+                    foreach (string value in strings)
+                        if (!string.IsNullOrWhiteSpace(value) && !values.Contains(value.Trim())) values.Add(value.Trim());
+                    continue;
+                }
+                string generated;
+                try { generated = rule.Generate()?.Trim(); }
+                catch { continue; }
+                if (!string.IsNullOrEmpty(generated) && !values.Contains(generated)) values.Add(generated);
             }
         }
 
