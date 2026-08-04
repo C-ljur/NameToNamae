@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Xml;
 using Verse;
@@ -68,8 +67,24 @@ namespace Namae
             }
         }
 
-        private static readonly FieldInfo CachedStringsField =
-            typeof(Rule_File).GetField("cachedStrings", BindingFlags.Instance | BindingFlags.NonPublic);
+        // Rule_File.cachedStrings holds the active language's file content, so reading it mixes
+        // translated lines into the English index. Resolve the paths against English instead.
+        private static List<string> EnglishStringsOf(Rule_File file)
+        {
+            var result = new List<string>();
+            LoadedLanguage english = LanguageDatabase.defaultLanguage;
+            if (english == null) return result;
+            if (!file.path.NullOrEmpty()) AddStringsFromFile(english, file.path, result);
+            if (file.pathList != null)
+                foreach (string path in file.pathList) AddStringsFromFile(english, path, result);
+            return result;
+        }
+
+        private static void AddStringsFromFile(LoadedLanguage language, string path, List<string> target)
+        {
+            if (!language.TryGetStringsFromFile(path, out List<string> strings) || strings == null) return;
+            target.AddRange(strings);
+        }
 
         private static void CollectRules(List<Rule> source, Dictionary<string, List<string>> target)
         {
@@ -79,9 +94,9 @@ namespace Namae
                 if (rule == null || string.IsNullOrEmpty(rule.keyword)) continue;
                 if (!target.TryGetValue(rule.keyword, out List<string> values))
                     target[rule.keyword] = values = new List<string>();
-                if (rule is Rule_File file && CachedStringsField?.GetValue(file) is List<string> strings)
+                if (rule is Rule_File file)
                 {
-                    foreach (string value in strings)
+                    foreach (string value in EnglishStringsOf(file))
                         if (!string.IsNullOrWhiteSpace(value) && !values.Contains(value.Trim())) values.Add(value.Trim());
                     continue;
                 }
@@ -161,6 +176,16 @@ namespace Namae
                 string keyword = rule?.keyword ?? string.Empty;
                 string category = CategoryForKeyword(keyword);
                 if (category == null) continue;
+                if (rule is Rule_File file)
+                {
+                    foreach (string line in EnglishStringsOf(file))
+                    {
+                        string name = line?.Trim();
+                        if (string.IsNullOrEmpty(name) || name.IndexOf('[') >= 0 || name.IndexOf(']') >= 0) continue;
+                        Add(category, name, mod, "rule-pack");
+                    }
+                    continue;
+                }
                 string value;
                 try { value = rule.Generate()?.Trim(); }
                 catch { continue; }
