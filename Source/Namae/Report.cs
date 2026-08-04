@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Reflection;
 using System.Text;
@@ -403,7 +404,7 @@ namespace Namae
 
         private static void AppendReportHeader(StringBuilder sb)
         {
-            sb.AppendLine("category,name,script,packageId,modName,origin,sourceKind,status");
+            sb.AppendLine("category,name,script,form,packageId,modName,origin,sourceKind,expandedFrom,expandedCount,status");
         }
 
         private static void AppendRows(StringBuilder sb, string category, HashSet<string> set, string status)
@@ -418,10 +419,13 @@ namespace Namae
                     sb.Append(Csv(category)).Append(',')
                         .Append(Csv(name)).Append(',')
                         .Append(Csv(NameSourceIndex.ScriptOf(name))).Append(',')
+                        .Append(Csv(NameSourceIndex.FormOf(name))).Append(',')
                         .Append(Csv(source.PackageId)).Append(',')
                         .Append(Csv(source.ModName)).Append(',')
                         .Append(Csv(source.Origin)).Append(',')
                         .Append(Csv(source.SourceKind)).Append(',')
+                        .Append(Csv(source.ExpandedFrom)).Append(',')
+                        .Append(Csv(source.ExpandedCount.ToString(CultureInfo.InvariantCulture))).Append(',')
                         .AppendLine(Csv(status));
                 }
             }

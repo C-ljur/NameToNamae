@@ -16,6 +16,8 @@ namespace Namae
             public string ModName;
             public string Origin;
             public string SourceKind;
+            public string ExpandedFrom = string.Empty;
+            public int ExpandedCount;
         }
 
         private static readonly Dictionary<string, List<Source>> Sources =
@@ -124,11 +126,17 @@ namespace Namae
         private static void AddExpandedSegment(string category, string expression, ModContentPack mod,
             Dictionary<string, List<string>> rules)
         {
-            foreach (string value in ExpandExpression(expression.Trim(), rules, new HashSet<string>(StringComparer.OrdinalIgnoreCase), 0))
+            string source = expression.Trim();
+            HashSet<string> expanded = ExpandExpression(source, rules, new HashSet<string>(StringComparer.OrdinalIgnoreCase), 0);
+            var names = new List<string>();
+            foreach (string value in expanded)
             {
                 string name = value.Trim();
-                if (string.IsNullOrEmpty(name) || name.IndexOf('[') >= 0) continue;
-                Add(category, name, mod, "rule-pack-expanded");
+                if (!string.IsNullOrEmpty(name) && name.IndexOf('[') < 0) names.Add(name);
+            }
+            foreach (string name in names)
+            {
+                Add(category, name, mod, "rule-pack-expanded", source, names.Count);
                 AddCandidate(category, name);
             }
         }
@@ -246,19 +254,53 @@ namespace Namae
 
         internal static IEnumerable<KeyValuePair<string, HashSet<string>>> Candidates => FileCandidates;
 
+        // Accented Latin is still Latin. Only report Mixed when two script families meet, so that
+        // "Mixed" stays usable as a fault signal for translated content leaking into the index.
         internal static string ScriptOf(string value)
         {
-            bool ascii = false;
-            bool nonAsciiLetter = false;
+            var families = new HashSet<string>(StringComparer.Ordinal);
             foreach (char c in value ?? string.Empty)
             {
-                if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z')) ascii = true;
-                else if (char.IsLetter(c)) nonAsciiLetter = true;
+                string family = FamilyOf(c);
+                if (family != null) families.Add(family);
             }
-            if (ascii && nonAsciiLetter) return "Mixed";
-            if (ascii) return "Latin";
-            if (nonAsciiLetter) return "NonLatin";
+            if (families.Count == 0) return "Other";
+            if (families.Count > 1) return "Mixed";
+            foreach (string only in families) return only;
             return "Other";
+        }
+
+        private static string FamilyOf(char c)
+        {
+            if (!char.IsLetter(c)) return null;
+            if (c < 0x0250) return "Latin";
+            if (c >= 0x0400 && c <= 0x052F) return "Cyrillic";
+            if (c >= 0x0370 && c <= 0x03FF) return "Greek";
+            if (c >= 0x0590 && c <= 0x05FF) return "Hebrew";
+            if (c >= 0x0600 && c <= 0x06FF) return "Arabic";
+            if (c >= 0x3040 && c <= 0x30FF) return "Kana";
+            if (c >= 0x3400 && c <= 0x9FFF) return "Han";
+            if (c >= 0xAC00 && c <= 0xD7AF || c >= 0x1100 && c <= 0x11FF) return "Hangul";
+            if (c >= 0x0E00 && c <= 0x0E7F) return "Thai";
+            if (c >= 0x0900 && c <= 0x097F) return "Devanagari";
+            return "Other";
+        }
+
+        private static readonly Regex AlnumIdPattern = new Regex(@"^[A-Za-z]{1,3}[-_ ]?[0-9]+$");
+
+        internal static string FormOf(string value)
+        {
+            if (string.IsNullOrEmpty(value)) return "empty";
+            if (AlnumIdPattern.IsMatch(value)) return "alnum-id";
+            bool digit = false;
+            bool separator = false;
+            foreach (char c in value)
+            {
+                if (c >= '0' && c <= '9') digit = true;
+                else if (c == '-' || c == '_' || c == ' ' || c == '\'') separator = true;
+            }
+            if (digit) return "alnum";
+            return separator ? "compound" : "word";
         }
 
         private static void ScanNameFolder(ModContentPack mod, string dir, HashSet<string> seenFiles, bool collectCandidates)
@@ -343,7 +385,8 @@ namespace Namae
             return null;
         }
 
-        private static void Add(string category, string name, ModContentPack mod, string sourceKind)
+        private static void Add(string category, string name, ModContentPack mod, string sourceKind,
+            string expandedFrom = null, int expandedCount = 0)
         {
             if (string.IsNullOrEmpty(name) || mod == null) return;
             string key = Key(category, name);
@@ -355,7 +398,9 @@ namespace Namae
                 PackageId = packageId,
                 ModName = mod.Name ?? packageId,
                 Origin = mod.IsOfficialMod ? "vanilla" : "mod",
-                SourceKind = sourceKind
+                SourceKind = sourceKind,
+                ExpandedFrom = expandedFrom ?? string.Empty,
+                ExpandedCount = expandedCount
             };
             list.Add(source);
             if (!SourcesByName.TryGetValue(name, out List<Source> byName)) SourcesByName[name] = byName = new List<Source>();
