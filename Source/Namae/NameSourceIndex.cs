@@ -123,50 +123,72 @@ namespace Namae
             }
         }
 
+        private static readonly Regex KeywordPattern = new Regex(@"\[([^\]]+)\]");
+
+        // A composed name never shows its seams: Biotech builds names as [SylP][nameEnd], so the
+        // result reads like an ordinary word. Composition is therefore decided by the expansion
+        // path, and only the leaf strings a translator can act on become candidates.
         private static void AddExpandedSegment(string category, string expression, ModContentPack mod,
             Dictionary<string, List<string>> rules)
         {
-            string source = expression.Trim();
-            HashSet<string> expanded = ExpandExpression(source, rules, new HashSet<string>(StringComparer.OrdinalIgnoreCase), 0);
-            var names = new List<string>();
-            foreach (string value in expanded)
+            EmitLeaves(category, expression.Trim(), mod, rules,
+                new HashSet<string>(StringComparer.OrdinalIgnoreCase), 0, null, 0);
+        }
+
+        private static void EmitLeaves(string category, string expression, ModContentPack mod,
+            Dictionary<string, List<string>> rules, HashSet<string> stack, int depth,
+            string composedFrom, int composedCount)
+        {
+            if (depth > 12) return;
+            MatchCollection refs = KeywordPattern.Matches(expression);
+            if (refs.Count == 0)
             {
-                string name = value.Trim();
-                if (!string.IsNullOrEmpty(name) && name.IndexOf('[') < 0) names.Add(name);
-            }
-            foreach (string name in names)
-            {
-                Add(category, name, mod, "rule-pack-expanded", source, names.Count);
+                string name = expression.Trim();
+                if (string.IsNullOrEmpty(name)) return;
+                string kind = composedFrom == null ? "rule-pack-literal" : "rule-pack-part";
+                Add(category, name, mod, kind, composedFrom, composedCount);
                 AddCandidate(category, name);
+                return;
+            }
+
+            bool composed = composedFrom != null
+                || refs.Count > 1
+                || KeywordPattern.Replace(expression, string.Empty).Trim().Length > 0;
+            string pattern = composedFrom ?? expression;
+            int count = composedCount;
+            if (composed && composedFrom == null) count = CountLeaves(expression, rules,
+                new HashSet<string>(StringComparer.OrdinalIgnoreCase), 0);
+
+            foreach (Match reference in refs)
+            {
+                string keyword = reference.Groups[1].Value;
+                if (!rules.TryGetValue(keyword, out List<string> replacements) || !stack.Add(keyword)) continue;
+                foreach (string replacement in replacements)
+                    EmitLeaves(category, replacement, mod, rules, stack, depth + 1,
+                        composed ? pattern : null, composed ? count : 0);
+                stack.Remove(keyword);
             }
         }
 
-        private static HashSet<string> ExpandExpression(string expression, Dictionary<string, List<string>> rules,
+        private static int CountLeaves(string expression, Dictionary<string, List<string>> rules,
             HashSet<string> stack, int depth)
         {
-            var result = new HashSet<string>(StringComparer.Ordinal);
-            if (depth > 12) return result;
-            Match match = Regex.Match(expression, @"\[([^\]]+)\]");
-            if (!match.Success)
+            if (depth > 12) return 1;
+            MatchCollection refs = KeywordPattern.Matches(expression);
+            if (refs.Count == 0) return 1;
+            int total = 1;
+            foreach (Match reference in refs)
             {
-                result.Add(expression);
-                return result;
+                string keyword = reference.Groups[1].Value;
+                if (!rules.TryGetValue(keyword, out List<string> replacements) || !stack.Add(keyword)) continue;
+                int branch = 0;
+                foreach (string replacement in replacements)
+                    branch += CountLeaves(replacement, rules, stack, depth + 1);
+                stack.Remove(keyword);
+                if (branch > 0) total *= branch;
+                if (total > 1000000) return 1000000;
             }
-            string keyword = match.Groups[1].Value;
-            if (!rules.TryGetValue(keyword, out List<string> replacements) || !stack.Add(keyword)) return result;
-            string before = expression.Substring(0, match.Index);
-            string after = expression.Substring(match.Index + match.Length);
-            foreach (string replacement in replacements)
-            {
-                foreach (string expanded in ExpandExpression(before + replacement + after, rules, stack, depth + 1))
-                {
-                    result.Add(expanded);
-                    if (result.Count >= 20000) break;
-                }
-                if (result.Count >= 20000) break;
-            }
-            stack.Remove(keyword);
-            return result;
+            return total;
         }
 
         private static void AddCandidate(string category, string name)
