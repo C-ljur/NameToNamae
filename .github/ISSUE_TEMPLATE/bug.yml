@@ -5,13 +5,33 @@ body:
   - type: markdown
     attributes:
       value: |
-        Japanese and English are both fine. 日本語で書いて構いません。
+        日本語可 / English OK
+
+  - type: dropdown
+    id: feature
+    attributes:
+      label: Which feature / どの機能
+      options:
+        - Pawn names / 人名の翻訳
+        - Animal names / 動物の命名
+        - Natural line breaks / 改行整形
+        - Developer mode display / 開発者モードの表示
+        - Mod settings / 設定画面
+        - Name reports / 名前レポートの書き出し
+        - Not sure / わからない
+        - Other / その他
+    validations:
+      required: true
 
   - type: textarea
     id: what
     attributes:
-      label: What happened / 何が起きたか
-      placeholder: Names stayed in English, an error appeared, the game froze, ...
+      label: What happened / どうなったか
+      placeholder: |
+        Examples / 例:
+        Names stayed in English. / 名前が英語のまま表示された。
+        An error appeared in the log. / ログにエラーが出た。
+        Text was cut off in the settings window. / 設定画面で文字が切れた。
     validations:
       required: true
 
@@ -62,10 +82,10 @@ body:
     id: log
     attributes:
       label: Log URL / ログのURL
-      description: HugsLib log share link, or paste the log in the box below. / HugsLibの共有リンク、または下の欄に貼り付け。
+      description: HugsLib log share link, or paste the log below. / HugsLibの共有リンク、または下の欄に貼り付け。
 
   - type: textarea
     id: extra
     attributes:
-      label: Anything else / その他
+      label: Log or screenshots / ログ・スクリーンショット
       render: text

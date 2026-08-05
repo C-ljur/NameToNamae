@@ -5,7 +5,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Japanese and English are both fine. 日本語で書いて構いません。
+        日本語可 / English OK
 
   - type: input
     id: mod
@@ -18,8 +18,8 @@ body:
   - type: textarea
     id: symptom
     attributes:
-      label: What you observed / 観測した挙動
-      description: What did the names look like, and where. / どの画面で名前がどう表示されたか。
+      label: What happened / どうなったか
+      description: Which screen, and what it looked like. / どの画面で、どう見えたか。
     validations:
       required: true
 
@@ -32,6 +32,7 @@ body:
         - Wrong or duplicated names / 名前が不正・重複
         - Error or crash / エラー・クラッシュ
         - Display or layout issue / 表示崩れ
+        - Both mods stop working / 両方とも動かなくなる
         - Question, not a problem / 不具合ではなく質問
     validations:
       required: true
