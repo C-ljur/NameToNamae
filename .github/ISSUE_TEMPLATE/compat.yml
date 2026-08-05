@@ -1,0 +1,56 @@
+name: Compatibility report
+description: Report an interaction with another mod / 他MODとの併用について
+labels: ["compatibility"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Japanese and English are both fine. 日本語で書いて構いません。
+
+  - type: input
+    id: mod
+    attributes:
+      label: The other mod / 相手のMOD
+      description: Name and Steam Workshop ID or URL. / 名前とWorkshop IDまたはURL。
+    validations:
+      required: true
+
+  - type: textarea
+    id: symptom
+    attributes:
+      label: What you observed / 観測した挙動
+      description: What did the names look like, and where. / どの画面で名前がどう表示されたか。
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind / 種類
+      options:
+        - Names stay in English / 名前が英語のまま
+        - Wrong or duplicated names / 名前が不正・重複
+        - Error or crash / エラー・クラッシュ
+        - Display or layout issue / 表示崩れ
+        - Question, not a problem / 不具合ではなく質問
+    validations:
+      required: true
+
+  - type: input
+    id: order
+    attributes:
+      label: Load order / ロード順
+      placeholder: "Harmony, Core, ..., Namae"
+
+  - type: input
+    id: rimworld
+    attributes:
+      label: RimWorld version / RimWorldのバージョン
+      placeholder: "1.6.4871"
+    validations:
+      required: true
+
+  - type: input
+    id: log
+    attributes:
+      label: Log URL / ログのURL

@@ -1,0 +1,71 @@
+name: Bug report
+description: Report a problem with Namae / 不具合の報告
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Japanese and English are both fine. 日本語で書いて構いません。
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened / 何が起きたか
+      placeholder: Names stayed in English, an error appeared, the game froze, ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce / 再現手順
+    validations:
+      required: true
+
+  - type: input
+    id: rimworld
+    attributes:
+      label: RimWorld version / RimWorldのバージョン
+      placeholder: "1.6.4871"
+    validations:
+      required: true
+
+  - type: input
+    id: namae
+    attributes:
+      label: Namae version / Namaeのバージョン
+      description: Release tag, or Steam Workshop if subscribed. / Releaseのタグ、または購読版ならその旨。
+      placeholder: "v1.0.0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: source
+    attributes:
+      label: How installed / 導入方法
+      options:
+        - Steam Workshop
+        - GitHub release
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: mods
+    attributes:
+      label: Other mods / 併用MOD
+      description: Especially name-related and UI mods. / 特に名前系・UI系。
+    validations:
+      required: true
+
+  - type: input
+    id: log
+    attributes:
+      label: Log URL / ログのURL
+      description: HugsLib log share link, or paste the log in the box below. / HugsLibの共有リンク、または下の欄に貼り付け。
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else / その他
+      render: text

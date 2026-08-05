@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Questions and ideas / 質問・アイデア
+    url: https://github.com/C-ljur/NameToNamae/discussions
+    about: For name readings, translation wording, and general questions. / 読み方や訳語の相談はこちら。
+  - name: Steam Workshop
+    url: https://steamcommunity.com/sharedfiles/filedetails/?id=3771916544
+    about: Comments on the Workshop page also reach the author.
