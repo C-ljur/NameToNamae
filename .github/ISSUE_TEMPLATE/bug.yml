@@ -54,7 +54,7 @@ body:
     id: namae
     attributes:
       label: Namae version / Namaeのバージョン
-      description: Release tag, or Steam Workshop if subscribed. / Releaseのタグ、または購読版ならその旨。
+      description: Release tag. If you use the Steam version, just write Steam. / Releaseのタグ。Steam版なら「Steam」でよい。
       placeholder: "v1.0.0"
     validations:
       required: true
